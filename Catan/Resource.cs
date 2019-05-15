@@ -13,9 +13,12 @@ namespace Catan
         public int Amount { get; set; }
 
 
-        public Resource()
+        public Resource(string name, int value)
         {
-
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Value = value;
         }
+
+        
     }
 }

@@ -11,14 +11,30 @@ namespace Catan
         public string Name { get; set; }
         public List<Item> Items { get; set; }
         public Item EquipedItem { get; set; }
-        public List<Clothing> Clothes { get; set; }
         public Clothing EquipedClothes { get; set; }
         public Weapon EquipedWeapon { get; set; }
+        public List<Resource> Resources { get; set; }
         public int Health { get; set; }
         public int Position { get; set; }
         public int Money { get; set; }
 
-        public Player()
+        public Player(string name)
+        {
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Health = 100;
+        }
+
+        public void EquipWeapon(Weapon weapon)
+        {
+
+        }
+
+        public void EquipClothes(Clothing clothes)
+        {
+
+        }
+
+        public void EquipItem(Item item)
         {
 
         }

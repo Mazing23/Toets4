@@ -12,9 +12,10 @@ namespace Catan
         public int Value { get; set; }
         public int Amount { get; set; }
 
-        public Item()
+        public Item(string name, int value)
         {
-
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Value = value;
         }
     }
 }

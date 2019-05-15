@@ -8,8 +8,8 @@ namespace Catan
 {
     public class Sword : Weapon
     {
-        public int Damage { get; }
-        public Sword()
+        public override int Damage { get; }
+        public Sword(string name, int range) : base(name, range)
         {
 
         }

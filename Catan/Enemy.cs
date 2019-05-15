@@ -16,5 +16,10 @@ namespace Catan
         {
 
         }
+
+        public void Attack()
+        {
+
+        }
     }
 }

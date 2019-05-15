@@ -8,9 +8,9 @@ namespace Catan
 {
     public class Gun : Weapon
     {
-        public int Damage { get; }
+        public override int Damage { get; }
 
-        public Gun()
+        public Gun(string name, int range) : base(name, range)
         {
 
         }

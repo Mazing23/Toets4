@@ -8,13 +8,13 @@ namespace Catan
 {
     public class Weapon : Item, IDamage
     {
-        public int Damage { get; }
+        public virtual int Damage { get; }
 
         public int Range { get; set; }
 
-        public Weapon()
+        public Weapon(string name, int range) : base(name, range)
         {
-
+            Range = range;
         }
     }
 }

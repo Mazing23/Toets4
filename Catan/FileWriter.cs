@@ -11,5 +11,10 @@ namespace Catan
         {
             
         }
+
+        public void SaveGame(Game game)
+        {
+
+        }
     }
 }

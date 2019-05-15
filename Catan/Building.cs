@@ -15,9 +15,14 @@ namespace Catan
         public List<Resource> Resources { get; set; }
 
 
-        public Building()
+        public Building(string name)
         {
 
+        }
+
+        public Building(string name, int health, int cost, int position)
+        {
+                
         }
     }
 }
