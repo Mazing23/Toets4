@@ -8,50 +8,18 @@ namespace Catan
 {
     public class Game
     {
+        public Player Player { get; set; }
+        public Building Building { get; set; }
+        public Enemy Enemy { get; set; }
+        public FileWriter FileWriter { get; set; }
+        public FileReader FileReader { get; set; }
+
 
         public Game()
         {
 
         }
 
-        public Player Player
-        {
-            get => default(Player);
-            set
-            {
-            }
-        }
-
-        public Building Building
-        {
-            get => default(Building);
-            set
-            {
-            }
-        }
-
-        public Enemy Enemy
-        {
-            get => default(Enemy);
-            set
-            {
-            }
-        }
-
-        public FileWriter FileWriter
-        {
-            get => default(FileWriter);
-            set
-            {
-            }
-        }
-
-        public FileReader FileReader
-        {
-            get => default(FileReader);
-            set
-            {
-            }
-        }
+        
     }
 }
