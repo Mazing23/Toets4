@@ -80,9 +80,11 @@
     <AssociationLine Name="Resources" Type="Catan.Resource" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="20" Y="6" />
-        <Point X="20" Y="5.565" />
-        <Point X="22.125" Y="5.565" />
-        <Point X="22.125" Y="5.19" />
+        <Point X="20" Y="5.625" />
+        <Point X="20.875" Y="5.625" />
+        <Point X="20.875" Y="10.815" />
+        <Point X="19.875" Y="10.815" />
+        <Point X="19.875" Y="10.44" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -94,19 +96,21 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Catan.Resource">
-    <Position X="20.5" Y="3.25" Width="2.25" />
+    <Position X="18.25" Y="8.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Resource.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catan.BordGame" Collapsed="true">
-    <Position X="17.5" Y="2" Width="2" />
+    <Position X="17.75" Y="2.5" Width="2" />
     <AssociationLine Name="Game" Type="Catan.Game" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="17.5" Y="2.25" />
-        <Point X="15.188" Y="2.25" />
-        <Point X="15.188" Y="3" />
+        <Point X="17.75" Y="2.75" />
+        <Point X="17.25" Y="2.75" />
+        <Point X="17.25" Y="4.353" />
+        <Point X="16.438" Y="4.353" />
+        <Point X="16.438" Y="4.103" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -170,18 +174,54 @@
         <Point X="17.75" Y="4.812" />
       </Path>
     </AssociationLine>
+    <AssociationLine Name="FileWriter" Type="Catan.FileWriter" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.125" Y="3" />
+        <Point X="15.125" Y="2.168" />
+        <Point X="21.938" Y="2.168" />
+        <Point X="21.938" Y="2.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="FileReader" Type="Catan.FileReader" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16.188" Y="3" />
+        <Point X="16.188" Y="2.349" />
+        <Point X="17.25" Y="2.349" />
+        <Point X="17.25" Y="2.436" />
+        <Point X="20.232" Y="2.436" />
+        <Point X="20.232" Y="3.981" />
+        <Point X="21.375" Y="3.981" />
+        <Point X="21.375" Y="4.25" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAEAAhAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Player" />
       <Property Name="Building" />
       <Property Name="Enemy" />
+      <Property Name="FileWriter" />
+      <Property Name="FileReader" />
     </ShowAsAssociation>
   </Class>
+  <Class Name="Catan.FileWriter">
+    <Position X="20.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Catan.FileReader">
+    <Position X="20.25" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="Catan.IDamage">
-    <Position X="22.25" Y="8.25" Width="1.5" />
+    <Position X="15.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IDamage.cs</FileName>

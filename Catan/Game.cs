@@ -37,5 +37,21 @@ namespace Catan
             {
             }
         }
+
+        public FileWriter FileWriter
+        {
+            get => default(FileWriter);
+            set
+            {
+            }
+        }
+
+        public FileReader FileReader
+        {
+            get => default(FileReader);
+            set
+            {
+            }
+        }
     }
 }
