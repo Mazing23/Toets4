@@ -16,5 +16,13 @@ namespace Catan
         {
             InitializeComponent();
         }
+
+        public Game Game
+        {
+            get => default(Game);
+            set
+            {
+            }
+        }
     }
 }

@@ -1,54 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Catan.Player">
-    <Position X="11.25" Y="0.5" Width="2" />
+    <Position X="11.25" Y="3.25" Width="2" />
     <AssociationLine Name="Items" Type="Catan.Item" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="11.25" Y="1.812" />
-        <Point X="11" Y="1.812" />
-        <Point X="11" Y="2.882" />
-        <Point X="11" Y="2.882" />
-        <Point X="11" Y="3.75" />
+        <Point X="11.25" Y="4.562" />
+        <Point X="11" Y="4.562" />
+        <Point X="11" Y="4.882" />
+        <Point X="11" Y="4.882" />
+        <Point X="11" Y="6.5" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="EquipedItem" Type="Catan.Item" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="12.25" Y="2.632" />
-        <Point X="12.25" Y="3.125" />
-        <Point X="12.253" Y="3.125" />
-        <Point X="12.253" Y="4.125" />
-        <Point X="12" Y="4.125" />
+        <Point X="12.25" Y="5.382" />
+        <Point X="12.25" Y="6.875" />
+        <Point X="12" Y="6.875" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="EquipedWeapon" Type="Catan.Weapon" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="4.52" />
+        <Point X="13.5" Y="4.52" />
+        <Point X="13.5" Y="7.437" />
+        <Point X="13.75" Y="7.437" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAQCAAAAAAACAAgAAAAAAQAAAEAAAAEAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAQCAAAAAAAiAAgAAAAAAQAAAEAAAAEAAAAAAAAAAI=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="EquipedClothes" />
       <Property Name="EquipedItem" />
+      <Property Name="EquipedClothes" />
+      <Property Name="EquipedWeapon" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
-      <Property Name="Clothes" />
       <Property Name="Items" />
+      <Property Name="Clothes" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Catan.Enemy">
-    <Position X="13.5" Y="1.25" Width="1.75" />
+    <Position X="17.75" Y="3.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catan.Item">
-    <Position X="10.25" Y="3.75" Width="1.75" />
+    <Position X="10.25" Y="6.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catan.Weapon">
-    <Position X="13.75" Y="3.75" Width="1.75" />
+    <Position X="13.75" Y="6.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Weapon.cs</FileName>
@@ -56,20 +63,28 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Catan.Gun">
-    <Position X="16" Y="3.75" Width="1.75" />
+    <Position X="16" Y="6.5" Width="1.75" />
     <InheritanceLine Type="Catan.Weapon" FixedFromPoint="true">
       <Path>
-        <Point X="15.5" Y="4.429" />
-        <Point X="16" Y="4.429" />
+        <Point X="15.5" Y="7.179" />
+        <Point X="16" Y="7.179" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Gun.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catan.Building">
-    <Position X="15.75" Y="0.5" Width="2.25" />
+    <Position X="18.25" Y="6" Width="2.25" />
+    <AssociationLine Name="Resources" Type="Catan.Resource" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="20" Y="6" />
+        <Point X="20" Y="5.565" />
+        <Point X="22.125" Y="5.565" />
+        <Point X="22.125" Y="5.19" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAACAAAIAAAAAAgAAAAABQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Building.cs</FileName>
@@ -79,26 +94,36 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Catan.Resource">
-    <Position X="20.5" Y="0.5" Width="2.25" />
+    <Position X="20.5" Y="3.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Resource.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catan.BordGame" Collapsed="true">
-    <Position X="20.5" Y="3.25" Width="2" />
+    <Position X="17.5" Y="2" Width="2" />
+    <AssociationLine Name="Game" Type="Catan.Game" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.5" Y="2.25" />
+        <Point X="15.188" Y="2.25" />
+        <Point X="15.188" Y="3" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BordGame.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Game" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Catan.Clothing">
-    <Position X="13.75" Y="6.25" Width="1.75" />
+    <Position X="13.75" Y="9" Width="1.75" />
     <InheritanceLine Type="Catan.Item" FixedToPoint="true">
       <Path>
-        <Point X="11.125" Y="5.69" />
-        <Point X="11.125" Y="7.934" />
-        <Point X="13.75" Y="7.934" />
+        <Point X="11.125" Y="8.44" />
+        <Point X="11.125" Y="10.684" />
+        <Point X="13.75" Y="10.684" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -107,22 +132,56 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Catan.Sword">
-    <Position X="16" Y="5.25" Width="1.75" />
+    <Position X="16" Y="8.5" Width="1.75" />
     <InheritanceLine Type="Catan.Weapon" FixedFromPoint="true">
       <Path>
-        <Point X="15.5" Y="5.108" />
-        <Point X="15.74" Y="5.108" />
-        <Point X="15.74" Y="5.866" />
-        <Point X="16" Y="5.866" />
+        <Point X="15.5" Y="7.858" />
+        <Point X="15.74" Y="7.858" />
+        <Point X="15.74" Y="9.342" />
+        <Point X="16" Y="9.342" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Sword.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="Catan.IDamage" Collapsed="true">
-    <Position X="13.5" Y="0.5" Width="1.5" />
+  <Class Name="Catan.Game">
+    <Position X="14.75" Y="3" Width="2.25" />
+    <AssociationLine Name="Player" Type="Catan.Player" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.75" Y="3.438" />
+        <Point X="14.375" Y="3.438" />
+        <Point X="14.375" Y="3.854" />
+        <Point X="13.25" Y="3.854" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Building" Type="Catan.Building" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.938" Y="4.103" />
+        <Point X="14.938" Y="6.219" />
+        <Point X="18.25" Y="6.219" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Enemy" Type="Catan.Enemy" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.312" Y="4.103" />
+        <Point X="15.312" Y="4.812" />
+        <Point X="17.75" Y="4.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Player" />
+      <Property Name="Building" />
+      <Property Name="Enemy" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="Catan.IDamage">
+    <Position X="22.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IDamage.cs</FileName>

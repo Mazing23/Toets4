@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Catan
 {
-    public interface IDamage
+    interface IDamage
     {
-        int Damage { get; set; }
+        int Damage { get;  }
     }
 }

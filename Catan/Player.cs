@@ -13,6 +13,7 @@ namespace Catan
         public Item EquipedItem { get; set; }
         public List<Clothing> Clothes { get; set; }
         public Clothing EquipedClothes { get; set; }
+        public Weapon EquipedWeapon { get; set; }
         public int Health { get; set; }
         public int Position { get; set; }
         public int Money { get; set; }

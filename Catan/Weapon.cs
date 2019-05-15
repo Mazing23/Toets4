@@ -8,7 +8,8 @@ namespace Catan
 {
     public class Weapon : Item, IDamage
     {
-        public int Damage { get; set; }
+        public int Damage { get; }
+
         public int Range { get; set; }
 
         public Weapon()
