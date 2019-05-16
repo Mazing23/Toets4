@@ -16,5 +16,10 @@ namespace Catan
         {
             Range = range;
         }
+
+        public virtual void DoDamage()
+        {
+
+        }
     }
 }
