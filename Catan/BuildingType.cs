@@ -5,11 +5,4 @@ using System.Text;
 
 namespace Catan
 {
-    public enum BuildingType
-    {
-        House,
-        Church,
-        CityHall,
-        ClockTower
-    }
 }

@@ -7,7 +7,7 @@ namespace Catan
 {
     public enum EnemyType
     {
-        Regular,
+        Easy,
         Hard,
         Extreme
     }

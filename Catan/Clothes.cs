@@ -10,7 +10,7 @@ namespace Catan
     {
         public int DamageRes { get; set; }
 
-        public Clothing(string name, int value) : base(name, value)
+        public Clothing(string name) : base(name)
         {
 
         }

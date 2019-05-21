@@ -15,7 +15,14 @@ namespace Catan
         public Dictionary<int, Resource> Resources { get; set; }
         public int Health { get; set; }
         public int Position { get; set; }
-        public int Money { get; set; }
+
+        public Home Home
+        {
+            get => default(Home);
+            set
+            {
+            }
+        }
 
         public Player(string name)
         {
@@ -56,7 +63,7 @@ namespace Catan
 
         }
 
-        public void PurchaseBuilding(Building building, Resource resource)
+        public void PurchaseBuilding(Home building, Resource resource)
         {
 
         }

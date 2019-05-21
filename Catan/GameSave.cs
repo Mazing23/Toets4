@@ -5,14 +5,19 @@ using System.Text;
 
 namespace Catan
 {
-    public class FileWriter
+    public class GameSave
     {
-        public FileWriter()
+        public GameSave()
         {
             
         }
 
         public void SaveGame(Game game)
+        {
+
+        }
+
+        public void LoadGame()
         {
 
         }

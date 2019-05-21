@@ -9,13 +9,11 @@ namespace Catan
     public abstract class Item
     {
         public string Name { get; set; }
-        public int Value { get; set; }
         public int Amount { get; set; }
 
-        public Item(string name, int value)
+        public Item(string name)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
-            Value = value;
         }
     }
 }

@@ -52,13 +52,12 @@
     <Compile Include="BordGame.Designer.cs">
       <DependentUpon>BordGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="Building.cs" />
+    <Compile Include="Home.cs" />
     <Compile Include="BuildingType.cs" />
     <Compile Include="Clothes.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyType.cs" />
-    <Compile Include="FileReader.cs" />
-    <Compile Include="FileWriter.cs" />
+    <Compile Include="GameSave.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Gun.cs" />
     <Compile Include="IDamage.cs" />
@@ -79,6 +78,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="CatanDiagram.cd" />
+    <None Include="GameDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

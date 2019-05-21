@@ -9,7 +9,6 @@ namespace Catan
     public class Resource
     {
         public string Name { get; set; }
-        public int Value { get; set; }
         public int Amount { get; set; }
 
         public int CheckAmount()
@@ -20,7 +19,6 @@ namespace Catan
         public Resource(string name, int value)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
-            Value = value;
         }
 
         

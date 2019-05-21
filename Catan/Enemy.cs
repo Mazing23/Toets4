@@ -20,6 +20,14 @@ namespace Catan
             }
         }
 
+        public EnemyType EnemyType1
+        {
+            get => default(EnemyType);
+            set
+            {
+            }
+        }
+
         public Enemy()
         {
 
