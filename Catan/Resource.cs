@@ -12,6 +12,10 @@ namespace Catan
         public int Value { get; set; }
         public int Amount { get; set; }
 
+        public int CheckAmount()
+        {
+            return 1;
+        }
 
         public Resource(string name, int value)
         {

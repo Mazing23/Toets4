@@ -14,6 +14,13 @@ namespace Catan
         public int Cost { get; set; }
         public List<Resource> Resources { get; set; }
 
+        public BuildingType BuildingType
+        {
+            get => default(BuildingType);
+            set
+            {
+            }
+        }
 
         public Building(string name)
         {
