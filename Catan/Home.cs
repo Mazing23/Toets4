@@ -12,13 +12,14 @@ namespace Catan
         public string Name { get; set; }
         public int Defence { get; set; }
         public int Citizens { get; set; }
+        public Player Player { get; set; }
 
         public List<Resource> Resources { get; set; }
 
 
-        public Home(string name)
+        public Home(string name, Player player)
         {
-
+            Player = player ?? throw new ArgumentNullException(nameof(player));
         }
 
         public void AddHouse()

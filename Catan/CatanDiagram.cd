@@ -15,7 +15,7 @@
         <Point X="13.25" Y="4.875" />
         <Point X="13.774" Y="4.875" />
         <Point X="13.774" Y="4.438" />
-        <Point X="15.354" Y="4.438" Type="JumpStart" />
+        <Point X="15.355" Y="4.438" Type="JumpStart" />
         <Point X="15.521" Y="4.438" Type="JumpEnd" />
         <Point X="18.062" Y="4.438" />
         <Point X="18.062" Y="5.25" />
@@ -24,23 +24,8 @@
         <Position X="0.093" Y="0.562" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="Resources" Type="Catan.Resource" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="11.5" Y="7.786" />
-        <Point X="11.5" Y="9.875" />
-        <Point X="9.75" Y="9.875" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="EquipedClothes" Type="Catan.Clothing" ManuallyRouted="true">
-      <Path>
-        <Point X="12.562" Y="7.786" />
-        <Point X="12.562" Y="8.229" />
-        <Point X="13.812" Y="8.229" />
-        <Point X="13.812" Y="8.75" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>BAAACAAgIAAAiAEgAAAABAQAABQAAAAAQAAAAAQAAAI=</HashCode>
+      <HashCode>BAEACAAAIAAAiAAgAAAAAAQAAAUAAAAAQAAAAAQAAAI=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -50,13 +35,12 @@
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Items" />
-      <Property Name="Resources" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Catan.Enemy">
     <Position X="12" Y="1" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAQAQAAIAAAAgAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAACACAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -104,14 +88,14 @@
   </Class>
   <Class Name="Catan.Home">
     <Position X="7.5" Y="5.5" Width="2.25" />
-    <AssociationLine Name="Resources" Type="Catan.Resource" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Resources" Type="Catan.Resource" FixedToPoint="true">
       <Path>
-        <Point X="7.5" Y="7.438" />
-        <Point X="7.26" Y="7.438" />
-        <Point X="7.26" Y="10.894" />
-        <Point X="9.375" Y="10.894" />
-        <Point X="9.375" Y="10.44" />
+        <Point X="9.625" Y="8.209" />
+        <Point X="9.625" Y="8.5" />
       </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.482" Y="0.093" Height="0.182" Width="2.145" />
+      </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAACAAAIAAAAAQAAAAAAAQAAAAAAAAAQABAAiAAAAA=</HashCode>
@@ -124,7 +108,7 @@
   <Class Name="Catan.Resource">
     <Position X="7.5" Y="8.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Resource.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -140,7 +124,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAQAAAAAACAAAACAAgAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>BordGame.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -193,22 +177,13 @@
         <Point X="15.438" Y="6" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="Enemys" Type="Catan.Enemy" ManuallyRouted="true">
-      <Path>
-        <Point X="11" Y="2.758" />
-        <Point X="11.715" Y="2.758" />
-        <Point X="11.715" Y="3.617" />
-        <Point X="13.562" Y="3.617" />
-        <Point X="13.562" Y="3.324" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>IAAAAgAAAAAQAgQCQAAAAAAAAAQAIAAAAAAAAQAAAAE=</HashCode>
+      <HashCode>IAAAAoQAAABQAAQCQCAAAAAAAAQBIAAAQAAAAQAAEAE=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="FileSave" />
       <Property Name="Player" />
+      <Property Name="FileSave" />
       <Property Name="Home" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>

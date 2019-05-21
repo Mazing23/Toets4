@@ -28,5 +28,7 @@ namespace CatanTesting
 
             Assert.AreEqual(p, g.Player);
         }
+
+
     }
 }

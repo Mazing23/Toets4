@@ -10,15 +10,14 @@ namespace Catan
     {
         public string Name { get; set; }
         public int Health { get; set; }
-        public Weapon Weapon { get; set; }
         public int Damage { get; set; }
         public EnemyType EnemyType { get; set; }
 
-        public Enemy(string name, int health, Weapon weapon, int damage)
+        public Enemy(string name, int health, int damage)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Health = health;
-            Weapon = weapon ?? throw new ArgumentNullException(nameof(weapon));
+            if (damage == 0) throw new ArgumentOutOfRangeException(nameof(damage));
             Damage = damage;
 
             if(damage <= 25)
