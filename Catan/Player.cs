@@ -12,7 +12,7 @@ namespace Catan
         public List<Item> Items { get; set; }
         public Clothing EquipedClothes { get; set; }
         public Weapon EquipedWeapon { get; set; }
-        public List<Resource> Resources { get; set; }
+        public Dictionary<int, Resource> Resources { get; set; }
         public int Health { get; set; }
         public int Position { get; set; }
         public int Money { get; set; }
@@ -29,6 +29,34 @@ namespace Catan
         }
 
         public void EquipClothes(Clothing clothes)
+        {
+
+        }
+
+        public void EquipItem(Item item)
+        {
+
+        }
+
+        public void AttackEnemy(Enemy enemy)
+        {
+
+        }
+
+        public void AddResources(Resource resource, int amount)
+        {
+            //for(int i = 0; i <= amount; i++)
+            //{
+            //    player.Resources.Add(resource);
+            //}
+        }
+
+        public void ChangeEquipedItem(Item item)
+        {
+
+        }
+
+        public void PurchaseBuilding(Building building, Resource resource)
         {
 
         }

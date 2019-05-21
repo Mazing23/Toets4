@@ -14,7 +14,6 @@ namespace Catan
         public FileWriter FileWriter { get; set; }
         public FileReader FileReader { get; set; }
 
-
         public Game(Player player)
         {
             Player = player ?? throw new ArgumentNullException(nameof(player));
@@ -22,25 +21,17 @@ namespace Catan
             Enemys = new List<Enemy>();
         }
 
-        public void AddBuilding(Player player, Building building)
+        private void SetUpGame(Player player)
         {
 
         }
 
-        public void AttackEnemy(Player player, Enemy enemy)
+        public void AddBuilding(Building building)
         {
 
         }
 
-        public void AddResources(Player player, Resource resource, int amount)
-        {
-            //for(int i = 0; i <= amount; i++)
-            //{
-            //    player.Resources.Add(resource);
-            //}
-        }
-
-        public void ChangeEquipedItem(Player player, Item item)
+        public void GiveNewEnemy()
         {
 
         }

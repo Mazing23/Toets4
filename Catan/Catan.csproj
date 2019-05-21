@@ -53,6 +53,7 @@
       <DependentUpon>BordGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Building.cs" />
+    <Compile Include="BuildingType.cs" />
     <Compile Include="Clothes.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyType.cs" />

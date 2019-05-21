@@ -17,7 +17,7 @@ namespace Catan
 
         public override void DoDamage()
         {
-            base.DoDamage();     
+            base.DoDamage();
         }
     }
 }

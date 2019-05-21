@@ -11,8 +11,14 @@ namespace Catan
         public string Name { get; set; }
         public int Health { get; set; }
         public Weapon Weapon { get; set; }
-        public EnemyType EnemyType { get; set; }
 
+        public EnemyType EnemyType
+        {
+            get => default(EnemyType);
+            set
+            {
+            }
+        }
 
         public Enemy()
         {
