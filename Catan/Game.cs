@@ -9,8 +9,8 @@ namespace Catan
     public class Game
     {
         public Player Player { get; }
-        public List<Building> Building { get; set; }
-        public Enemy Enemy { get; set; }
+        public List<Building> Buildings { get; set; }
+        public List<Enemy> Enemys { get; set; }
         public FileWriter FileWriter { get; set; }
         public FileReader FileReader { get; set; }
 
@@ -18,7 +18,8 @@ namespace Catan
         public Game(Player player)
         {
             Player = player ?? throw new ArgumentNullException(nameof(player));
-            Building = new List<Building>();
+            Buildings = new List<Building>();
+            Enemys = new List<Enemy>();
         }
 
         public void AddBuilding(Player player, Building building)
