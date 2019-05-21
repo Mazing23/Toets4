@@ -9,14 +9,8 @@ namespace Catan
     public class Resource
     {
         public string Name { get; set; }
-        public int Amount { get; set; }
 
-        public int CheckAmount()
-        {
-            return 1;
-        }
-
-        public Resource(string name, int value)
+        public Resource(string name)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }

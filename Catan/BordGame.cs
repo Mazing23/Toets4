@@ -12,17 +12,40 @@ namespace Catan
 {
     public partial class BordGame : Form
     {
+        public Game Game { get; set; }
+
+
         public BordGame()
         {
             InitializeComponent();
         }
 
-        public Game Game
+        private void SaveGame(Game game)
         {
-            get => default(Game);
-            set
+            try
             {
+                // serialize gamesave
+                // serialize game
+            }
+            catch 
+            {
+
             }
         }
+
+        private void LoadGame()
+        {
+            try
+            {
+                // deserialize gamesave
+                // deserialize game
+                // Game = game
+            }
+            catch
+            {
+
+            }
+        }
+
     }
 }

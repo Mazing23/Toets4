@@ -9,7 +9,7 @@ namespace Catan
     public class Sword : Weapon
     {
         public override int Damage { get; }
-        public Sword(string name, int range) : base(name, range)
+        public Sword(string name) : base(name)
         {
 
         }

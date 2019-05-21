@@ -11,31 +11,28 @@ namespace Catan
         public string Name { get; set; }
         public int Health { get; set; }
         public Weapon Weapon { get; set; }
+        public int Damage { get; set; }
+        public EnemyType EnemyType { get; set; }
 
-        public EnemyType EnemyType
+        public Enemy(string name, int health, Weapon weapon, int damage)
         {
-            get => default(EnemyType);
-            set
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Health = health;
+            Weapon = weapon ?? throw new ArgumentNullException(nameof(weapon));
+            Damage = damage;
+
+            if(damage <= 25)
             {
+                EnemyType = EnemyType.Easy;
             }
-        }
-
-        public EnemyType EnemyType1
-        {
-            get => default(EnemyType);
-            set
+            if(damage > 25 || damage <= 40)
             {
+                EnemyType = EnemyType.Hard;
             }
-        }
-
-        public Enemy()
-        {
-
-        }
-
-        public void Attack()
-        {
-
+            else if (damage > 40 || damage <= 50)
+            {
+                EnemyType = EnemyType.Extreme;
+            }
         }
     }
 }

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Gun : Weapon
+    public class Axe : Weapon
     {
         public override int Damage { get; }
-
-        public Gun(string name) : base(name)
+        public Axe(string name) : base(name)
         {
 
         }
