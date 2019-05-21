@@ -13,6 +13,7 @@ namespace Catan
         public GameSave FileSave { get; set; }
         public GameSave FileLoad { get; set; }
         public List<Item> AllItems { get; set; }
+        public List<Resource> AllResources { get; set; }
         public Home Home { get; set; }
 
 
@@ -21,6 +22,12 @@ namespace Catan
             Player = player ?? throw new ArgumentNullException(nameof(player));
             Enemys = new List<Enemy>();
             AllItems = new List<Item>();
+            AllResources = new List<Resource>();
+        }
+
+        private void SetUpResources()
+        {
+
         }
 
         private void SetUpGame(Player player)
@@ -28,7 +35,12 @@ namespace Catan
 
         }
 
-        public void AddBuilding(Home building)
+        private void AddDefenseToHome()
+        {
+
+        }
+
+        private void AddCitizenToHome()
         {
 
         }
