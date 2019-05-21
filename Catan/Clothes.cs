@@ -8,10 +8,7 @@ namespace Catan
 {
     public class Clothing : Item
     {
-        public string Name { get; set; }
-        public int Value { get; set; }
         public int DamageRes { get; set; }
-
 
         public Clothing(string name, int value) : base(name, value)
         {

@@ -10,7 +10,6 @@ namespace Catan
     {
         public string Name { get; set; }
         public List<Item> Items { get; set; }
-        public Item EquipedItem { get; set; }
         public Clothing EquipedClothes { get; set; }
         public Weapon EquipedWeapon { get; set; }
         public List<Resource> Resources { get; set; }
@@ -30,11 +29,6 @@ namespace Catan
         }
 
         public void EquipClothes(Clothing clothes)
-        {
-
-        }
-
-        public void EquipItem(Item item)
         {
 
         }
