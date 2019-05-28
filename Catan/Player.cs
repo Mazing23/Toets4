@@ -8,15 +8,15 @@ namespace Catan
 {
     public class Player
     {
-        public string Name { get; set; }
+        public string Name { get; private set; }
         public List<Item> Items { get; set; }
-        public Clothing EquipedClothes { get; set; }
+        public Clothing EquipedClothes { get;  set; }
         public Item EquipedItem { get; set; }
         public Weapon EquipedWeapon { get; set; }
         public Dictionary<Resource, int> Resources { get; set; }
         public int Health { get; set; }
         public int Position { get; set; }
-        public Home Home { get; set; }
+        public Home Home { get; private set; }
 
 
         public Player(string name)

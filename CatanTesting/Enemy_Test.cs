@@ -36,17 +36,6 @@ namespace CatanTesting
             Assert.AreEqual(100, enemy.Health);
         }
 
-        [TestMethod]
-        public void GetDamage_ReduceHealthEnemy()
-        {
-            Enemy enemy = new Enemy("Harry", 20);
-            Player p = new Player("Harry2");
-            Item w = new Sword("poep", 20);
-            p.EquipItem(w);
-
-            p.AttackEnemy(enemy);
-
-            Assert.AreEqual(80, enemy.Health);
-        }
+        
     }
 }

@@ -27,14 +27,31 @@ namespace Catan
 
         }
 
-        public void AddDefense()
+        public void AddDefense(int defense)
         {
-
+            Defence = defense;
         }
 
         public void AddCitizens()
         {
-            throw new System.NotImplementedException();
+            
+        }
+
+        public int CheckDefenseLevel()
+        {
+            if (Defence <= 5)
+            {
+                return 1;
+            }
+            if (Defence > 5 || Defence <= 10)
+            {
+                return 2;
+            }
+            if (Defence > 10)
+            {
+                return 3;
+            }
+            return 0;
         }
     }
 }
