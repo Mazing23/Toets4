@@ -9,14 +9,10 @@ namespace Catan
     public class Axe : Weapon
     {
         public override int Damage { get; }
-        public Axe(string name) : base(name)
+        public Axe(string name, int damage) : base(name, damage)
         {
 
         }
 
-        public override void DoDamage()
-        {
-            base.DoDamage();
-        }
     }
 }

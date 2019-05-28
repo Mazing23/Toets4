@@ -14,8 +14,7 @@ namespace CatanTesting
         [TestMethod]
         public void AddEnemy_and_CheckType()
         {
-            Weapon w = new Sword("Excalibur");
-            Enemy enemy = new Enemy("Harry", 100, 35);
+            Enemy enemy = new Enemy("Harry", 35);
 
             Assert.AreEqual(EnemyType.Hard, enemy.EnemyType);
         }
@@ -24,8 +23,7 @@ namespace CatanTesting
         [TestMethod]
         public void ReturnDamageOfEnemy()
         {
-            Weapon w = new Sword("Excalibur");
-            Enemy enemy = new Enemy("Harry", 100, 35);
+            Enemy enemy = new Enemy("Harry", 35);
 
             Assert.AreEqual(35, enemy.Damage);
         }
@@ -33,10 +31,22 @@ namespace CatanTesting
         [TestMethod]
         public void CheckIfHealth_Matches()
         {
-            Weapon w = new Sword("Excalibur");
-            Enemy enemy = new Enemy("Harry", 150, 35);
+            Enemy enemy = new Enemy("Harry", 35);
 
-            Assert.AreEqual(150, enemy.Health);
+            Assert.AreEqual(100, enemy.Health);
+        }
+
+        [TestMethod]
+        public void GetDamage_ReduceHealthEnemy()
+        {
+            Enemy enemy = new Enemy("Harry", 20);
+            Player p = new Player("Harry2");
+            Item w = new Sword("poep", 20);
+            p.EquipItem(w);
+
+            p.AttackEnemy(enemy);
+
+            Assert.AreEqual(80, enemy.Health);
         }
     }
 }

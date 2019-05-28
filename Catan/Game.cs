@@ -42,7 +42,7 @@ namespace Catan
             int damageRandom = rand.Next(1, 51);
             for(int i = 1; i <= 50; i++)
             {
-                Enemys.Add(new Enemy(i.ToString(), 100, damageRandom));
+                Enemys.Add(new Enemy(i.ToString(), damageRandom));
             }
         }
 
@@ -51,11 +51,12 @@ namespace Catan
 
         }
 
-        public void SetUpGame(Player player)
+        public void SetUpGame()
         {
             SetUpResources();
             SetUpEnemies();
             SetUpItems();
+
         }
 
         public void AddDefenseToHome()

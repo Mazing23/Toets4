@@ -63,7 +63,8 @@ namespace Catan
 
         public void AttackEnemy(Enemy enemy)
         {
-
+            if (EquipedWeapon == null) return;
+            enemy.TakeDamage(EquipedWeapon);
         }
 
         public void AddResources(Resource resource, int amount)

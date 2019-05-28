@@ -10,13 +10,13 @@ namespace Catan
     {
         public string Name { get; set; }
         public int Health { get; set; }
-        public int Damage { get; set; }
-        public EnemyType EnemyType { get; set; }
+        public int Damage { get; private set; }
+        public EnemyType EnemyType { get; private set; }
 
-        public Enemy(string name, int health, int damage)
+        public Enemy(string name, int damage)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
-            Health = health;
+            Health = 100;
             if (damage == 0) throw new ArgumentOutOfRangeException(nameof(damage));
             Damage = damage;
 
@@ -32,6 +32,11 @@ namespace Catan
             {
                 EnemyType = EnemyType.Extreme;
             }
+        }
+
+        public void TakeDamage(Weapon w)
+        {
+            Health =- w.Damage;
         }
     }
 }

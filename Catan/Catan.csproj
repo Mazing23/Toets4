@@ -68,6 +68,9 @@
     <Compile Include="Resource.cs" />
     <Compile Include="Sword.cs" />
     <Compile Include="Weapon.cs" />
+    <EmbeddedResource Include="BordGame.resx">
+      <DependentUpon>BordGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -12,14 +12,10 @@ namespace Catan
 
         public int Range { get; set; }
 
-        public Weapon(string name) : base(name)
+        public Weapon(string name, int damage) : base(name)
         {
 
         }
 
-        public virtual void DoDamage()
-        {
-
-        }
     }
 }

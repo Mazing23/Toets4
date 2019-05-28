@@ -10,14 +10,10 @@ namespace Catan
     {
         public override int Damage { get; }
 
-        public Gun(string name) : base(name)
+        public Gun(string name, int damage) : base(name, damage)
         {
 
         }
 
-        public override void DoDamage()
-        {
-            base.DoDamage();
-        }
     }
 }
