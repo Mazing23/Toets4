@@ -47,5 +47,9 @@ namespace Catan
             }
         }
 
+        private void BordGame_Load(object sender, EventArgs e)
+        {
+            //generate map with   
+        }
     }
 }

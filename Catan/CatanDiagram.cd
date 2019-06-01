@@ -25,7 +25,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>BAEACAAAIAAAiAAgAAAAAAQAAAUAAAAAQAAAAAQAAAI=</HashCode>
+      <HashCode>BAEACAAAIAAAiAAAAAAAAAQAAAUAAAAAQAAAwAQAAAI=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -40,7 +40,7 @@
   <Class Name="Catan.Enemy">
     <Position X="12" Y="1" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAACACAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAACACAAAAAAAAAAAAAQAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -56,33 +56,16 @@
   </Class>
   <Class Name="Catan.Weapon">
     <Position X="16.5" Y="5.25" Width="1.75" />
-    <InheritanceLine Type="Catan.Item" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="16.25" Y="7.408" />
-        <Point X="16.373" Y="7.408" />
-        <Point X="16.373" Y="7.442" />
-        <Point X="17.188" Y="7.442" />
-        <Point X="17.188" Y="7.319" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAACAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Weapon.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Catan.Gun">
     <Position X="15.75" Y="8.75" Width="1.75" />
-    <InheritanceLine Type="Catan.Weapon" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="17.875" Y="7.319" />
-        <Point X="17.875" Y="8.375" />
-        <Point X="16.875" Y="8.375" />
-        <Point X="16.875" Y="8.75" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Gun.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -94,7 +77,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAACAAAIAAAAAQAAAAAAAQAAAAAAAAAQABAAyAAAAA=</HashCode>
+      <HashCode>AACACAAAIAAAAAQAAAAAAAQAAAAAAAAAQABAAyAAAAA=</HashCode>
       <FileName>Home.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -122,7 +105,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAQAAAAAACAAAACAAgAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AACAAAAAACAQAAAAAACAAAACAAgAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>BordGame.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -153,7 +136,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Sword.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -161,8 +144,8 @@
     <Position X="8.75" Y="0.75" Width="2.25" />
     <AssociationLine Name="FileSave" Type="Catan.GameSave" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="8.75" Y="2.766" />
-        <Point X="8.5" Y="2.766" />
+        <Point X="8.75" Y="3.259" />
+        <Point X="8.5" Y="3.259" />
         <Point X="8.5" Y="1.75" />
         <Point X="7.438" Y="1.75" />
         <Point X="7.438" Y="2" />
@@ -170,15 +153,13 @@
     </AssociationLine>
     <AssociationLine Name="AllItems" Type="Catan.Item" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="11" Y="2.993" />
-        <Point X="11.75" Y="2.993" />
-        <Point X="11.75" Y="3.489" />
-        <Point X="15.438" Y="3.489" />
+        <Point X="11" Y="3.541" />
+        <Point X="15.438" Y="3.541" />
         <Point X="15.438" Y="6" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>IAAAAoQAAABQAAQCQCAAAAAAAAQBIAAAQAAAAQAAEAE=</HashCode>
+      <HashCode>IAAAAoQAIBBQIAYCQCAAAAAAIAQBIAAAQAAAAQAAEAE=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
