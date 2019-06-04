@@ -47,7 +47,7 @@ namespace CatanTesting
         {
             Player p = new Player("Harry");
             Game g = new Game(p);
-            g.SetUpGame();
+            //g.SetUpGame();
 
             Resource grain = new Resource("Grain");
             p.Resources.Add(grain, 10);
