@@ -11,6 +11,7 @@ namespace Catan
         public Player Player { get; }
         public List<Enemy> Enemys { get; }
         public GameSave FileSave { get; }
+        public GameSave FileLoad { get; }
         public List<Item> AllItems { get; }
         public List<Resource> AllResources { get; }
         public Home Home { get; }
@@ -25,7 +26,6 @@ namespace Catan
             AllItems = new List<Item>();
             AllResources = new List<Resource>();
             Home = new Home("Home", player);
-            FileSave = new GameSave();
         }
 
         private void SetUpResources()
@@ -60,6 +60,7 @@ namespace Catan
             SetUpResources();
             SetUpEnemies();
             SetUpItems();
+
         }
 
         /// <summary>
