@@ -47,7 +47,7 @@ namespace CatanTesting
 
             Home h = new Home("Home", p);
 
-            h.AddDefence(new_defence);
+            h.AddDefense(new_defence);
 
             Assert.AreEqual(expected_defence, h.Defence);
         }
@@ -60,7 +60,7 @@ namespace CatanTesting
 
             Home h = new Home("Home", p);
 
-            h.AddDefence(new_defence);
+            h.AddDefense(new_defence);
 
             Assert.AreEqual(expected_level, h.CheckDefenceLevel());
         }

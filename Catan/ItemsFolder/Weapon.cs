@@ -14,8 +14,12 @@ namespace Catan
 
         public Weapon(string name, int damage) : base(name)
         {
-
+            Damage = damage;
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + " , Damage: " + Damage;
+        }
     }
 }
