@@ -25,6 +25,7 @@ namespace Catan
         public GameWindow() {
             InitializeComponent();
         }
+
         private void ButtonMoveLeft_Click(object sender, RoutedEventArgs e)
         {
             if (currentGame.MovesLeft > 0)
