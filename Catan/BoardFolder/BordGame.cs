@@ -19,6 +19,7 @@ namespace Catan
 
         public BordGame()
         {
+            ofd = new OpenFileDialog();
             InitializeComponent();
             if (MessageBox.Show("Do you want to resume a previous game?", "WARNING!",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question,
@@ -89,7 +90,7 @@ namespace Catan
                 var tileToExplore = currentTile as ExploreTile;
                 if (tileToExplore.Resource != null)
                 {
-                    lblResourcesOnThisLand.Text = tileToExplore.resourceAmount.ToString() + tileToExplore.Item.ToString() + " on this tile.";
+                    lblResourcesOnThisTile.Text = tileToExplore.resourceAmount.ToString() + " " + tileToExplore.Resource.Name.ToString() + " on this tile.";
                 }
                 else
                 {
@@ -98,7 +99,7 @@ namespace Catan
 
                 if (tileToExplore.Item != null)
                 {
-                    lblItemOnThisLand.Text = tileToExplore.Item.ToString() + " on this tile.";
+                    lblItemOnThisLand.Text = tileToExplore.Item.Name.ToString() + " on this tile.";
                 }
                 else
                 {
@@ -108,8 +109,8 @@ namespace Catan
 
             else if(currentTile is HomeTile)
             {
-                lblResourcesOnThisTile.Text = "This is your home, nothing to loot here.";
-                lblItemOnThisLand.Text = "This is your home, nothing to loot here.";
+                lblResourcesOnThisTile.Text = "This is your home, no resources here.";
+                lblItemOnThisLand.Text = "This is your home, no items here.";
             }
             
             lblHealthPoints.Text = currentGame.Player.Health.ToString() + " health points left.";
@@ -121,16 +122,23 @@ namespace Catan
             {
                 lblEquippedWeapon.Text = "No weapon equipped.";
             }
+
             if (currentGame.Player.EquipedClothes != null)
             {
-                lblEquippedClothing.Text = currentGame.Player.EquipedClothes.ToString() + " equipped.";
+                lblClothesEquipped.Text = currentGame.Player.EquipedClothes.ToString() + " equipped.";
             }
             else
             {
-                lblEquippedClothing.Text = "No clothing equipped.";
+                lblClothesEquipped.Text = "No clothing equipped.";
             }
             lblNumberOfCitizens.Text = currentGame.Home.Citizens.ToString() + " citizens in your hometown.";
             lblHomeHealth.Text = currentGame.Home.Health.ToString() + " healthpoints";
+            lblPlayerName.Text = currentGame.Player.Name.ToString() + " :";
+
+
+            //label voor debuggen
+            lblPosy.Text = "Pos y = " + currentGame.Player.posY.ToString();
+            lblPosx.Text = "Pos x = " + currentGame.Player.posX.ToString();
 
         }
 
@@ -142,7 +150,7 @@ namespace Catan
             Dictionary<Resource, int> Resources = currentGame.Player.Resources;
             foreach (KeyValuePair<Resource, int> r in Resources)
             {
-                listBoxResources.Items.Add(r);
+                listBoxResources.Items.Add(r.ToString());
             }
 
             List<Item> items = currentGame.Player.Items;
@@ -150,11 +158,11 @@ namespace Catan
             {
                 if (i is Weapon)
                 {
-                    listBoxWeapons.Items.Add(i);
+                    listBoxWeapons.Items.Add(i.ToString());
                 }
                 if (i is Clothing)
                 {
-                    listBoxClothes.Items.Add(i);
+                    listBoxClothes.Items.Add(i.ToString());
                 }
             }
 

@@ -52,17 +52,17 @@ namespace Catan
                 {
                     if (i == 4 && j == 4 || i == 5  && j == 4 || i == 5 && j == 4 || i == 5 && j == 5 )
                     {
-                        Map[i, j] = new HomeTile(i, j); //klopt nmiet!!!
+                        Map[i, j] = new HomeTile(i, j);
                     }
                     else
                     {
-                        if (rand.Next(5) == 5)
+                        if (rand.Next(1, 5) >= 3)
                         {
-                            Map[i, j] = new ExploreTile(i, j, AllItems[rand.Next(0, 4)], AllResources[rand.Next(0, 4)], rand.Next(0, 4));
+                            Map[i, j] = new ExploreTile(i, j, AllItems[rand.Next(1, 5)], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
                         }
                         else
                         {
-                            Map[i, j] = new ExploreTile(i, j, AllResources[rand.Next(0, 4)], rand.Next(0, 4));
+                            Map[i, j] = new ExploreTile(i, j, AllResources[rand.Next(1, 5)], rand.Next(1, 5));
                         }
                     }
                 }
