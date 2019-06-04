@@ -64,23 +64,23 @@ namespace Catan
 
         private void GenerateMap()
         {
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                for(int j = 0; j < 10; j++)
+                for (int j = 0; j < 10; j++)
                 {
                     if (i == 5 || i == 6 || j == 5 || j == 6)
                     {
-                        Map[i, j] = new WorldTile(i, j, null);
+                        Map[i, j] = new HomeTile(i, j);
                     }
                     else
                     {
                         if (rand.Next(5) == 5)
                         {
-                            Map[i, j] = new WorldTile(i, j, AllItems[rand.Next(0, 4)], AllResources[rand.Next(0, 4)]);
+                            Map[i, j] = new ExploreTile(i, j, AllItems[rand.Next(0, 4)], AllResources[rand.Next(0, 4)], rand.Next(0, 4));
                         }
                         else
                         {
-                            Map[i, j] = new WorldTile(i, j, AllResources[rand.Next(0, 4)]);
+                            Map[i, j] = new ExploreTile(i, j, AllResources[rand.Next(0, 4)], rand.Next(0, 4));
                         }
                     }
                 }
@@ -94,7 +94,7 @@ namespace Catan
         private void SetUpEnemies()
         {
             int damageRandom = rand.Next(1, 51);
-            for(int i = 1; i <= 50; i++)
+            for (int i = 1; i <= 50; i++)
             {
                 Enemys.Add(new Enemy(i.ToString(), damageRandom));
             }
@@ -122,11 +122,11 @@ namespace Catan
         /// </summary>
         public void AddCitizenToHome()
         {
-            foreach(Resource r in AllResources)
+            foreach (Resource r in AllResources)
             {
-                if(Player.Resources.ContainsKey(r))
+                if (Player.Resources.ContainsKey(r))
                 {
-                    if(Player.Resources[r] >= 5)
+                    if (Player.Resources[r] >= 5)
                     {
                         Player.Resources[r] = Player.Resources[r] - 5;
                         Home.Citizens += 4;
@@ -137,25 +137,25 @@ namespace Catan
 
         public Enemy GiveNewEnemy()
         {
-            foreach(Enemy e in Enemys)
+            foreach (Enemy e in Enemys)
             {
-                if(Home.CheckDefenceLevel() == 1)
+                if (Home.CheckDefenceLevel() == 1)
                 {
-                    if(e.EnemyType == EnemyType.Easy)
+                    if (e.EnemyType == EnemyType.Easy)
                     {
                         return e;
                     }
                 }
-                if(Home.CheckDefenceLevel() == 2)
+                if (Home.CheckDefenceLevel() == 2)
                 {
                     if (e.EnemyType == EnemyType.Hard)
                     {
                         return e;
                     }
                 }
-                if(Home.CheckDefenceLevel() == 3)
+                if (Home.CheckDefenceLevel() == 3)
                 {
-                    if(e.EnemyType == EnemyType.Extreme)
+                    if (e.EnemyType == EnemyType.Extreme)
                     {
                         return e;
                     }
@@ -179,7 +179,7 @@ namespace Catan
 
         public void NextTurn()
         {
-            MovesLeft = rand.Next(1,6);
+            MovesLeft = rand.Next(1, 6);
             TurnsLeft -= 1;
         }
 
@@ -197,7 +197,7 @@ namespace Catan
                     Player.posX += 1;
                     break;
                 case 3:
-                    Player.posX -=  1;
+                    Player.posX -= 1;
                     break;
                 default:
                     break;
@@ -207,19 +207,28 @@ namespace Catan
         {
             return Map[Player.posX, Player.posY];
         }
-        
+
         public void takeResources()
         {
             WorldTile currentTile = Map[Player.posX, Player.posY];
-            if(currentTile.Resource != null || currentTile.resourceAmount != 0)
+            if (currentTile is HomeTile)
             {
-                Player.AddResources(currentTile.Resource, currentTile.resourceAmount);
+                //no actions kan be taken
             }
-            if (currentTile.Item != null)
+            else if (currentTile is ExploreTile)
             {
-                Player.MakeItem(currentTile.Item);
+                currentTile = currentTile as ExploreTile;
+                if (currentTile.Resource != null || currentTile.resourceAmount != 0)
+                {
+                    Player.AddResources(currentTile.Resource, currentTile.resourceAmount);
+                }
+                if (currentTile.Item != null)
+                {
+                    Player.MakeItem(currentTile.Item);
+                }
+                Map[Player.posX, Player.posY].LootResources();
             }
-            Map[Player.posX, Player.posY].lootResources();
+
         }
     }
 }

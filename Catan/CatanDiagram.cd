@@ -38,10 +38,6 @@
       <Path>
         <Point X="19.312" Y="6.094" />
         <Point X="19.312" Y="6.453" />
-        <Point X="13.443" Y="6.453" Type="JumpStart" />
-        <Point X="13.276" Y="6.453" Type="JumpEnd" />
-        <Point X="12.802" Y="6.453" Type="JumpStart" />
-        <Point X="12.636" Y="6.453" Type="JumpEnd" />
         <Point X="10.395" Y="6.453" Type="JumpStart" />
         <Point X="10.229" Y="6.453" Type="JumpEnd" />
         <Point X="9.989" Y="6.453" Type="JumpStart" />
@@ -201,10 +197,6 @@
       <Path>
         <Point X="10.562" Y="5.391" />
         <Point X="10.562" Y="5.589" />
-        <Point X="12.636" Y="5.589" Type="JumpStart" />
-        <Point X="12.802" Y="5.589" Type="JumpEnd" />
-        <Point X="13.276" Y="5.589" Type="JumpStart" />
-        <Point X="13.443" Y="5.589" Type="JumpEnd" />
         <Point X="19" Y="5.589" />
       </Path>
     </AssociationLine>
@@ -277,26 +269,10 @@
   </Class>
   <Class Name="Catan.WorldTile">
     <Position X="12.5" Y="2.75" Width="1.5" />
-    <AssociationLine Name="Resource" Type="Catan.Resource" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="12.719" Y="5.074" />
-        <Point X="12.719" Y="8.951" />
-        <Point X="10.395" Y="8.951" Type="JumpStart" />
-        <Point X="10.229" Y="8.951" Type="JumpEnd" />
-        <Point X="9.989" Y="8.951" Type="JumpStart" />
-        <Point X="9.823" Y="8.951" Type="JumpEnd" />
-        <Point X="8.375" Y="8.951" />
-        <Point X="8.375" Y="9.5" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAAIAAAAAgAAAAAAAAEAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
       <FileName>BoardFolder\WorldTile.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Item" />
-      <Property Name="Resource" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Catan.GameWindow" Collapsed="true">
     <Position X="16.75" Y="3.25" Width="1.5" />
@@ -304,7 +280,6 @@
       <HashCode>AAAAAAUAAAAAAAAkggEAIAAEAEAQAAAAAgACgAAAAAE=</HashCode>
       <FileName>BoardFolder\GameWindow.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="Catan.IDamage">
     <Position X="10.75" Y="10.25" Width="1.5" />

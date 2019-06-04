@@ -65,6 +65,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoardFolder\HomeTile.cs" />
+    <Compile Include="BoardFolder\ExploreTile.cs" />
     <Compile Include="ItemsFolder\Axe.cs" />
     <Compile Include="BoardFolder\BordGame.cs">
       <SubType>Form</SubType>
