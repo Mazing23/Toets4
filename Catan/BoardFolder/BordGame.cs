@@ -150,7 +150,7 @@ namespace Catan
             Dictionary<Resource, int> Resources = currentGame.Player.Resources;
             foreach (KeyValuePair<Resource, int> r in Resources)
             {
-                listBoxResources.Items.Add(r);
+                listBoxResources.Items.Add(r.ToString());
             }
 
             List<Item> items = currentGame.Player.Items;
@@ -158,11 +158,11 @@ namespace Catan
             {
                 if (i is Weapon)
                 {
-                    listBoxWeapons.Items.Add(i);
+                    listBoxWeapons.Items.Add(i.ToString());
                 }
                 if (i is Clothing)
                 {
-                    listBoxClothes.Items.Add(i);
+                    listBoxClothes.Items.Add(i.ToString());
                 }
             }
 
