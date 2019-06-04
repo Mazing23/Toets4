@@ -205,14 +205,14 @@ namespace Catan
             }
             else if (currentTile is ExploreTile)
             {
-                currentTile = currentTile as ExploreTile;
-                if (currentTile.Resource != null || currentTile.resourceAmount != 0)
+                ExploreTile ex = currentTile as ExploreTile;
+                if (ex.Resource != null || ex.resourceAmount != 0)
                 {
-                    Player.AddResources(currentTile.Resource, currentTile.resourceAmount);
+                    Player.AddResources(ex.Resource, ex.resourceAmount);
                 }
-                if (currentTile.Item != null)
+                if (ex.Item != null)
                 {
-                    Player.MakeItem(currentTile.Item);
+                    Player.MakeItem(ex.Item);
                 }
                 Map[Player.posX, Player.posY].LootResources();
             }

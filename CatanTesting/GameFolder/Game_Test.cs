@@ -1,39 +1,46 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Catan;
-
+using System.Collections.Generic;
 
 namespace CatanTesting
 {
     [TestClass]
     public class Game_Test
     {
+        Player p;
+        List<Enemy> enemies;
+        Home home;
+        List<Resource> resources;
 
+        [TestInitialize]
+        public void SetUp()
+        {
+            p = new Player("Harry");
+            enemies = new List<Enemy>();
+            home = new Home("Home", p);
+            resources = new List<Resource>(); 
+        }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void MakeNewGameFail_with_nullValues()
         {
-            Game g = new Game(null);
+            Game g = new Game(null, enemies, home, 30, resources);
         }
 
         [TestMethod]
         public void MakeNewGame_with_PlayerAdded()
         {
-            Player p = new Player("Harry");
-
-            Game g = new Game(p);
-
+            Game g = new Game(p, enemies, home, 30, resources);
             Assert.AreEqual(p, g.Player);
         }
 
         [TestMethod]
         public void GiveNewEnemy_CheckEnemyType()
         {
-            Player p = new Player("Harry");
-            Game g = new Game(p);
+            Game g = new Game(p, enemies, home, 30, resources);
             g.SetUpGame();
-
             g.Home.AddDefense(10);
             Enemy e = g.GiveNewEnemy();
 
@@ -43,8 +50,7 @@ namespace CatanTesting
         [TestMethod]
         public void AddCitizenToHome_withEnoughResources()
         {
-            Player p = new Player("Harry");
-            Game g = new Game(p);
+            Game g = new Game(p, enemies, home, 30, resources);
             g.SetUpGame();
 
             Resource grain = new Resource("Grain");

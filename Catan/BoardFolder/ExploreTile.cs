@@ -14,13 +14,13 @@ namespace Catan
 
         public ExploreTile(int posx, int posy, Item item, Resource resource, int amount) : base( posx, posy)
         {
-            Item = item;
-            Resource = resource;
+            Item = item ?? throw new ArgumentNullException(nameof(item));
+            Resource = resource ?? throw new ArgumentNullException(nameof(resource));
             resourceAmount = amount;
         }
         public ExploreTile(int posx, int posy, Resource resource, int amount) : base (posx, posy)
         {
-            Resource = resource;
+            Resource = resource ?? throw new ArgumentNullException(nameof(resource));
             resourceAmount = amount;
         }
 

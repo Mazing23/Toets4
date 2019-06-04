@@ -10,11 +10,11 @@ namespace Catan
     {
         public string Name { get; private set; }
         public List<Item> Items { get; set; }
-        public Clothing EquipedClothes { get;  set; }
+        public Clothing EquipedClothes { get; private set; }
         public Item EquipedItem { get; set; } // is deze nodig?
         public Weapon EquipedWeapon { get; set; }
         public Dictionary<Resource, int> Resources { get; set; }
-        public int Health { get; set; }
+        public int Health { get; private set; }
         public int posX { get; set; }
         public int posY { get; set; }
         public Home Home { get; private set; }
