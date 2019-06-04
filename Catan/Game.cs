@@ -14,18 +14,24 @@ namespace Catan
         public GameSave FileLoad { get; }
         public List<Item> AllItems { get; }
         public List<Resource> AllResources { get; }
+        public Dictionary<Resource, int> Resources { get; set; }
         public Home Home { get; }
+        public WorldTile[,] Map;
+        public int MovesLeft;
+        public int TurnsLeft { get; private set; }
 
         Random rand = new Random();
 
 
-        public Game(Player player)
+        public Game(string playerName)
         {
-            Player = player ?? throw new ArgumentNullException(nameof(player));
+            Map = new WorldTile[10, 10];
+            Player = new Player(playerName);
             Enemys = new List<Enemy>();
             AllItems = new List<Item>();
             AllResources = new List<Resource>();
-            Home = new Home("Home", player);
+            Home = new Home("Home", Player);
+            TurnsLeft = 30;
         }
 
         private void SetUpResources()
@@ -35,6 +41,40 @@ namespace Catan
             AllResources.Add(new Resource("Grain"));
             AllResources.Add(new Resource("Wool"));
             AllResources.Add(new Resource("Stone"));
+        }
+
+        private void SetUpItems()
+        {
+            AllItems.Add(new Sword("Wooden Sword", 5));
+            AllItems.Add(new Sword("Stone Sword", 10));
+            AllItems.Add(new Sword("Iron Sword", 15));
+            AllItems.Add(new Gun("Pistol", 10));
+            AllItems.Add(new Gun("Assault Rifle", 20));
+        }
+
+        private void GenerateMap()
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                for(int j = 0; j < 10; j++)
+                {
+                    if (i == 5 || i == 6 || j == 5 || j == 6)
+                    {
+                        Map[i, j] = new WorldTile(i, j, null);
+                    }
+                    else
+                    {
+                        if (rand.Next(5) == 5)
+                        {
+                            Map[i, j] = new WorldTile(i, j, AllItems[rand.Next(0, 4)], AllResources[rand.Next(0, 4)]);
+                        }
+                        else
+                        {
+                            Map[i, j] = new WorldTile(i, j, AllResources[rand.Next(0, 4)]);
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -50,16 +90,12 @@ namespace Catan
             }
         }
 
-        private void SetUpItems()
-        {
-
-        }
-
         public void SetUpGame()
         {
             SetUpResources();
             SetUpEnemies();
             SetUpItems();
+            GenerateMap();
 
         }
 
@@ -119,14 +155,61 @@ namespace Catan
             return null;
         }
 
-        public void SaveGame()
+        public void SaveGame(Game gameToSave)
         {
-
+            //Add serialization
         }
 
-        public void LoadGame()
+        public Game LoadGame(string gameDirectory)
         {
+            Game loadGame = null;
+            return loadGame;
+            //Add deserialization
+        }
 
+        public void NextTurn()
+        {
+            MovesLeft = rand.Next(1,6);
+            TurnsLeft -= 1;
+        }
+
+        public void MovePlayer(int movements)
+        {
+            switch (movements)
+            {
+                case 0:
+                    Player.posY += 1;
+                    break;
+                case 1:
+                    Player.posY -= 1;
+                    break;
+                case 2:
+                    Player.posX += 1;
+                    break;
+                case 3:
+                    Player.posX -=  1;
+                    break;
+                default:
+                    break;
+            }
+        }
+        public WorldTile currentTile()
+        {
+            return Map[Player.posX, Player.posY];
+        }
+        
+        public void takeResources()
+        {
+            WorldTile currentTile = Map[Player.posX, Player.posY];
+            if(currentTile.Resource != null || currentTile.resourceAmount != 0)
+            {
+                Player.AddResources(currentTile.Resource, currentTile.resourceAmount);
+            }
+            if (currentTile.Item != null)
+            {
+                Player.MakeItem(currentTile.Item);
+            }
+            Map[Player.posX, Player.posY].lootResources();
         }
     }
 }
