@@ -56,28 +56,36 @@ namespace Catan
             }
             else
             {
-                lblMovesLeft.Text = currentGame.MovesLeft.ToString() + "Moves left.";
+                lblMovesLeft.Text = currentGame.MovesLeft.ToString() + "moves left.";
             }
 
-            lblTurnsLeft.Text = currentGame.TurnsLeft.ToString() + "Turns left.";
-            //WorldTile currentTile = currentGame.currentTile();
-            //if (currentTile.Resource != null)
-            //{
-            //    lblResourcesOnThisLand.Text = currentTile.resourceAmount.ToString() + currentTile.Item.ToString() + "on this tile.";
-            //}
-            //else
-            //{
-            //    lblResourcesOnThisLand.Text = "No resource on this tile.";
-            //}
+            lblTurnsLeft.Text = currentGame.TurnsLeft.ToString() + "turns left.";
 
-            //if (currentTile.Item != null)
-            //{
-            //    lblItemOnThisLand.Text = currentTile.Item.ToString() + "on this tile.";
-            //}
-            //else
-            //{
-            //    lblItemOnThisLand.Text = "No item on this tile.";
-            //}
+
+            WorldTile currentTile = currentGame.currentTile();
+
+            if (currentTile is ExploreTile)
+            {
+                var tileToExplore = currentTile as ExploreTile;
+                if (tileToExplore.Resource != null)
+                {
+                    lblResourcesOnThisLand.Text = tileToExplore.resourceAmount.ToString() + tileToExplore.Item.ToString() + "on this tile.";
+                }
+                else
+                {
+                    lblResourcesOnThisLand.Text = "No resource on this tile.";
+                }
+
+                if (tileToExplore.Item != null)
+                {
+                    lblItemOnThisLand.Text = tileToExplore.Item.ToString() + "on this tile.";
+                }
+                else
+                {
+                    lblItemOnThisLand.Text = "No item on this tile.";
+                }
+            }
+            
             lblHealthPoints.Text = currentGame.Player.Health.ToString() + "health points left.";
             lblEquippedWeapon.Text = currentGame.Player.EquipedItem.ToString() + "equipped.";
             lblEquippedClothing.Text = currentGame.Player.EquipedClothes.ToString() + "equipped.";
