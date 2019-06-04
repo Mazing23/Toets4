@@ -1,16 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Catan;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CatanTesting
 {
     [TestClass]
     public class Game_Test
     {
+
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
