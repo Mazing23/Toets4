@@ -15,6 +15,11 @@ namespace Catan
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
 
-        
+        public void SetUp()
+        {
+
+        }
+
+
     }
 }
