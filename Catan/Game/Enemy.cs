@@ -8,8 +8,8 @@ namespace Catan
 {
     public class Enemy
     {
-        public string Name { get; set; }
-        public int Health { get; set; }
+        public string Name { get; private set; }
+        public int Health { get; private set; }
         public int Damage { get; private set; }
         public EnemyType EnemyType { get; private set; }
 

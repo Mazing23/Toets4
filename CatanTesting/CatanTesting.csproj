@@ -49,15 +49,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enemy_Test.cs" />
-    <Compile Include="GameSave_Test.cs" />
-    <Compile Include="Game_Test.cs" />
-    <Compile Include="Items_Test.cs" />
-    <Compile Include="Player_Test.cs" />
+    <Compile Include="Game\Enemy_Test.cs" />
+    <Compile Include="Game\GameSave_Test.cs" />
+    <Compile Include="Game\Game_Test.cs" />
+    <Compile Include="Game\Home_Test.cs" />
+    <Compile Include="Items\Clothing_Test.cs" />
+    <Compile Include="Items\Items_Test.cs" />
+    <Compile Include="Game\Player_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resource_Test.cs" />
-    <Compile Include="Weapon_Test.cs" />
-    <Compile Include="WordTile_Test.cs" />
+    <Compile Include="Game\Resource_Test.cs" />
+    <Compile Include="Items\Weapon_Test.cs" />
+    <Compile Include="Board\WordTile_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

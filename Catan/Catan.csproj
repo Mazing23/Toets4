@@ -66,33 +66,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Items\Axe.cs" />
-    <Compile Include="Board\BordGame.cs">
+    <Compile Include="Game\BordGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Board\BordGame.Designer.cs">
+    <Compile Include="Game\BordGame.Designer.cs">
       <DependentUpon>BordGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="Board\Home.cs" />
+    <Compile Include="Game\Home.cs" />
     <Compile Include="Items\Clothes.cs" />
-    <Compile Include="Enemy.cs" />
-    <Compile Include="EnemyType.cs" />
-    <Compile Include="GameSave.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="Game\Enemy.cs" />
+    <Compile Include="Game\EnemyType.cs" />
+    <Compile Include="Game\GameSave.cs" />
+    <Compile Include="Game\Game.cs" />
     <Compile Include="Items\Gun.cs" />
-    <Compile Include="IDamage.cs" />
+    <Compile Include="Items\IDamage.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Board\MovementDirection.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Game\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Board\Resource.cs" />
+    <Compile Include="Game\Resource.cs" />
     <Compile Include="Items\Sword.cs" />
     <Compile Include="Board\WorldTile.cs" />
-    <Compile Include="GameWindow.xaml.cs">
+    <Compile Include="Board\GameWindow.xaml.cs">
       <DependentUpon>GameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Items\Weapon.cs" />
-    <EmbeddedResource Include="Board\BordGame.resx">
+    <EmbeddedResource Include="Game\BordGame.resx">
       <DependentUpon>BordGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -105,7 +105,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="CatanDiagram.cd" />
-    <None Include="GameDiagram.cd" />
+    <None Include="Board\GameDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,7 +120,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="GameWindow.xaml">
+    <Page Include="Board\GameWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
