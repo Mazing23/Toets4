@@ -8,49 +8,39 @@ namespace Catan
 {
     public class Game
     {
-        public Player Player { get; }
-        public List<Enemy> Enemys { get; }
-        public GameSave FileSave { get; }
-        public GameSave FileLoad { get; }
-        public List<Item> AllItems { get; }
-        public List<Resource> AllResources { get; }
-        public Dictionary<Resource, int> Resources { get; set; }
-        public Home Home { get; }
-        public WorldTile[,] Map;
-        public int MovesLeft;
+        public Player Player { get; private set; }
+        public GameSave FileSave { get; private set; }
+        public GameSave FileLoad { get; private set; }
+        public Home Home { get; private set; }
+        public WorldTile[,] Map { get; private set; }
+        public int MovesLeft { get; private set; }
         public int TurnsLeft { get; private set; }
 
         Random rand = new Random();
+        public List<Item> AllItems { get; private set; }
+        public List<Resource> AllResources { get; private set; }
+        public List<Enemy> Enemys { get; private set; }
 
-
-        public Game(Player player, List<Enemy> enemys, Home home, int turns, List<Resource> resource)
+        public Game(Player player, int turns)
         {
-            Map = new WorldTile[10, 10];
+            ImplementLists();
+
             Player = player ?? throw new ArgumentNullException(nameof(player));
-            Enemys = enemys ?? throw new ArgumentNullException(nameof(enemys));
-            AllResources = resource ?? throw new ArgumentNullException(nameof(resource));
-            Home = home ?? throw new ArgumentNullException(nameof(home));
+            if (turns == 0) throw new ArgumentOutOfRangeException(nameof(turns));
             TurnsLeft = turns;
+
+            Home = new Home("Home", player);
+            Map = new WorldTile[10, 10];
+
+            SetUpGame();
         }
 
-        private void SetUpResources()
+        private void ImplementLists()
         {
-            AllResources.Add(new Resource("Wood")); // for home / defence
-            AllResources.Add(new Resource("Iron")); // make weapons / clothes
-            AllResources.Add(new Resource("Grain")); // for the citizens
-            AllResources.Add(new Resource("Wool")); // for clothes
-            AllResources.Add(new Resource("Stone")); // for home / defence
+            AllItems = new List<Item>();
+            AllResources = new List<Resource>();
+            Enemys = new List<Enemy>();
         }
-
-        private void SetUpItems()
-        {
-            AllItems.Add(new Sword("Wooden Sword", 5));
-            AllItems.Add(new Sword("Stone Sword", 10));
-            AllItems.Add(new Sword("Iron Sword", 15));
-            AllItems.Add(new Gun("Pistol", 10));
-            AllItems.Add(new Gun("Assault Rifle", 20));
-        }
-
         private void GenerateMap()
         {
             for (int i = 0; i < 10; i++)
@@ -75,27 +65,27 @@ namespace Catan
                 }
             }
         }
-
-        /// <summary>
-        /// Set up  50 ENEMIES with a random damage value 
-        /// between 1 and 50. 
-        /// </summary>
-        private void SetUpEnemies()
+        private  void SetUpGame()
         {
-            int damageRandom = rand.Next(1, 51);
+            AllResources.Add(new Resource("Wood")); // for home / defence
+            AllResources.Add(new Resource("Iron")); // make weapons / clothes
+            AllResources.Add(new Resource("Grain")); // for the citizens
+            AllResources.Add(new Resource("Wool")); // for clothes
+            AllResources.Add(new Resource("Stone")); // for home / defence
+
             for (int i = 1; i <= 50; i++)
             {
+                int damageRandom = rand.Next(1, 51);
                 Enemys.Add(new Enemy(i.ToString(), damageRandom));
             }
-        }
 
-        public void SetUpGame()
-        {
-            SetUpResources();
-            SetUpEnemies();
-            SetUpItems();
+            AllItems.Add(new Sword("Wooden Sword", 5));
+            AllItems.Add(new Sword("Stone Sword", 10));
+            AllItems.Add(new Sword("Iron Sword", 15));
+            AllItems.Add(new Gun("Pistol", 10));
+            AllItems.Add(new Gun("Assault Rifle", 20));
+
             GenerateMap();
-
         }
 
         /// <summary>
@@ -214,7 +204,7 @@ namespace Catan
                 {
                     Player.MakeItem(ex.Item);
                 }
-                Map[Player.posX, Player.posY].LootResources();
+                //Map[Player.posX, Player.posY].LootResources();
             }
 
         }
