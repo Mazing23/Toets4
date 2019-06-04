@@ -15,10 +15,30 @@ namespace Catan
     public partial class BordGame : Form
     {
         Game currentGame;
+        OpenFileDialog ofd;
 
         public BordGame()
         {
             InitializeComponent();
+            if (MessageBox.Show("Do you want to resume a previous game?", "WARNING!",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string fileDirectory = ofd.FileName;
+                    currentGame.LoadGame(fileDirectory);
+                }
+            }
+            else
+            {
+                string newName = Interaction.InputBox("Enter new name for game:", "New Game", "No Name", -1, -1);
+                Player newPlayer = new Player(newName);
+                Game newGame = new Game(newPlayer, 30);
+                currentGame = newGame;
+                RefreshLabels();
+                RefreshListbox();
+            }
         }
 
         private void SaveGame(Game game)
@@ -56,10 +76,10 @@ namespace Catan
             }
             else
             {
-                lblMovesLeft.Text = currentGame.MovesLeft.ToString() + "moves left.";
+                lblMovesLeft.Text = currentGame.MovesLeft.ToString() + " moves left.";
             }
 
-            lblTurnsLeft.Text = currentGame.TurnsLeft.ToString() + "turns left.";
+            lblTurnsLeft.Text = currentGame.TurnsLeft.ToString() + " turns left.";
 
 
             WorldTile currentTile = currentGame.currentTile();
@@ -69,28 +89,48 @@ namespace Catan
                 var tileToExplore = currentTile as ExploreTile;
                 if (tileToExplore.Resource != null)
                 {
-                    lblResourcesOnThisLand.Text = tileToExplore.resourceAmount.ToString() + tileToExplore.Item.ToString() + "on this tile.";
+                    lblResourcesOnThisLand.Text = tileToExplore.resourceAmount.ToString() + tileToExplore.Item.ToString() + " on this tile.";
                 }
                 else
                 {
-                    lblResourcesOnThisLand.Text = "No resource on this tile.";
+                    lblResourcesOnThisTile.Text = "No resource on this tile.";
                 }
 
                 if (tileToExplore.Item != null)
                 {
-                    lblItemOnThisLand.Text = tileToExplore.Item.ToString() + "on this tile.";
+                    lblItemOnThisLand.Text = tileToExplore.Item.ToString() + " on this tile.";
                 }
                 else
                 {
                     lblItemOnThisLand.Text = "No item on this tile.";
                 }
             }
+
+            else if(currentTile is HomeTile)
+            {
+                lblResourcesOnThisTile.Text = "This is your home, nothing to loot here.";
+                lblItemOnThisLand.Text = "This is your home, nothing to loot here.";
+            }
             
-            lblHealthPoints.Text = currentGame.Player.Health.ToString() + "health points left.";
-            lblEquippedWeapon.Text = currentGame.Player.EquipedItem.ToString() + "equipped.";
-            lblEquippedClothing.Text = currentGame.Player.EquipedClothes.ToString() + "equipped.";
-            lblNumberOfCitizens.Text = currentGame.Home.Citizens.ToString() + "in your hometown.";
-            lblHomeHealth.Text = currentGame.Home.Health.ToString() + "healthpoints";
+            lblHealthPoints.Text = currentGame.Player.Health.ToString() + " health points left.";
+            if (currentGame.Player.EquipedItem != null)
+            {
+                lblEquippedWeapon.Text = currentGame.Player.EquipedItem.ToString() + " equipped.";
+            }
+            else
+            {
+                lblEquippedWeapon.Text = "No weapon equipped.";
+            }
+            if (currentGame.Player.EquipedClothes != null)
+            {
+                lblEquippedClothing.Text = currentGame.Player.EquipedClothes.ToString() + " equipped.";
+            }
+            else
+            {
+                lblEquippedClothing.Text = "No clothing equipped.";
+            }
+            lblNumberOfCitizens.Text = currentGame.Home.Citizens.ToString() + " citizens in your hometown.";
+            lblHomeHealth.Text = currentGame.Home.Health.ToString() + " healthpoints";
 
         }
 
@@ -168,20 +208,26 @@ namespace Catan
 
         private void butLoadGame_Click(object sender, EventArgs e)
         {
-            currentGame.SaveGame(currentGame);
+          
+            string gameDirectory = "";
+            currentGame = currentGame.LoadGame(gameDirectory);
             //Nog implementeren
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string sourceFile = ofd.FileName;
+            }
         }
 
         private void butSaveGame_Click(object sender, EventArgs e)
         {
-            string gameDirectory = "";
-            currentGame = currentGame.LoadGame(gameDirectory);
-            //Nog implementeren
+            currentGame.SaveGame(currentGame);
+            //Nog implementeren]
         }
 
         private void butNewGame_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Yes or no", "Are you sure you want to start a new game?",
+            if (MessageBox.Show("Are you sure you want to start a new game? Yes or no", "WARNING!",
                  MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                  MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {

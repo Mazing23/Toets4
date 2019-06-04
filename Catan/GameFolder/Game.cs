@@ -47,7 +47,7 @@ namespace Catan
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    if (i == 5 || i == 6 || j == 5 || j == 6)
+                    if (i == 4 && j == 4 || i == 5  && j == 4 || i == 5 && j == 4 || i == 5 && j == 5 )
                     {
                         Map[i, j] = new HomeTile(i, j);
                     }
@@ -157,8 +157,11 @@ namespace Catan
 
         public void NextTurn()
         {
-            MovesLeft = rand.Next(1, 6);
-            TurnsLeft -= 1;
+            if (TurnsLeft >= 1)
+            {
+                MovesLeft = rand.Next(1, 6);
+                TurnsLeft -= 1;
+            }
         }
 
         public void MovePlayer(int movements)

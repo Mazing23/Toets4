@@ -21,14 +21,10 @@ namespace Catan
         {
             Player = player ?? throw new ArgumentNullException(nameof(player));
             Name = name ?? throw new ArgumentNullException(nameof(name));
+            Defence = 1;
+            Health = 100;
+            Citizens = 1;
         }
-
-        public void SetUp()
-        {
-
-        }
-
-
         public void AddHouse()
         {
 
