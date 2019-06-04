@@ -30,10 +30,6 @@ namespace Catan
             posY = 5;
         }
 
-        public void SetUp()
-        {
-
-        }
 
         /// <summary>
         /// Return true if Item was able to be added. Return false if not able or if item was null.

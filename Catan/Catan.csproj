@@ -91,9 +91,6 @@
     <Compile Include="GameFolder\Resource.cs" />
     <Compile Include="ItemsFolder\Sword.cs" />
     <Compile Include="BoardFolder\WorldTile.cs" />
-    <Compile Include="BoardFolder\GameWindow.xaml.cs">
-      <DependentUpon>GameWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ItemsFolder\Weapon.cs" />
     <EmbeddedResource Include="BoardFolder\BordGame.resx">
       <DependentUpon>BordGame.cs</DependentUpon>
@@ -121,11 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="BoardFolder\GameWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
