@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CatanTesting.Game
+namespace CatanTesting
 {
     [TestClass]
     public class Home_Test
