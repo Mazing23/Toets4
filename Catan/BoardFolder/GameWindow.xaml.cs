@@ -101,10 +101,7 @@ namespace Catan
 
         private void buttonNewGame_click(object sender, RoutedEventArgs e)
         {
-            Game newGame = new Game("");
-            currentGame = newGame;
-            RefreshLabels();
-            RefreshListbox();
+            
         }
 
         private void RefreshListbox()

@@ -201,7 +201,7 @@ namespace Catan
             WorldTile currentTile = Map[Player.posX, Player.posY];
             if (currentTile is HomeTile)
             {
-                //no actions kan be taken
+                //no actions can be taken
             }
             else if (currentTile is ExploreTile)
             {
