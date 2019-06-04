@@ -13,7 +13,6 @@ namespace CatanTesting
     {
         Player p;
         List<Enemy> enemies;
-        Home home;
         List<Resource> resources;
 
         [TestInitialize]
@@ -21,10 +20,51 @@ namespace CatanTesting
         {
             p = new Player("Harry");
             enemies = new List<Enemy>();
-            home = new Home("Home", p);
             resources = new List<Resource>();
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Home_throws_exeption_null_values()
+        {
+            Home h = new Home(null, p);
+            Home y = new Home("Home", null);
+        }
 
+        [TestMethod]
+        public void Home_created_new_home_test_player()
+        {
+            Home h = new Home("Home", p);
+
+            Assert.AreEqual(p, h.Player);
+        }
+
+        [TestMethod]
+        public void AddDefence_defence_will_change()
+        {
+            int new_defence = 5;
+            int expected_defence = 5;
+
+            Home h = new Home("Home", p);
+
+            h.AddDefence(new_defence);
+
+            Assert.AreEqual(expected_defence, h.Defence);
+        }
+
+        [TestMethod]
+        public void CheckDefenceLevel_level_willbe_one()
+        {
+            int new_defence = 5;
+            int expected_level = 1;
+
+            Home h = new Home("Home", p);
+
+            h.AddDefence(new_defence);
+
+            Assert.AreEqual(expected_level, h.CheckDefenceLevel());
+        }
+
+        
     }
 }

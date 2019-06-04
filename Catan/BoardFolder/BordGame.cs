@@ -82,7 +82,7 @@ namespace Catan
             lblTurnsLeft.Text = currentGame.TurnsLeft.ToString() + " turns left.";
 
 
-            WorldTile currentTile = currentGame.currentTile();
+            WorldTile currentTile = currentGame.CurrentTile();
 
             if (currentTile is ExploreTile)
             {
@@ -201,7 +201,7 @@ namespace Catan
 
         private void butHarvest_Click(object sender, EventArgs e)
         {
-            currentGame.takeResources();
+            currentGame.TakeResources();
             RefreshLabels();
             RefreshListbox();
         }
