@@ -16,10 +16,13 @@ namespace Catan
         public int MovesLeft { get; private set; }
         public int TurnsLeft { get; private set; }
 
-        Random rand = new Random();
+        
         public List<Item> AllItems { get; private set; }
         public List<Resource> AllResources { get; private set; }
         public List<Enemy> Enemys { get; private set; }
+
+
+        Random rand = new Random();
 
         public Game(Player player, int turns)
         {
@@ -49,7 +52,7 @@ namespace Catan
                 {
                     if (i == 5 || i == 6 || j == 5 || j == 6)
                     {
-                        Map[i, j] = new HomeTile(i, j);
+                        Map[i, j] = new HomeTile(i, j); //klopt nmiet!!!
                     }
                     else
                     {
@@ -181,12 +184,12 @@ namespace Catan
                     break;
             }
         }
-        public WorldTile currentTile()
+        public WorldTile CurrentTile()
         {
             return Map[Player.posX, Player.posY];
         }
 
-        public void takeResources()
+        public void TakeResources()
         {
             WorldTile currentTile = Map[Player.posX, Player.posY];
             if (currentTile is HomeTile)

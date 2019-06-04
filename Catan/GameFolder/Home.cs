@@ -23,20 +23,14 @@ namespace Catan
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
 
-        public void SetUp()
-        {
-
-        }
-
-
         public void AddHouse()
         {
 
         }
 
-        public void AddDefense(int defense)
+        public void AddDefence(int defence)
         {
-            Defence = defense;
+            Defence = defence;
         }
 
         public void AddCitizens()

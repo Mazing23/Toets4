@@ -91,7 +91,7 @@ namespace CatanTesting
             int level_ofDefence = 10;
 
             Game g = new Game(player_Game, given_Turns);
-            g.Home.AddDefense(level_ofDefence);
+            g.Home.AddDefence(level_ofDefence);
             Enemy e = g.GiveNewEnemy();
 
             Assert.AreEqual(EnemyType.Hard, e.EnemyType);
@@ -217,6 +217,20 @@ namespace CatanTesting
             g.MovePlayer(given_switch_number);
 
             Assert.AreEqual(expected_unchanged_position, player_Game.posX);
+        }
+
+        [TestMethod]
+        public void CurrentTile_returns_correctMap()
+        {
+            int expected_x_position = 5;
+            int expected_y_position = 5;
+
+            Game g = new Game(player_Game, given_Turns);
+            WorldTile w = g.CurrentTile();
+
+            Assert.AreEqual(g.Map[expected_x_position, 
+                expected_y_position],
+                w);
         }
 
 
