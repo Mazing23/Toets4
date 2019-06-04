@@ -34,6 +34,11 @@ namespace Catan
             }
         }
 
+        public void SetUp()
+        {
+
+        }
+
         public void TakeDamage(Weapon w)
         {
             Health =- w.Damage;

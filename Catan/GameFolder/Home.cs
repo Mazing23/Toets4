@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Home
+    public class Home 
     {
-        public int Health { get; set; }
+        public int Health { get; private set; }
         public string Name { get; private set; }
-        public int Defence { get; set; }
-        public int Citizens { get; set; }
+        public int Defence { get; private set; }
+        public int Citizens { get; private set; }
         public Player Player { get; private set; }
 
         public List<Resource> Resources { get; set; }
@@ -22,6 +22,12 @@ namespace Catan
             Player = player ?? throw new ArgumentNullException(nameof(player));
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
+
+        public void SetUp()
+        {
+
+        }
+
 
         public void AddHouse()
         {

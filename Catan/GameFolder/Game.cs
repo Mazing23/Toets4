@@ -23,25 +23,14 @@ namespace Catan
         Random rand = new Random();
 
 
-        public Game(string playerName)
+        public Game(Player player, List<Enemy> enemys, Home home, int turns, List<Resource> resource)
         {
             Map = new WorldTile[10, 10];
-            Player = new Player(playerName);
-            Enemys = new List<Enemy>();
-            AllItems = new List<Item>();
-            AllResources = new List<Resource>();
-            Home = new Home("Home", Player);
-            TurnsLeft = 30;
-        }
-
-        public Game(Player player, List<Enemy> enemys, Home home)
-        {
-            Map = new WorldTile[10, 10];
-            Player = player;
-            Enemys = enemys;
-            AllResources = new List<Resource>();
-            Home = new Home("Home", Player);
-            TurnsLeft = 30;
+            Player = player ?? throw new ArgumentNullException(nameof(player));
+            Enemys = enemys ?? throw new ArgumentNullException(nameof(enemys));
+            AllResources = resource ?? throw new ArgumentNullException(nameof(resource));
+            Home = home ?? throw new ArgumentNullException(nameof(home));
+            TurnsLeft = turns;
         }
 
         private void SetUpResources()
@@ -129,7 +118,6 @@ namespace Catan
                     if (Player.Resources[r] >= 5)
                     {
                         Player.Resources[r] = Player.Resources[r] - 5;
-                        Home.Citizens += 4;
                     }
                 }
             }

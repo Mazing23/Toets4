@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Player
+    public class Player 
     {
         public string Name { get; private set; }
         public List<Item> Items { get; set; }
@@ -28,6 +28,11 @@ namespace Catan
             Resources = new Dictionary<Resource, int>();
             posX = 5;
             posY = 5;
+        }
+
+        public void SetUp()
+        {
+
         }
 
         /// <summary>
