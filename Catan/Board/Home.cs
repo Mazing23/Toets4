@@ -9,10 +9,10 @@ namespace Catan
     public class Home
     {
         public int Health { get; set; }
-        public string Name { get; set; }
+        public string Name { get; private set; }
         public int Defence { get; set; }
         public int Citizens { get; set; }
-        public Player Player { get; set; }
+        public Player Player { get; private set; }
 
         public List<Resource> Resources { get; set; }
 
@@ -20,6 +20,7 @@ namespace Catan
         public Home(string name, Player player)
         {
             Player = player ?? throw new ArgumentNullException(nameof(player));
+            Name = name ?? throw new ArgumentNullException(nameof(name));
         }
 
         public void AddHouse()
@@ -37,7 +38,7 @@ namespace Catan
             
         }
 
-        public int CheckDefenseLevel()
+        public int CheckDefenceLevel()
         {
             if (Defence <= 5)
             {

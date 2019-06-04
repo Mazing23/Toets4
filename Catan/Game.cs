@@ -129,28 +129,28 @@ namespace Catan
         {
             foreach(Enemy e in Enemys)
             {
-                if(Home.CheckDefenseLevel() == 1)
+                if(Home.CheckDefenceLevel() == 1)
                 {
                     if(e.EnemyType == EnemyType.Easy)
                     {
                         return e;
                     }
                 }
-                if(Home.CheckDefenseLevel() == 2)
+                if(Home.CheckDefenceLevel() == 2)
                 {
                     if (e.EnemyType == EnemyType.Hard)
                     {
                         return e;
                     }
                 }
-                if(Home.CheckDefenseLevel() == 3)
+                if(Home.CheckDefenceLevel() == 3)
                 {
                     if(e.EnemyType == EnemyType.Extreme)
                     {
                         return e;
                     }
                 }
-                if (Home.CheckDefenseLevel() == 0) return null;
+                if (Home.CheckDefenceLevel() == 0) return null;
             }
             return null;
         }
