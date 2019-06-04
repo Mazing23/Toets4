@@ -36,11 +36,11 @@ namespace Catan
 
         private void SetUpResources()
         {
-            AllResources.Add(new Resource("Wood"));
-            AllResources.Add(new Resource("Iron"));
-            AllResources.Add(new Resource("Grain"));
-            AllResources.Add(new Resource("Wool"));
-            AllResources.Add(new Resource("Stone"));
+            AllResources.Add(new Resource("Wood")); // for home / defence
+            AllResources.Add(new Resource("Iron")); // make weapons / clothes
+            AllResources.Add(new Resource("Grain")); // for the citizens
+            AllResources.Add(new Resource("Wool")); // for clothes
+            AllResources.Add(new Resource("Stone")); // for home / defence
         }
 
         private void SetUpItems()
