@@ -34,6 +34,16 @@ namespace Catan
             TurnsLeft = 30;
         }
 
+        public Game(Player player, List<Enemy> enemys, Home home)
+        {
+            Map = new WorldTile[10, 10];
+            Player = player;
+            Enemys = enemys;
+            AllResources = new List<Resource>();
+            Home = new Home("Home", Player);
+            TurnsLeft = 30;
+        }
+
         private void SetUpResources()
         {
             AllResources.Add(new Resource("Wood")); // for home / defence

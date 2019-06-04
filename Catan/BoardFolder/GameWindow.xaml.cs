@@ -172,6 +172,51 @@ namespace Catan
         private void refreshMapDrawing()
         {
             gridMap.ShowGridLines = true;
+            gridMap.
+        }
+
+        private void drawMap()
+        {
+            // Create the Grid
+            Grid myGrid = new Grid();
+            myGrid.Width = 400;
+            myGrid.Height = 400;
+            myGrid.HorizontalAlignment = HorizontalAlignment.Left;
+            myGrid.VerticalAlignment = VerticalAlignment.Top;
+            myGrid.ShowGridLines = true;
+
+            //De columns maken
+            ColumnDefinition colDef1 = new ColumnDefinition();
+            ColumnDefinition colDef2 = new ColumnDefinition();
+            ColumnDefinition colDef3 = new ColumnDefinition();
+            ColumnDefinition colDef4 = new ColumnDefinition();
+            ColumnDefinition colDef5 = new ColumnDefinition();
+            ColumnDefinition colDef6 = new ColumnDefinition();
+            ColumnDefinition colDef7 = new ColumnDefinition();
+            ColumnDefinition colDef8 = new ColumnDefinition();
+            ColumnDefinition colDef9 = new ColumnDefinition();
+            ColumnDefinition colDef10 = new ColumnDefinition();
+            myGrid.ColumnDefinitions.Add(colDef1);
+            myGrid.ColumnDefinitions.Add(colDef2);
+            myGrid.ColumnDefinitions.Add(colDef3);
+            myGrid.ColumnDefinitions.Add(colDef4);
+            myGrid.ColumnDefinitions.Add(colDef5);
+            myGrid.ColumnDefinitions.Add(colDef6);
+            myGrid.ColumnDefinitions.Add(colDef7);
+            myGrid.ColumnDefinitions.Add(colDef8);
+            myGrid.ColumnDefinitions.Add(colDef9);
+            myGrid.ColumnDefinitions.Add(colDef10);
+
+            //De rows maken
+            RowDefinition rowDef1 = new RowDefinition();
+            RowDefinition rowDef2 = new RowDefinition();
+            RowDefinition rowDef3 = new RowDefinition();
+            RowDefinition rowDef4 = new RowDefinition();
+            myGrid.RowDefinitions.Add(rowDef1);
+            myGrid.RowDefinitions.Add(rowDef2);
+            myGrid.RowDefinitions.Add(rowDef3);
+            myGrid.RowDefinitions.Add(rowDef4);
+
         }
     }
 }

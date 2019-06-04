@@ -92,41 +92,6 @@
         <Label x:Name="lblHealthPoints" Content="Label" HorizontalAlignment="Left" Height="43" Margin="246,501,0,0" VerticalAlignment="Top" Width="134" FontSize="16"/>
         <Label x:Name="lblEquipedWeapon" Content="Label" HorizontalAlignment="Left" Height="43" Margin="246,549,0,0" VerticalAlignment="Top" Width="134" FontSize="16"/>
         <Label x:Name="lblEquipedClothing" Content="Label" HorizontalAlignment="Left" Height="43" Margin="246,592,0,0" VerticalAlignment="Top" Width="134" FontSize="16"/>
-        <Grid x:Name="gridMap" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="400" Opacity="0.99" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="40" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="0" />
-            </Grid.RowDefinitions>
-            <Button>Button 1</Button>
-            <Button Grid.Column="1">Button 2</Button>
-            <Button Grid.Column="1" Grid.ColumnSpan="2" Margin="68.889,0,0.222,0.222">Button 3</Button>
-            <Button Grid.Row="1">Button 4</Button>
-            <Button Grid.Column="1" Grid.Row="1">Button 5</Button>
-            <Button Grid.Column="2" Grid.Row="1">Button 6</Button>
-            <Button Grid.Row="2">Button 7</Button>
-            <Button Grid.Column="1" Grid.Row="2">Button 8</Button>
-            <Button Grid.Column="2" Grid.Row="2">Button 9</Button>
-        </Grid>
 
     </Grid>
 </UserControl>
