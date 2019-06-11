@@ -8,12 +8,24 @@ namespace Catan
 {
     public class Gun : Weapon
     {
-        public override int Damage { get; }
+        Random rand = new Random();
 
-        public Gun(string name, int damage) : base(name, damage)
+        public override int Damage { get
+            {
+                if (Name.Length > 50) return 20;
+                if(Name.Length - 10 <= 0) return rand.Next(1, Name.Length);
+                return rand.Next((Name.Length - 10), Name.Length); 
+            }
+        }
+
+        public Gun(string name) : base(name)
         {
 
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + " , Damage: " + Damage;
+        }
     }
 }

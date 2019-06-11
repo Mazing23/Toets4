@@ -82,11 +82,11 @@ namespace Catan
                 Enemys.Add(new Enemy(i.ToString(), damageRandom));
             }
 
-            AllItems.Add(new Sword("Wooden Sword", 5));
-            AllItems.Add(new Sword("Stone Sword", 10));
-            AllItems.Add(new Sword("Iron Sword", 15));
-            AllItems.Add(new Gun("Pistol", 10));
-            AllItems.Add(new Gun("Assault Rifle", 20));
+            AllItems.Add(new Sword("Wooden Sword"));
+            AllItems.Add(new Sword("Stone Sword"));
+            AllItems.Add(new Sword("Iron Sword"));
+            AllItems.Add(new Gun("Pistol"));
+            AllItems.Add(new Gun("Assault Rifle"));
 
             GenerateMap();
         }

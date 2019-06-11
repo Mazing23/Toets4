@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Weapon : Item, IDamage
+    public class Weapon : Item
     {
-        public virtual int Damage { get; }
 
         public int Range { get; set; }
+        public override int Damage { get; }
 
-        public Weapon(string name, int damage) : base(name)
+        public Weapon(string name) : base(name)
         {
-            Damage = damage;
+           
         }
 
         public override string ToString()

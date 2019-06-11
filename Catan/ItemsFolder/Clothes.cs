@@ -8,11 +8,16 @@ namespace Catan
 {
     public class Clothing : Item
     {
-        public int DamageRes { get; set; }
+        public override int Damage { get; }
 
         public Clothing(string name) : base(name)
         {
+            
+        }
 
+        public override string ToString()
+        {
+            return base.ToString() + " , Damage: " + Damage;
         }
     }
 }

@@ -91,7 +91,7 @@ namespace CatanTesting
             int level_ofDefence = 10;
 
             Game g = new Game(player_Game, given_Turns);
-            g.Home.AddDefence(level_ofDefence);
+            g.Home.AddDefense(level_ofDefence);
             Enemy e = g.GiveNewEnemy();
 
             Assert.AreEqual(EnemyType.Hard, e.EnemyType);
