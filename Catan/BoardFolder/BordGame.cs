@@ -16,6 +16,7 @@ namespace Catan
     {
         Game currentGame;
         OpenFileDialog ofd;
+        CheckBox[,] checkBoxes;
 
         public BordGame()
         {
@@ -40,6 +41,8 @@ namespace Catan
                 RefreshLabels();
                 RefreshListbox();
             }
+            checkBoxes = new CheckBox[10,10];
+            generateMap();
         }
 
         private void SaveGame(Game game)
@@ -195,6 +198,10 @@ namespace Catan
                 currentGame.MovePlayer(1);
                 RefreshLabels();
             }
+            else if(currentGame.MovesLeft == 0)
+            {
+                MessageBox.Show("No moves left!");
+            }
         }
 
         private void butLeft_Click(object sender, EventArgs e)
@@ -202,7 +209,7 @@ namespace Catan
 
             if (currentGame.MovesLeft > 0)
             {
-                currentGame.MovePlayer(2);
+                currentGame.MovePlayer(Left);
                 RefreshLabels();
             }
         }
@@ -264,6 +271,77 @@ namespace Catan
         {
             currentGame.Player.EquipItem(listBoxClothes.SelectedItem as Item);
             RefreshLabels();
+
+        }
+
+        private void generateMap()
+        {
+            int startingX = 25;
+            int startingY = 25;
+
+            int lastX = 0;
+            int lastY = 0;
+
+            int Count =0;
+
+            foreach ( WorldTile t in currentGame.Map)
+            {
+                checkBoxes[t.posX, t.posY] = new CheckBox();
+                groupBoxMap.Controls.Add(checkBoxes[t.posX, t.posY]);
+                checkBoxes[t.posX, t.posY].Width = 15;
+                checkBoxes[t.posX, t.posY].Height = 15;
+                checkBoxes[t.posX, t.posY].Anchor = (AnchorStyles.Left | AnchorStyles.Top);
+                checkBoxes[t.posX, t.posY].Location = new Point(startingY, startingX);
+                checkBoxes[t.posX, t.posY].Visible = true;
+                checkBoxes[t.posX, t.posY].Show();
+                if (t is HomeTile)
+                {
+                    checkBoxes[t.posX, t.posY].BackColor = Color.Green;
+                    checkBoxes[t.posX, t.posY].Checked = true;
+
+                    Count += 1;
+                }
+                else if(t is ExploreTile)
+                {
+                    checkBoxes[t.posX, t.posY].BackColor = Color.Red;
+                }
+
+                if((t.posX - lastX) != 0)
+                {
+                    lastX = t.posX;
+                    startingX += 20;
+                }
+
+                if ((t.posY - lastY) != 0)
+                {
+                    lastY = t.posY;
+                    startingY += 20;
+                }
+
+                if(t.posY == 0)
+                {
+                    startingY = 25;
+                }
+
+                if (t.posX == 0)
+                {
+                    startingX = 25;
+                }
+
+                Console.Write(t.posX.ToString());
+                Console.WriteLine(t.posY.ToString());
+            }
+
+            Console.WriteLine(Count.ToString());
+        }
+
+        private void updateMap()
+        {
+
+        }
+       
+        private void lblPosx_Click(object sender, EventArgs e)
+        {
 
         }
     }

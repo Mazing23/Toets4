@@ -21,7 +21,6 @@ namespace Catan
         public List<Resource> AllResources { get; private set; }
         public List<Enemy> Enemys { get; private set; }
 
-
         Random rand = new Random();
 
         public Game(Player player, int turns)
@@ -46,11 +45,11 @@ namespace Catan
         }
         private void GenerateMap()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; )
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < 10;)
                 {
-                    if (i == 4 && j == 4 || i == 5  && j == 4 || i == 5 && j == 4 || i == 5 && j == 5 )
+                    if ( (i == 4 || i == 5) && (j == 6 || j == 5) )
                     {
                         Map[i, j] = new HomeTile(i, j);
                     }
@@ -65,7 +64,9 @@ namespace Catan
                             Map[i, j] = new ExploreTile(i, j, AllResources[rand.Next(1, 5)], rand.Next(1, 5));
                         }
                     }
+                    j++;
                 }
+                i++;
             }
         }
         private  void SetUpGame()
@@ -186,6 +187,7 @@ namespace Catan
                 default:
                     break;
             }
+            MovesLeft -= 1;
         }
         public WorldTile CurrentTile()
         {

@@ -6,14 +6,14 @@
       <Path>
         <Point X="21" Y="5.274" />
         <Point X="21.375" Y="5.274" />
-        <Point X="21.375" Y="8" />
-        <Point X="20.677" Y="8" Type="JumpStart" />
-        <Point X="20.51" Y="8" Type="JumpEnd" />
-        <Point X="20.208" Y="8" Type="JumpStart" />
-        <Point X="20.042" Y="8" Type="JumpEnd" />
-        <Point X="19.771" Y="8" Type="JumpStart" />
-        <Point X="19.604" Y="8" Type="JumpEnd" />
-        <Point X="16.5" Y="8" />
+        <Point X="21.375" Y="8.055" />
+        <Point X="20.708" Y="8.055" Type="JumpStart" />
+        <Point X="20.542" Y="8.055" Type="JumpEnd" />
+        <Point X="20.271" Y="8.055" Type="JumpStart" />
+        <Point X="20.104" Y="8.055" Type="JumpEnd" />
+        <Point X="19.802" Y="8.055" Type="JumpStart" />
+        <Point X="19.635" Y="8.055" Type="JumpEnd" />
+        <Point X="16.5" Y="8.055" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="EquipedWeapon" Type="Catan.Weapon">
@@ -48,36 +48,36 @@
   <Class Name="Catan.Item">
     <Position X="14.75" Y="7.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAEAAAAAASAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemsFolder\Item.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Catan.Weapon">
     <Position X="13" Y="10.75" Width="1.75" />
     <InheritanceLine Type="Catan.Item" FixedToPoint="true">
       <Path>
-        <Point X="15.625" Y="9.497" />
+        <Point X="15.625" Y="9.882" />
         <Point X="15.625" Y="10.375" />
         <Point X="14.562" Y="10.375" />
         <Point X="14.562" Y="10.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemsFolder\Weapon.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Catan.Gun">
     <Position X="10.75" Y="11.5" Width="1.75" />
     <InheritanceLine Type="Catan.Weapon" FixedFromPoint="true">
       <Path>
-        <Point X="13" Y="12.25" />
-        <Point X="12.5" Y="12.25" />
+        <Point X="13" Y="12.404" />
+        <Point X="12.5" Y="12.404" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAICAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemsFolder\Gun.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -116,7 +116,7 @@
   <Class Name="Catan.BordGame" Collapsed="true">
     <Position X="7" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>EBAWAgEKAGCUoNOBUACACYGGAAAACggSECQQAAEICAE=</HashCode>
+      <HashCode>EBAWAgEKAGCUoMOBUASACcGHAAAACigSECQQAIEICAE=</HashCode>
       <FileName>BoardFolder\BordGame.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -124,14 +124,14 @@
     <Position X="17.5" Y="9" Width="1.75" />
     <InheritanceLine Type="Catan.Item" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="16.5" Y="8.625" />
-        <Point X="16.875" Y="8.625" />
-        <Point X="16.875" Y="9.875" />
-        <Point X="17.5" Y="9.875" />
+        <Point X="16.5" Y="8.818" />
+        <Point X="16.875" Y="8.818" />
+        <Point X="16.875" Y="9.975" />
+        <Point X="17.5" Y="9.975" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemsFolder\Clothes.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -139,14 +139,14 @@
     <Position X="15.25" Y="11.75" Width="1.75" />
     <InheritanceLine Type="Catan.Weapon" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="14.75" Y="11.813" />
-        <Point X="14.99" Y="11.813" />
-        <Point X="14.99" Y="12.812" />
-        <Point X="15.25" Y="12.812" />
+        <Point X="14.75" Y="11.922" />
+        <Point X="14.99" Y="11.922" />
+        <Point X="14.99" Y="13.218" />
+        <Point X="15.25" Y="13.218" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAICAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemsFolder\Sword.cs</FileName>
     </TypeIdentifier>
   </Class>

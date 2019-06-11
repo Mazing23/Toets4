@@ -54,6 +54,8 @@
             this.butSaveGame = new System.Windows.Forms.Button();
             this.butNewGame = new System.Windows.Forms.Button();
             this.groupBoxMap = new System.Windows.Forms.GroupBox();
+            this.lblPosy = new System.Windows.Forms.Label();
+            this.lblPosx = new System.Windows.Forms.Label();
             this.groupBoxTileInfo = new System.Windows.Forms.GroupBox();
             this.lblNumberOfCitizens = new System.Windows.Forms.Label();
             this.lblHomeHealth = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@
             this.lblItemOnThisLand = new System.Windows.Forms.Label();
             this.lblResourcesHome = new System.Windows.Forms.Label();
             this.lblResourcesOnThisLand = new System.Windows.Forms.Label();
-            this.lblPosx = new System.Windows.Forms.Label();
-            this.lblPosy = new System.Windows.Forms.Label();
             this.lblEquippedClothing.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxMap.SuspendLayout();
@@ -340,6 +340,25 @@
             this.groupBoxMap.TabStop = false;
             this.groupBoxMap.Text = "Map";
             // 
+            // lblPosy
+            // 
+            this.lblPosy.AutoSize = true;
+            this.lblPosy.Location = new System.Drawing.Point(617, 550);
+            this.lblPosy.Name = "lblPosy";
+            this.lblPosy.Size = new System.Drawing.Size(34, 29);
+            this.lblPosy.TabIndex = 1;
+            this.lblPosy.Text = "ra";
+            // 
+            // lblPosx
+            // 
+            this.lblPosx.AutoSize = true;
+            this.lblPosx.Location = new System.Drawing.Point(532, 550);
+            this.lblPosx.Name = "lblPosx";
+            this.lblPosx.Size = new System.Drawing.Size(79, 29);
+            this.lblPosx.TabIndex = 0;
+            this.lblPosx.Text = "label1";
+            this.lblPosx.Click += new System.EventHandler(this.lblPosx_Click);
+            // 
             // groupBoxTileInfo
             // 
             this.groupBoxTileInfo.Controls.Add(this.lblNumberOfCitizens);
@@ -410,24 +429,6 @@
             this.lblResourcesOnThisLand.Size = new System.Drawing.Size(328, 36);
             this.lblResourcesOnThisLand.TabIndex = 10;
             this.lblResourcesOnThisLand.Text = "Resources on this land:";
-            // 
-            // lblPosx
-            // 
-            this.lblPosx.AutoSize = true;
-            this.lblPosx.Location = new System.Drawing.Point(72, 501);
-            this.lblPosx.Name = "lblPosx";
-            this.lblPosx.Size = new System.Drawing.Size(79, 29);
-            this.lblPosx.TabIndex = 0;
-            this.lblPosx.Text = "label1";
-            // 
-            // lblPosy
-            // 
-            this.lblPosy.AutoSize = true;
-            this.lblPosy.Location = new System.Drawing.Point(196, 501);
-            this.lblPosy.Name = "lblPosy";
-            this.lblPosy.Size = new System.Drawing.Size(79, 29);
-            this.lblPosy.TabIndex = 1;
-            this.lblPosy.Text = "label1";
             // 
             // BordGame
             // 
