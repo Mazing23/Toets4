@@ -59,7 +59,7 @@ namespace Catan
                 Enemys.Add(new Enemy(i.ToString(), damageRandom));
             }
        
-            GenerateMap();
+            //GenerateMap();
         }
 
         private void ImplementLists()

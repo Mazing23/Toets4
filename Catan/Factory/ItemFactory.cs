@@ -26,7 +26,6 @@ namespace Catan
 
         public static Item Create(string name)
         {
-            
             Item standard = standardItems.FirstOrDefault(item => item.Name == name);
             if(standard != null)
             {

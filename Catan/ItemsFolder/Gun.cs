@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Gun : Weapon, IClone
+    public class Gun : Weapon
     {
         Random rand = new Random();
 

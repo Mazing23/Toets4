@@ -68,11 +68,8 @@
   <ItemGroup>
     <Compile Include="BoardFolder\HomeTile.cs" />
     <Compile Include="BoardFolder\ExploreTile.cs" />
-    <Compile Include="Factory\CreateActions.cs" />
     <Compile Include="Factory\IClone.cs" />
-    <Compile Include="Factory\IGameFactory.cs" />
     <Compile Include="Factory\ItemFactory.cs" />
-    <Compile Include="Factory\ResourceFactory.cs" />
     <Compile Include="ItemsFolder\Axe.cs" />
     <Compile Include="BoardFolder\BordGame.cs">
       <SubType>Form</SubType>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Axe : Weapon, IClone
+    public class Axe : Weapon
     {
         public override int Damage { get
             {
