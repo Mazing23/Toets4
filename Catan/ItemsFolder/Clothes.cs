@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Clothing : Item
+    public class Clothing : Item, ISetup
     {
         public override int Damage { get; }
 

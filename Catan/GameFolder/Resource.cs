@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Resource
+    public class Resource : ISetup
     {
         public string Name { get; set; }
 
@@ -14,8 +14,6 @@ namespace Catan
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
-
-
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public abstract class Item : IDamage
+    public abstract class Item : IDamage, ISetup
     {
         public string Name { get; set; }
         public int Amount { get; set; }
@@ -21,5 +21,6 @@ namespace Catan
         {
             return Name;
         }
+
     }
 }

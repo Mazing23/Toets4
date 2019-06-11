@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Enemy
+    public class Enemy 
     {
         public string Name { get; private set; }
         public int Health { get; private set; }

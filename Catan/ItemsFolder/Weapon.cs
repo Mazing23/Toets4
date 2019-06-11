@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Weapon : Item
+    public class Weapon : Item, ISetup
     {
 
         public int Range { get; set; }
@@ -17,9 +17,12 @@ namespace Catan
            
         }
 
+        
+
         public override string ToString()
         {
             return base.ToString() + " , Damage: " + Damage;
         }
+
     }
 }
