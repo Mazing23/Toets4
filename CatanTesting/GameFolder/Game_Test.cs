@@ -233,6 +233,14 @@ namespace CatanTesting
                 w);
         }
 
+        [TestMethod]
+        public void find_resources()
+        {
+            Game g = new Game(player_Game, 30);
+
+            
+        }
+            
 
     }
 }

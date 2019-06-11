@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Game : ISetup
+    public class Game
     {
         Random rand = new Random();
 
@@ -24,11 +24,9 @@ namespace Catan
         public List<Resource> AllResources { get; private set; }
         public List<Enemy> Enemys { get; private set; }
 
-        private ItemFactory itemFactory = new ItemFactory();
 
         public Game(Player player, int turns)
         {
-
             ImplementLists();
 
             Player = player ?? throw new ArgumentNullException(nameof(player));
@@ -43,29 +41,24 @@ namespace Catan
 
         public void Setup()
         {
-            AllItems.Add(itemFactory.Create("Wood", CreateActions.Gun));
+            AllItems.Add(ItemFactory.Create("Glock"));
+            AllItems.Add(ItemFactory.Create("Excalibur"));
+            AllItems.Add(ItemFactory.Create("AssualtRifle"));
+            AllItems.Add(ItemFactory.Create("IronSword"));
+            AllItems.Add(ItemFactory.Create("HarryPotter"));
 
-            //AllResources.Add((Execute(CreateActions.Resource, "Wood")) as Resource); // for home / defence
-            //AllResources.Add((Execute(CreateActions.Resource, "Iron")) as Resource); // make weapons / clothes
-            //AllResources.Add((Execute(CreateActions.Resource, "Grain")) as Resource); // for the citizens
-            //AllResources.Add((Execute(CreateActions.Resource, "Wool")) as Resource); // for clothes
-            //AllResources.Add((Execute(CreateActions.Resource, "Stone")) as Resource); // for home / defence
-
-            //var factory = Execute(CreateActions.Axe, "Harry");
-            //factory.Setup();
+            AllResources.Add(new Resource("Wood")); // for home / defence
+            AllResources.Add(new Resource("Iron")); // make weapons / clothes
+            AllResources.Add(new Resource("Grain")); // for the citizens
+            AllResources.Add(new Resource("Wool")); // for clothes
+            AllResources.Add(new Resource("Stone")); // for home / defence
 
             for (int i = 1; i <= 50; i++)
             {
                 int damageRandom = rand.Next(1, 51);
                 Enemys.Add(new Enemy(i.ToString(), damageRandom));
             }
-
-            //AllItems.Add((Execute(CreateActions.Sword, "WoodSword")) as Sword);
-            //AllItems.Add((Execute(CreateActions.Sword, "StoneS")) as Sword);
-            //AllItems.Add((Execute(CreateActions.Sword, "IronySW")) as Sword);
-            //AllItems.Add((Execute(CreateActions.Gun, "Pistol")) as Gun);
-            //AllItems.Add((Execute(CreateActions.Gun, "AssaultRifle")) as Gun);
-
+       
             GenerateMap();
         }
 

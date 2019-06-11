@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public interface ISetup
+    public interface IClone
     {
-        //Item Create(string name, CreateActions action);
+        Item Clone();
     }
 }

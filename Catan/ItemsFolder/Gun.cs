@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Gun : Weapon, ISetup
+    public class Gun : Weapon, IClone
     {
         Random rand = new Random();
 
@@ -21,6 +21,11 @@ namespace Catan
         public Gun(string name) : base(name)
         {
 
+        }
+
+        public override Item Clone()
+        {
+            return new Gun(Name);
         }
 
         public override string ToString()

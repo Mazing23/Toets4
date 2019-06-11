@@ -1,29 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class ItemFactory : ISetup
+    public static class ItemFactory
     {
-        public Item Create(string name, CreateActions action)
+        private static List<Item> standardItems;
+       
+        
+        static ItemFactory()
         {
-            if (name == null) throw new ArgumentNullException(nameof(name));
-            switch (action)
+            standardItems = new List<Item>
             {
-                case CreateActions.Gun:
-                    return new Gun(name);
-                case CreateActions.Sword:
-                    return new Sword(name);
-                case CreateActions.Axe:
-                    return new Axe(name);
-                case CreateActions.Clothing:
-                    return new Clothing(name);
-                case CreateActions.Resource:
-                    break;
+                new Gun("Glock"),
+                new Sword("Excalibur"),
+                new Gun("AssualtRifle"),
+                new Sword("IronSword"),
+                new Gun("Wood")
+            };
+        }
+
+        public static Item Create(string name)
+        {
+            
+            Item standard = standardItems.FirstOrDefault(item => item.Name == name);
+            if(standard != null)
+            {
+                return standard.Clone();
             }
+
             return null;
         }
     }

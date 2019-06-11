@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Resource : ISetup
+    public class Resource 
     {
         public string Name { get; set; }
 

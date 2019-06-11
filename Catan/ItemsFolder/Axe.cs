@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Axe : Weapon, ISetup
+    public class Axe : Weapon, IClone
     {
         public override int Damage { get
             {
@@ -17,6 +17,11 @@ namespace Catan
         public Axe(string name) : base(name)
         {
 
+        }
+
+        public override Item Clone()
+        {
+            return new Axe(Name);
         }
 
         public override string ToString()

@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public class Clothing : Item, ISetup
+    public class Clothing : Item
     {
         public override int Damage { get; }
 
         public Clothing(string name) : base(name)
         {
             
+        }
+
+        public override Item Clone()
+        {
+            return new Clothing(Name);
         }
 
         public override string ToString()
