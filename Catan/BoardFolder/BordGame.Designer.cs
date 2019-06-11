@@ -343,16 +343,17 @@
             // lblPosy
             // 
             this.lblPosy.AutoSize = true;
-            this.lblPosy.Location = new System.Drawing.Point(617, 550);
+            this.lblPosy.Location = new System.Drawing.Point(542, 550);
             this.lblPosy.Name = "lblPosy";
             this.lblPosy.Size = new System.Drawing.Size(34, 29);
             this.lblPosy.TabIndex = 1;
             this.lblPosy.Text = "ra";
+            this.lblPosy.Click += new System.EventHandler(this.lblPosy_Click);
             // 
             // lblPosx
             // 
             this.lblPosx.AutoSize = true;
-            this.lblPosx.Location = new System.Drawing.Point(532, 550);
+            this.lblPosx.Location = new System.Drawing.Point(400, 550);
             this.lblPosx.Name = "lblPosx";
             this.lblPosx.Size = new System.Drawing.Size(79, 29);
             this.lblPosx.TabIndex = 0;

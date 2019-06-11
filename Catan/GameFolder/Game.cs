@@ -173,16 +173,16 @@ namespace Catan
             switch (movements)
             {
                 case 0:
-                    Player.posY += 1;
-                    break;
-                case 1:
                     Player.posY -= 1;
                     break;
+                case 1:
+                    Player.posY += 1;
+                    break;
                 case 2:
-                    Player.posX += 1;
+                    Player.posX -= 1;
                     break;
                 case 3:
-                    Player.posX -= 1;
+                    Player.posX += 1;
                     break;
                 default:
                     break;
