@@ -48,5 +48,15 @@ namespace CatanTesting
 
             Assert.IsTrue(b);
         }
+
+        [TestMethod]
+        public void Axe_getDamage()
+        {
+            Item w = new Axe("Harry");
+
+            Assert.AreEqual(10, w.Damage);
+        }
+
+
     }
 }
