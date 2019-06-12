@@ -26,6 +26,7 @@ namespace Catan
 
         public Dictionary<string, int> allItems { get; private set; }
 
+
         public Game(Player player, int turns)
         {
             ImplementLists();
@@ -42,20 +43,19 @@ namespace Catan
 
         public void Setup()
         {
-            string[] weaponnames = new string[] { "Excalibur", "Glock", "Assualt Rifle"
+            string[] gunnames = new string[] { "Excalibur", "Glock", "Assualt Rifle"
             , "Red John", "Heaven Bringer", "Glory", "Lucy"};
+            string[] swordnames = new string[] { "Champion", "Wooden sword", "Stormbringer"
+            , "Mournblade", "Sword of Dawn", "RavenBrand", "Harry"};
 
             ItemFactory fact = new ItemFactory();
-           // var gun = fact.CreateItem<Gun>();
-            var sword = fact.CreateItem<Sword>();
-
-            //for(int i = 0; i <= weaponnames.Length; i++)
-            //{
-            //    var gun = fact.CreateItem<Gun>();
-            //    allItems.Add(weaponnames[i], gun.Damage);
-            //}
-            //allItems.Add(nameof(gun), gun.Damage);
-
+            for (int i = 0; i < (gunnames.Length + swordnames.Length); i++)
+            {
+                var gun = fact.CreateItem<Gun>();
+                allItems.Add(gunnames[i], gun.Damage);
+                var sword = fact.CreateItem<Sword>();
+                allItems.Add(swordnames[i], sword.Damage);
+            }
 
             AllResources.Add(new Resource("Wood")); // for home / defence
             AllResources.Add(new Resource("Iron")); // make weapons / clothes

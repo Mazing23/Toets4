@@ -63,21 +63,18 @@ namespace CatanTesting
         [TestMethod]
         public void another_one()
         {
-            Game g = new Game(new Player("Harry"), 10);
+            //Game g = new Game(new Player("Harry"), 10);
 
             ItemFactory fact = new ItemFactory();
-
-            string[] weaponnames = new string[7] { "Excalibur", "Glock", "Assualt Rifle"
+            var sword = fact.CreateItem<Sword>();
+            string[] gunnames = new string[] { "Excalibur", "Glock", "Assualt Rifle"
             , "Red John", "Heaven Bringer", "Glory", "Lucy"};
 
-            for (int i = 0; i < weaponnames.Length; i++)
-            {
-                //var gun = fact.CreateItem<Gun>();
-                g.allItems.Add(weaponnames[i],10);
-            }
+            var test = new Dictionary<string, int>();
 
-            CollectionAssert.DoesNotContain(g.allItems, weaponnames[4]);
-            //Assert.AreEqual(20, g.allItems["Heaven Bringer"]);
+            test.Add(gunnames[0], sword.Damage);
+
+            CollectionAssert.Contains(test.Keys, "Excalibur");
         }
     }
 }
