@@ -43,20 +43,21 @@ namespace Catan
 
         public void Setup()
         {
-            string[] weaponnames = new string[] { "Excalibur", "Glock", "Assualt Rifle"
+            string[] gunnames = new string[] { "Excalibur", "Glock", "Assualt Rifle"
             , "Red John", "Heaven Bringer", "Glory", "Lucy"};
+            string[] swordnames = new string[] { "Champion", "Wooden sword", "Stormbringer"
+            , "Mournblade", "Sword of Dawn", "RavenBrand", "Harry"};
+
+            if (gunnames.Length - swordnames.Length != 0) throw new ArgumentOutOfRangeException();
 
             ItemFactory fact = new ItemFactory();
-           // var gun = fact.CreateItem<Gun>();
-            //var sword = fact.CreateItem<Sword>();
-
-            for (int i = 0; i <= weaponnames.Length; i++)
+            for (int i = 0; i < gunnames.Length; i++)
             {
                 var gun = fact.CreateItem<Gun>();
-                allItems.Add(weaponnames[i], gun.Damage);
+                allItems.Add(gunnames[i], gun.Damage);
+                var sword = fact.CreateItem<Sword>();
+                allItems.Add(swordnames[i], sword.Damage);
             }
-            //allItems.Add(nameof(gun), gun.Damage);
-
 
             AllResources.Add(new Resource("Wood")); // for home / defence
             AllResources.Add(new Resource("Iron")); // make weapons / clothes
@@ -69,7 +70,7 @@ namespace Catan
                 int damageRandom = rand.Next(1, 51);
                 Enemys.Add(new Enemy(i.ToString(), damageRandom));
             }
-       
+
             //GenerateMap();
         }
 
