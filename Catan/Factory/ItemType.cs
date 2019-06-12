@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public interface IClone
+    public enum ItemType
     {
-        Item Clone(string name);
+        Gun,
+        Sword,
+        Axe
     }
 }

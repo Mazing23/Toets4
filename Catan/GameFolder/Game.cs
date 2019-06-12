@@ -41,11 +41,13 @@ namespace Catan
 
         public void Setup()
         {
-            AllItems.Add(ItemFactory.Create("Glock"));
-            AllItems.Add(ItemFactory.Create("Excalibur"));
-            AllItems.Add(ItemFactory.Create("AssualtRifle"));
-            AllItems.Add(ItemFactory.Create("IronSword"));
-            AllItems.Add(ItemFactory.Create("HarryPotter"));
+            ItemFactory fact = new ItemFactory();
+
+            //AllItems.Add(fact.GetItem(ItemType.Gun,"Glock"));
+            //AllItems.Add(fact.GetItem("Excalibur"));
+            //AllItems.Add(fact.GetItem("AssualtRifle"));
+            //AllItems.Add(fact.GetItem("IronSword"));
+            //AllItems.Add(fact.GetItem("HarryPotter"));
 
             AllResources.Add(new Resource("Wood")); // for home / defence
             AllResources.Add(new Resource("Iron")); // make weapons / clothes

@@ -7,32 +7,29 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public static class ItemFactory
+    public class ItemFactory
     {
-        private static List<Item> standardItems;
-       
-        
-        static ItemFactory()
+        public T CreateItem<T>() where T: Item, new()
         {
-            standardItems = new List<Item>
-            {
-                new Gun("Glock"),
-                new Sword("Excalibur"),
-                new Gun("AssualtRifle"),
-                new Sword("IronSword"),
-                new Gun("Wood")
-            };
+            return new T();
         }
 
-        public static Item Create(string name)
+        public IClone GetItem(ItemType type, string name)
         {
-            Item standard = standardItems.FirstOrDefault(item => item.Name == name);
-            if(standard != null)
+            switch (type)
             {
-                return standard.Clone();
+                case ItemType.Sword:
+                    return new Sword(name);
+                case ItemType.Axe:
+                    return new Axe(name);
+                case ItemType.Gun:
+                    return new Gun(name);
+                default:
+                    throw new NotSupportedException();
             }
-
-            return null;
         }
+
+        
     }
+
 }

@@ -17,9 +17,9 @@ namespace Catan
            
         }
 
-        public override Item Clone()
+        public override Item Clone(string name)
         {
-            return new Weapon(Name);
+            return new Weapon(name);
         }
 
         public override string ToString()
