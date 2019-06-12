@@ -49,7 +49,7 @@ namespace Catan
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    if ( (i == 4 || i == 5) && (j == 6 || j == 5) )
+                    if ( (i == 4 || i == 5) && (j == 4 || j == 5) )
                     {
                         Map[i, j] = new HomeTile(i, j);
                     }
@@ -181,22 +181,49 @@ namespace Catan
                 switch (movements)
                 {
                     case 0:
+                        if(Player.posY == 0)
+                        {
+                            returnValue = -1;
+                            break;
+                        }
                         Player.posY -= 1;
+                        MovesLeft -= 1;
+                        returnValue = 1;
                         break;
                     case 1:
+                        if (Player.posY == 9)
+                        {
+                            returnValue = -1;
+                            break;
+                        }
                         Player.posY += 1;
+                        MovesLeft -= 1;
+                        returnValue = 1;
                         break;
                     case 2:
+                        if (Player.posX == 0)
+                        {
+                            returnValue = -1;
+                            break;
+                        }
                         Player.posX -= 1;
+                        MovesLeft -= 1;
+                        returnValue = 1;
                         break;
                     case 3:
+                        if (Player.posX == 9)
+                        {
+                            returnValue = -1;
+                            break;
+                        }
                         Player.posX += 1;
+                        MovesLeft -= 1;
+                        returnValue = 1;
                         break;
                     default:
                         break;
                 }
-                returnValue = 1;
-                MovesLeft -= 1;
+                
             }
             return returnValue;
         }
