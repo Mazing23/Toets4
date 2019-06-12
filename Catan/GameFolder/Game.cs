@@ -24,6 +24,7 @@ namespace Catan
         public List<Resource> AllResources { get; private set; }
         public List<Enemy> Enemys { get; private set; }
 
+        public Dictionary<string, int> allItems { get; private set; }
 
         public Game(Player player, int turns)
         {
@@ -43,8 +44,9 @@ namespace Catan
         {
             ItemFactory fact = new ItemFactory();
             var gun = fact.CreateItem<Gun>();
+            
+            allItems.Add(nameof(gun), gun.Damage);
 
-            AllItems.Add(gun);
             //AllItems.Add(fact.GetItem(ItemType.Gun,"Glock"));
             //AllItems.Add(fact.GetItem("Excalibur"));
             //AllItems.Add(fact.GetItem("AssualtRifle"));
@@ -71,6 +73,7 @@ namespace Catan
             AllItems = new List<Item>();
             AllResources = new List<Resource>();
             Enemys = new List<Enemy>();
+            allItems = new Dictionary<string, int>();
         }
 
         private void GenerateMap()

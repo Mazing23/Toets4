@@ -11,12 +11,12 @@ namespace CatanTesting
     [TestClass]
     public class Items_Test
     {
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Item_Fail_with_nullValues()
-        {
-            //Item g = new Weapon();
-        }
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentNullException))]
+        //public void Item_Fail_with_nullValues()
+        //{
+        //    //Item g = new Weapon();
+        //}
 
         [TestMethod]
         public void Setup_Will_Add_Item()
@@ -54,7 +54,10 @@ namespace CatanTesting
 
             CollectionAssert.AllItemsAreInstancesOfType(g.AllItems, typeof(Gun));
             Assert.AreEqual("gun", name);
-           // Assert.AreEqual("gun", gun.Name);
+
+            g.allItems.Add(name, gun.Damage);
+
+            CollectionAssert.Contains(g.allItems, "gun");
         }
     }
 }
