@@ -42,16 +42,20 @@ namespace Catan
 
         public void Setup()
         {
-            ItemFactory fact = new ItemFactory();
-            var gun = fact.CreateItem<Gun>();
-            
-            allItems.Add(nameof(gun), gun.Damage);
+            string[] weaponnames = new string[] { "Excalibur", "Glock", "Assualt Rifle"
+            , "Red John", "Heaven Bringer", "Glory", "Lucy"};
 
-            //AllItems.Add(fact.GetItem(ItemType.Gun,"Glock"));
-            //AllItems.Add(fact.GetItem("Excalibur"));
-            //AllItems.Add(fact.GetItem("AssualtRifle"));
-            //AllItems.Add(fact.GetItem("IronSword"));
-            //AllItems.Add(fact.GetItem("HarryPotter"));
+            ItemFactory fact = new ItemFactory();
+           // var gun = fact.CreateItem<Gun>();
+            var sword = fact.CreateItem<Sword>();
+
+            //for(int i = 0; i <= weaponnames.Length; i++)
+            //{
+            //    var gun = fact.CreateItem<Gun>();
+            //    allItems.Add(weaponnames[i], gun.Damage);
+            //}
+            //allItems.Add(nameof(gun), gun.Damage);
+
 
             AllResources.Add(new Resource("Wood")); // for home / defence
             AllResources.Add(new Resource("Iron")); // make weapons / clothes

@@ -23,9 +23,16 @@ namespace Catan
 
         public Weapon() : base()
         {
+
         }
 
-       
+        public string NameMaking()
+        {
+            string outputname = Name;
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            for (int i = 0; i < rand.Next(1, 50); i++) { outputname += chars[rand.Next(52)]; }
+            return outputname;
+        }
 
         public override string ToString()
         {

@@ -9,7 +9,6 @@ namespace Catan
     public class Sword : Weapon
     {
         Random rand = new Random();
-        private string name;
 
         public override int Damage
         {
@@ -21,22 +20,11 @@ namespace Catan
             }
         }
 
-        public override string Name { get
-            {
-                return name;
-            }
-        }
+        public override string Name { get; }
 
         public Sword() : base()
         {
-        }
-
-        private string NameMaking()
-        {
-            string outputname = base.Name;
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-            for (int i = 0; i < rand.Next(1, 50); i++) { outputname += chars[rand.Next(52)]; }
-            return outputname;
+            Name = NameMaking();
         }
 
         public override string ToString()

@@ -55,9 +55,29 @@ namespace CatanTesting
             CollectionAssert.AllItemsAreInstancesOfType(g.AllItems, typeof(Gun));
             Assert.AreEqual("gun", name);
 
-            g.allItems.Add(name, gun.Damage);
+            //g.allItems.Add(name, gun.Damage);
 
-            CollectionAssert.Contains(g.allItems, "gun");
+            //CollectionAssert.Contains(g.allItems, "gun");
+        }
+
+        [TestMethod]
+        public void another_one()
+        {
+            Game g = new Game(new Player("Harry"), 10);
+
+            ItemFactory fact = new ItemFactory();
+
+            string[] weaponnames = new string[7] { "Excalibur", "Glock", "Assualt Rifle"
+            , "Red John", "Heaven Bringer", "Glory", "Lucy"};
+
+            for (int i = 0; i < weaponnames.Length; i++)
+            {
+                //var gun = fact.CreateItem<Gun>();
+                g.allItems.Add(weaponnames[i],10);
+            }
+
+            CollectionAssert.DoesNotContain(g.allItems, weaponnames[4]);
+            //Assert.AreEqual(20, g.allItems["Heaven Bringer"]);
         }
     }
 }
