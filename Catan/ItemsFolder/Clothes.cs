@@ -12,7 +12,7 @@ namespace Catan
 
         public override int Damage { get
             {
-                if (Name.Length > 50) return 50;
+                if (Name.Length > 40) return 40;
                 if (Name.Length - 10 <= 0) return rand.Next(1, Name.Length);
                 return rand.Next((Name.Length - 10), Name.Length); 
             }

@@ -48,8 +48,10 @@ namespace Catan
             string[] swordnames = new string[] { "Champion", "Wooden sword", "Stormbringer"
             , "Mournblade", "Sword of Dawn", "RavenBrand", "Harry"};
 
+            if(gunnames.Length - swordnames.Length != 0) throw new ArgumentOutOfRangeException();
+
             ItemFactory fact = new ItemFactory();
-            for (int i = 0; i < (gunnames.Length + swordnames.Length); i++)
+            for (int i = 0; i < gunnames.Length; i++)
             {
                 var gun = fact.CreateItem<Gun>();
                 allItems.Add(gunnames[i], gun.Damage);

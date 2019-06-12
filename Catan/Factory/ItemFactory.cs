@@ -12,11 +12,8 @@ namespace Catan
         public T CreateItem<T>() where T: Item, new()
         {
             var obj = new T();
-            return obj;
-        }
-
-       
-
+            return new T();
+        }      
         
     }
 
