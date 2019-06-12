@@ -8,6 +8,9 @@ namespace Catan
 {
     public class Game
     {
+        Random rand = new Random();
+
+
         public Player Player { get; private set; }
         public GameSave FileSave { get; private set; }
         public GameSave FileLoad { get; private set; }
@@ -21,7 +24,7 @@ namespace Catan
         public List<Resource> AllResources { get; private set; }
         public List<Enemy> Enemys { get; private set; }
 
-        Random rand = new Random();
+        public Dictionary<string, int> allItems { get; private set; }
 
         public Game(Player player, int turns)
         {
@@ -34,7 +37,39 @@ namespace Catan
             Home = new Home("Home", player);
             Map = new WorldTile[10, 10];
 
-            SetUpGame();
+            Setup();
+        }
+
+        public void Setup()
+        {
+            string[] weaponnames = new string[] { "Excalibur", "Glock", "Assualt Rifle"
+            , "Red John", "Heaven Bringer", "Glory", "Lucy"};
+
+            ItemFactory fact = new ItemFactory();
+           // var gun = fact.CreateItem<Gun>();
+            var sword = fact.CreateItem<Sword>();
+
+            //for(int i = 0; i <= weaponnames.Length; i++)
+            //{
+            //    var gun = fact.CreateItem<Gun>();
+            //    allItems.Add(weaponnames[i], gun.Damage);
+            //}
+            //allItems.Add(nameof(gun), gun.Damage);
+
+
+            AllResources.Add(new Resource("Wood")); // for home / defence
+            AllResources.Add(new Resource("Iron")); // make weapons / clothes
+            AllResources.Add(new Resource("Grain")); // for the citizens
+            AllResources.Add(new Resource("Wool")); // for clothes
+            AllResources.Add(new Resource("Stone")); // for home / defence
+
+            for (int i = 1; i <= 50; i++)
+            {
+                int damageRandom = rand.Next(1, 51);
+                Enemys.Add(new Enemy(i.ToString(), damageRandom));
+            }
+       
+            //GenerateMap();
         }
 
         private void ImplementLists()
@@ -42,14 +77,16 @@ namespace Catan
             AllItems = new List<Item>();
             AllResources = new List<Resource>();
             Enemys = new List<Enemy>();
+            allItems = new Dictionary<string, int>();
         }
+
         private void GenerateMap()
         {
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    if ( (i == 4 || i == 5) && (j == 6 || j == 5) )
+                    if (i == 4 && j == 4 || i == 5  && j == 4 || i == 5 && j == 4 || i == 5 && j == 5 )
                     {
                         Map[i, j] = new HomeTile(i, j);
                     }
@@ -64,34 +101,8 @@ namespace Catan
                             Map[i, j] = new ExploreTile(i, j, AllResources[rand.Next(1, 5)], rand.Next(1, 5));
                         }
                     }
-                    
                 }
-                
             }
-        }
-
-
-        private  void SetUpGame()
-        {
-            AllResources.Add(new Resource("Wood")); // for home / defence
-            AllResources.Add(new Resource("Iron")); // make weapons / clothes
-            AllResources.Add(new Resource("Grain")); // for the citizens
-            AllResources.Add(new Resource("Wool")); // for clothes
-            AllResources.Add(new Resource("Stone")); // for home / defence
-
-            for (int i = 1; i <= 50; i++)
-            {
-                int damageRandom = rand.Next(1, 51);
-                Enemys.Add(new Enemy(i.ToString(), damageRandom));
-            }
-
-            AllItems.Add(new Sword("Wooden Sword"));
-            AllItems.Add(new Sword("Stone Sword"));
-            AllItems.Add(new Sword("Iron Sword"));
-            AllItems.Add(new Gun("Pistol"));
-            AllItems.Add(new Gun("Assault Rifle"));
-
-            GenerateMap();
         }
 
         /// <summary>
@@ -161,77 +172,63 @@ namespace Catan
             //Add deserialization
         }
 
-        public int NextTurn()
+        public void NextTurn()
         {
-            int returnValue = 0;
             if (TurnsLeft >= 1)
             {
                 MovesLeft = rand.Next(1, 6);
                 TurnsLeft -= 1;
-                returnValue = 1;
             }
-            return returnValue;
         }
 
-        public int MovePlayer(int movements)
+        public void MovePlayer(int movements)
         {
-            int returnValue = 0;
-            if (MovesLeft > 0)
+            switch (movements)
             {
-                switch (movements)
-                {
-                    case 0:
-                        Player.posY -= 1;
-                        break;
-                    case 1:
-                        Player.posY += 1;
-                        break;
-                    case 2:
-                        Player.posX -= 1;
-                        break;
-                    case 3:
-                        Player.posX += 1;
-                        break;
-                    default:
-                        break;
-                }
-                returnValue = 1;
-                MovesLeft -= 1;
+                case 0:
+                    Player.posY += 1;
+                    break;
+                case 1:
+                    Player.posY -= 1;
+                    break;
+                case 2:
+                    Player.posX += 1;
+                    break;
+                case 3:
+                    Player.posX -= 1;
+                    break;
+                default:
+                    break;
             }
-            return returnValue;
         }
         public WorldTile CurrentTile()
         {
             return Map[Player.posX, Player.posY];
         }
 
-        public int TakeResources()
+        public void TakeResources()
         {
-          int returnValue = 0;
-          if(MovesLeft > 0)
+            WorldTile currentTile = Map[Player.posX, Player.posY];
+            if (currentTile is HomeTile)
             {
-                WorldTile currentTile = Map[Player.posX, Player.posY];
-                if (currentTile is HomeTile)
-                {
-                    returnValue = 1;
-                }
-                else if (currentTile is ExploreTile)
-                {
-                    ExploreTile ex = currentTile as ExploreTile;
-                    if (ex.Resource != null || ex.resourceAmount != 0)
-                    {
-                        Player.AddResources(ex.Resource, ex.resourceAmount);
-                    }
-                    if (ex.Item != null)
-                    {
-                        Player.MakeItem(ex.Item);
-                    }
-                    Map[Player.posX, Player.posY].LootResources();
-                    MovesLeft -= 1;
-                    return returnValue = 2;
-                }
+                //no actions can be taken
             }
-            return returnValue;
+            else if (currentTile is ExploreTile)
+            {
+                ExploreTile ex = currentTile as ExploreTile;
+                if (ex.Resource != null || ex.resourceAmount != 0)
+                {
+                    Player.AddResources(ex.Resource, ex.resourceAmount);
+                }
+                if (ex.Item != null)
+                {
+                    Player.MakeItem(ex.Item);
+                }
+                //Map[Player.posX, Player.posY].LootResources();
+            }
+
         }
+
+        
     }
 }

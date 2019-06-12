@@ -12,8 +12,8 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>IAAIAoQAIBBQIAQCQCAAAACAIAQBIAAAQQAAAQgAEAE=</HashCode>
-      <FileName>Game.cs</FileName>
+      <HashCode>IAAIAoQACBBQIAQCQAAAAACAIAQAAAAAQAAAAQkAAAE=</HashCode>
+      <FileName>GameFolder\Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Player" />
@@ -21,63 +21,62 @@
     <ShowAsCollectionAssociation>
       <Property Name="Enemys" />
     </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Catan.Enemy">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACACAAAAAAAAAAAAAQAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
-      <FileName>Enemy.cs</FileName>
+      <FileName>GameFolder\Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catan.Player">
     <Position X="6" Y="3.5" Width="2.25" />
     <AssociationLine Name="EquipedWeapon" Type="Catan.Weapon" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="8.25" Y="3.916" />
-        <Point X="11.375" Y="3.916" />
+        <Point X="8.25" Y="3.939" />
+        <Point X="11.375" Y="3.939" />
         <Point X="11.375" Y="1.748" />
         <Point X="11.75" Y="1.748" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>BAEACAAAIAAAiAAAAAAAAAQAAAUAAAAAQAAAwAQAAAI=</HashCode>
-      <FileName>Player.cs</FileName>
+      <FileName>GameFolder\Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="EquipedClothes" />
       <Property Name="EquipedWeapon" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="Items" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Catan.Weapon">
     <Position X="11.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Weapon.cs</FileName>
+      <HashCode>AAAAAACAAAAACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemsFolder\Weapon.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Catan.Item">
+  <Class Name="Catan.ItemFactory">
     <Position X="11.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Item.cs</FileName>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\ItemFactory.cs</FileName>
+      <NewMemberFileName>ItemsFolder\Item.cs</NewMemberFileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Catan.Clothing">
     <Position X="11.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
-      <FileName>Clothes.cs</FileName>
+      <HashCode>AAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemsFolder\Clothes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Catan.EnemyType">
     <Position X="8.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
-      <FileName>EnemyType.cs</FileName>
+      <FileName>GameFolder\EnemyType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

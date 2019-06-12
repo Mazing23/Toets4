@@ -14,8 +14,6 @@ namespace Catan
         public int Citizens { get; private set; }
         public Player Player { get; private set; }
 
-        public List<Resource> Resources { get; set; }
-
 
         public Home(string name, Player player)
         {
