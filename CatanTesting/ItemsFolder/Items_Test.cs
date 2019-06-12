@@ -25,7 +25,6 @@ namespace CatanTesting
 
             Item i = ItemFactory.Create("Glock");
 
-            //Assert.AreEqual(null, i);
             Assert.AreEqual("Glock", i.Name);
             Assert.AreEqual(typeof(Gun), i.GetType());
         }

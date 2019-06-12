@@ -29,9 +29,8 @@ namespace Catan
             Item standard = standardItems.FirstOrDefault(item => item.Name == name);
             if(standard != null)
             {
-                return standard.Clone();
+                return standard.Clone(name);
             }
-
             return null;
         }
     }

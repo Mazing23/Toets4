@@ -8,6 +8,6 @@ namespace Catan
 {
     public interface IClone
     {
-        Item Clone();
+        Item Clone(string name);
     }
 }

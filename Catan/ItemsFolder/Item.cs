@@ -18,7 +18,7 @@ namespace Catan
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
 
-        public abstract Item Clone();
+        public abstract Item Clone(string name);
 
         public override string ToString()
         {
