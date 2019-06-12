@@ -86,7 +86,7 @@ namespace Catan
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    if (i == 4 && j == 4 || i == 5  && j == 4 || i == 5 && j == 4 || i == 5 && j == 5 )
+                    if ((i == 4 || i == 5 ) && (j == 4  && j == 5 ))
                     {
                         Map[i, j] = new HomeTile(i, j);
                     }
@@ -172,63 +172,79 @@ namespace Catan
             //Add deserialization
         }
 
-        public void NextTurn()
+        public int NextTurn()
         {
+            int returnValue = 0;
             if (TurnsLeft >= 1)
             {
                 MovesLeft = rand.Next(1, 6);
                 TurnsLeft -= 1;
+                returnValue = 1;
             }
+            return returnValue;
         }
 
-        public void MovePlayer(int movements)
+        public int MovePlayer(int movements)
         {
-            switch (movements)
+            int returnValue = 0;
+            if (MovesLeft > 0)
             {
-                case 0:
-                    Player.posY += 1;
-                    break;
-                case 1:
-                    Player.posY -= 1;
-                    break;
-                case 2:
-                    Player.posX += 1;
-                    break;
-                case 3:
-                    Player.posX -= 1;
-                    break;
-                default:
-                    break;
+                switch (movements)
+                {
+                    case 0:
+                        Player.posY -= 1;
+                        break;
+                    case 1:
+                        Player.posY += 1;
+                        break;
+                    case 2:
+                        Player.posX -= 1;
+                        break;
+                    case 3:
+                        Player.posX += 1;
+                        break;
+                    default:
+                        break;
+                }
+                returnValue = 1;
+                MovesLeft -= 1;
             }
+            return returnValue;
         }
         public WorldTile CurrentTile()
         {
             return Map[Player.posX, Player.posY];
         }
 
-        public void TakeResources()
+        public int TakeResources()
         {
-            WorldTile currentTile = Map[Player.posX, Player.posY];
-            if (currentTile is HomeTile)
+            int returnValue = 0;
+            if (MovesLeft > 0)
             {
-                //no actions can be taken
-            }
-            else if (currentTile is ExploreTile)
-            {
-                ExploreTile ex = currentTile as ExploreTile;
-                if (ex.Resource != null || ex.resourceAmount != 0)
+                WorldTile currentTile = Map[Player.posX, Player.posY];
+                if (currentTile is HomeTile)
                 {
-                    Player.AddResources(ex.Resource, ex.resourceAmount);
+                    returnValue = 1;
                 }
-                if (ex.Item != null)
+                else if (currentTile is ExploreTile)
                 {
-                    Player.MakeItem(ex.Item);
+                    ExploreTile ex = currentTile as ExploreTile;
+                    if (ex.Resource != null || ex.resourceAmount != 0)
+                    {
+                        Player.AddResources(ex.Resource, ex.resourceAmount);
+                    }
+                    if (ex.Item != null)
+                    {
+                        Player.MakeItem(ex.Item);
+                    }
+                    Map[Player.posX, Player.posY].LootResources();
+                    MovesLeft -= 1;
+                    return returnValue = 2;
                 }
-                //Map[Player.posX, Player.posY].LootResources();
             }
-
+            return returnValue;
         }
 
-        
+
     }
 }

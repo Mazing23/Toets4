@@ -327,53 +327,59 @@ namespace Catan
 
             WorldTile[,] tempworld = currentGame.Map;
 
-            for (int i = 0; i < 10;)
+            foreach(WorldTile t in currentGame.Map)
             {
-                if (i == 0)
-                {
-                    startingY = 25;
-                }
-                if ((i - lastX) != 0)
-                {
-                    lastX = i;
-                    startingX += 15;
-                }
-
-               
-
-
-                for (int j = 0; j < 10;)
-                {
-                    if (j == 0)
-                    {
-                        startingX = 25;
-                    }
-                    if ((j - lastY) != 0)
-                    {
-                        lastY = j;
-                        startingY += 15;
-                    }
-                    checkBoxes[i, j] = new CheckBox();
-                    groupBoxMap.Controls.Add(checkBoxes[i, j]);
-                    checkBoxes[i, j].Width = 15;
-                    checkBoxes[i, j].Height = 15;
-                    checkBoxes[i, j].Anchor = (AnchorStyles.Left | AnchorStyles.Top);
-                    checkBoxes[i, j].Location = new Point(startingY, startingX);
-                    checkBoxes[i, j].Visible = true;
-                    checkBoxes[i, j].Show();
-                    if ((i == 4 || i == 5) && (j == 6 || j == 5))
-                    {
-                        checkBoxes[i, j].BackColor = Color.Green;
-                        checkBoxes[i, j].Checked = true;
-                    }
-                    else
-                    {
-
-                    }
-                    j++;
-                }
-                i++;
+                checkBoxes[t.posX, t.posY] = new CheckBox();
+                groupBoxMap.Controls.Add(checkBoxes[t.posX, t.posY]);
             }
+
+            //for (int i = 0; i < 10;)
+            //{
+            //    if (i == 0)
+            //    {
+            //        startingX = 25;
+            //    }
+            //    if ((i - lastX) != 0)
+            //    {
+            //        lastX = i;
+            //        startingX += 15;
+            //    }
+
+
+
+
+            //    for (int j = 0; j < 10;)
+            //    {
+            //        if (j == 0)
+            //        {
+            //            startingY = 25;
+            //        }
+            //        if ((j - lastY) != 0)
+            //        {
+            //            lastY = j;
+            //            startingY += 15;
+            //        }
+            //        checkBoxes[i, j] = new CheckBox();
+            //        groupBoxMap.Controls.Add(checkBoxes[i, j]);
+            //        checkBoxes[i, j].Width = 15;
+            //        checkBoxes[i, j].Height = 15;
+            //        checkBoxes[i, j].Anchor = (AnchorStyles.Left | AnchorStyles.Top);
+            //        checkBoxes[i, j].Location = new Point(i * 5 + startingX, j * 5 + startingY);
+            //        checkBoxes[i, j].Visible = true;
+            //        checkBoxes[i, j].Show();
+            //        if ((i == 4 || i == 5) && (j == 6 || j == 5))
+            //        {
+            //            checkBoxes[i, j].BackColor = Color.Green;
+            //            checkBoxes[i, j].Checked = true;
+            //        }
+            //        else
+            //        {
+
+            //        }
+            //        j++;
+            //    }
+            //    i++;
+            //}
 
 
             //foreach (WorldTile t in currentGame.Map)
