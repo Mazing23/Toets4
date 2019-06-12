@@ -15,7 +15,7 @@ namespace CatanTesting
         [ExpectedException(typeof(ArgumentNullException))]
         public void Item_Fail_with_nullValues()
         {
-            Item g = new Weapon(null);
+            //Item g = new Weapon();
         }
 
         [TestMethod]
@@ -23,22 +23,38 @@ namespace CatanTesting
         {
             Game g = new Game(new Player("Harry"), 10);
 
-            Item i = ItemFactory.Create("Glock");
+            //Item i = ItemFactory.Create("Glock");
 
             //Assert.AreEqual(null, i);
-            Assert.AreEqual("Glock", i.Name);
-            Assert.AreEqual(typeof(Gun), i.GetType());
+            //Assert.AreEqual("Glock", i.Name);
+            //Assert.AreEqual(typeof(Gun), i.GetType());
         }
 
         [TestMethod]
         public void Setup_Makes_new_Item()
         {
+            //Game g = new Game(new Player("Harry"), 10);
+
+            //Item i = ItemFactory.Create("AllNieuw");
+
+            //Assert.AreEqual("AllNieuw", i.Name);
+            //Assert.AreEqual(typeof(Gun), i.GetType());
+        }
+
+        [TestMethod]
+        public void whatever_kind_of_test()
+        {
             Game g = new Game(new Player("Harry"), 10);
 
-            Item i = ItemFactory.Create("AllNieuw");
+            ItemFactory fact = new ItemFactory();
+            var gun = fact.CreateItem<Gun>();
+            g.AllItems.Add(gun);
 
-            Assert.AreEqual("AllNieuw", i.Name);
-            Assert.AreEqual(typeof(Gun), i.GetType());
+            string name = nameof(gun);
+
+            CollectionAssert.AllItemsAreInstancesOfType(g.AllItems, typeof(Gun));
+            Assert.AreEqual("gun", name);
+           // Assert.AreEqual("gun", gun.Name);
         }
     }
 }

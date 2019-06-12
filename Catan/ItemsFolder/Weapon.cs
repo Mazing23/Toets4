@@ -8,19 +8,24 @@ namespace Catan
 {
     public class Weapon : Item
     {
+        Random rand = new Random();
 
         public int Range { get; set; }
         public override int Damage { get; }
-
-        public Weapon(string name) : base(name)
-        {
-           
+        public override string Name { get
+            {
+                string outputname = "";
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                for (int i = 0; i < rand.Next(1, 20); i++) { outputname += chars[rand.Next(52)]; }
+                return outputname;
+            }
         }
 
-        public override Item Clone(string name)
+        public Weapon() : base()
         {
-            return new Weapon(name);
         }
+
+       
 
         public override string ToString()
         {

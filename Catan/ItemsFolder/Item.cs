@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-    public abstract class Item : IDamage, IClone
+    public abstract class Item : IDamage
     {
-        public string Name { get; private set; }
+        public abstract string Name { get; }
         public int Amount { get; set; }
         public abstract int Damage { get; }
 
 
-        public Item(string name)
+        public Item()
         {
-            Name = name ?? throw new ArgumentNullException(nameof(name));
         }
-
-        public abstract Item Clone(string );
 
         public override string ToString()
         {

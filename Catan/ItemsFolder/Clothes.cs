@@ -10,15 +10,18 @@ namespace Catan
     {
         public override int Damage { get; }
 
-        public Clothing(string name) : base(name)
+        public override string Name { get
+            {
+                return "NULL";
+            }
+        }
+
+        public Clothing() : base()
         {
             
         }
 
-        public override Item Clone()
-        {
-            return new Clothing(Name);
-        }
+       
 
         public override string ToString()
         {

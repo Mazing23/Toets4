@@ -12,21 +12,25 @@ namespace Catan
 
         public override int Damage { get
             {
-                if (Name.Length > 50) return 20;
+                if (Name.Length > 70) return 20;
                 if(Name.Length - 10 <= 0) return rand.Next(1, Name.Length);
                 return rand.Next((Name.Length - 10), Name.Length); 
             }
         }
 
-        public Gun(string name) : base(name)
-        {
-
+        public override string Name { get
+            {
+                string outputname = base.Name;
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                for (int i = 0; i < rand.Next(1, 50); i++) { outputname += chars[rand.Next(52)]; }
+                return outputname;
+            }
         }
 
-        public override Item Clone(string name)
+
+        public Gun() : base()
         {
-            return new Gun(name);
-        }
+        }       
 
         public override string ToString()
         {

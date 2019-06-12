@@ -42,7 +42,9 @@ namespace Catan
         public void Setup()
         {
             ItemFactory fact = new ItemFactory();
+            var gun = fact.CreateItem<Gun>();
 
+            AllItems.Add(gun);
             //AllItems.Add(fact.GetItem(ItemType.Gun,"Glock"));
             //AllItems.Add(fact.GetItem("Excalibur"));
             //AllItems.Add(fact.GetItem("AssualtRifle"));

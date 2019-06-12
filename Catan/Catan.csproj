@@ -86,6 +86,7 @@
     <Compile Include="GameFolder\Game.cs" />
     <Compile Include="ItemsFolder\Gun.cs" />
     <Compile Include="ItemsFolder\IDamage.cs" />
+    <Compile Include="ItemsFolder\IName.cs" />
     <Compile Include="ItemsFolder\Item.cs" />
     <Compile Include="BoardFolder\MovementDirection.cs" />
     <Compile Include="GameFolder\Player.cs" />

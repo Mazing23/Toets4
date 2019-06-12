@@ -8,21 +8,25 @@ namespace Catan
 {
     public class Axe : Weapon
     {
+        Random rand = new Random();
+
         public override int Damage { get
             {
                 return 10;
             }
         }
 
-        public Axe(string name) : base(name)
-        {
-
+        public override string Name { get
+            {
+                return "Axe";
+            }
         }
 
-        public override Item Clone(string name)
+        public Axe() : base()
         {
-            return new Axe(name);
         }
+
+        
 
         public override string ToString()
         {
