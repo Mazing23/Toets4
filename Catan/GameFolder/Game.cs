@@ -36,6 +36,7 @@ namespace Catan
 
             Home = new Home("Home", player);
             Map = new WorldTile[10, 10];
+            allItems = new Dictionary<string, int>();
 
             Setup();
         }
@@ -47,13 +48,13 @@ namespace Catan
 
             ItemFactory fact = new ItemFactory();
            // var gun = fact.CreateItem<Gun>();
-            var sword = fact.CreateItem<Sword>();
+            //var sword = fact.CreateItem<Sword>();
 
-            //for(int i = 0; i <= weaponnames.Length; i++)
-            //{
-            //    var gun = fact.CreateItem<Gun>();
-            //    allItems.Add(weaponnames[i], gun.Damage);
-            //}
+            for (int i = 0; i <= weaponnames.Length; i++)
+            {
+                var gun = fact.CreateItem<Gun>();
+                allItems.Add(weaponnames[i], gun.Damage);
+            }
             //allItems.Add(nameof(gun), gun.Damage);
 
 
