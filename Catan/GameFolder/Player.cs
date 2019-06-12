@@ -58,6 +58,7 @@ namespace Catan
                     else if (i is Weapon)
                     {
                         EquipedWeapon = i as Weapon;
+                        Console.WriteLine("Player equipped" + EquipedWeapon.ToString());
                     }
                     return true;
                 }

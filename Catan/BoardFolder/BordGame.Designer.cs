@@ -92,7 +92,7 @@
             // 
             // butEquipClothes
             // 
-            this.butEquipClothes.Location = new System.Drawing.Point(325, 248);
+            this.butEquipClothes.Location = new System.Drawing.Point(579, 248);
             this.butEquipClothes.Name = "butEquipClothes";
             this.butEquipClothes.Size = new System.Drawing.Size(117, 54);
             this.butEquipClothes.TabIndex = 11;
@@ -102,7 +102,7 @@
             // 
             // butEquipWeapons
             // 
-            this.butEquipWeapons.Location = new System.Drawing.Point(325, 62);
+            this.butEquipWeapons.Location = new System.Drawing.Point(579, 62);
             this.butEquipWeapons.Name = "butEquipWeapons";
             this.butEquipWeapons.Size = new System.Drawing.Size(117, 54);
             this.butEquipWeapons.TabIndex = 10;
@@ -113,7 +113,7 @@
             // lblClothesEquipped
             // 
             this.lblClothesEquipped.AutoSize = true;
-            this.lblClothesEquipped.Location = new System.Drawing.Point(430, 544);
+            this.lblClothesEquipped.Location = new System.Drawing.Point(574, 555);
             this.lblClothesEquipped.Name = "lblClothesEquipped";
             this.lblClothesEquipped.Size = new System.Drawing.Size(79, 29);
             this.lblClothesEquipped.TabIndex = 9;
@@ -122,7 +122,7 @@
             // lblEquippedWeapon
             // 
             this.lblEquippedWeapon.AutoSize = true;
-            this.lblEquippedWeapon.Location = new System.Drawing.Point(430, 480);
+            this.lblEquippedWeapon.Location = new System.Drawing.Point(574, 508);
             this.lblEquippedWeapon.Name = "lblEquippedWeapon";
             this.lblEquippedWeapon.Size = new System.Drawing.Size(79, 29);
             this.lblEquippedWeapon.TabIndex = 8;
@@ -131,7 +131,7 @@
             // lblHealthPoints
             // 
             this.lblHealthPoints.AutoSize = true;
-            this.lblHealthPoints.Location = new System.Drawing.Point(430, 419);
+            this.lblHealthPoints.Location = new System.Drawing.Point(574, 453);
             this.lblHealthPoints.Name = "lblHealthPoints";
             this.lblHealthPoints.Size = new System.Drawing.Size(79, 29);
             this.lblHealthPoints.TabIndex = 7;
@@ -141,7 +141,7 @@
             // 
             this.lblPlayerName.AutoSize = true;
             this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblPlayerName.Location = new System.Drawing.Point(428, 360);
+            this.lblPlayerName.Location = new System.Drawing.Point(563, 384);
             this.lblPlayerName.Name = "lblPlayerName";
             this.lblPlayerName.Size = new System.Drawing.Size(129, 40);
             this.lblPlayerName.TabIndex = 6;
@@ -189,7 +189,7 @@
             this.listBoxClothes.ItemHeight = 29;
             this.listBoxClothes.Location = new System.Drawing.Point(6, 248);
             this.listBoxClothes.Name = "listBoxClothes";
-            this.listBoxClothes.Size = new System.Drawing.Size(313, 149);
+            this.listBoxClothes.Size = new System.Drawing.Size(551, 149);
             this.listBoxClothes.TabIndex = 1;
             // 
             // listBoxWeapons
@@ -198,7 +198,7 @@
             this.listBoxWeapons.ItemHeight = 29;
             this.listBoxWeapons.Location = new System.Drawing.Point(6, 62);
             this.listBoxWeapons.Name = "listBoxWeapons";
-            this.listBoxWeapons.Size = new System.Drawing.Size(313, 149);
+            this.listBoxWeapons.Size = new System.Drawing.Size(551, 149);
             this.listBoxWeapons.TabIndex = 0;
             // 
             // groupBox2
@@ -345,20 +345,18 @@
             this.lblPosy.AutoSize = true;
             this.lblPosy.Location = new System.Drawing.Point(542, 550);
             this.lblPosy.Name = "lblPosy";
-            this.lblPosy.Size = new System.Drawing.Size(34, 29);
+            this.lblPosy.Size = new System.Drawing.Size(92, 29);
             this.lblPosy.TabIndex = 1;
-            this.lblPosy.Text = "ra";
-            this.lblPosy.Click += new System.EventHandler(this.lblPosy_Click);
+            this.lblPosy.Text = "lblPosy";
             // 
             // lblPosx
             // 
             this.lblPosx.AutoSize = true;
             this.lblPosx.Location = new System.Drawing.Point(400, 550);
             this.lblPosx.Name = "lblPosx";
-            this.lblPosx.Size = new System.Drawing.Size(79, 29);
+            this.lblPosx.Size = new System.Drawing.Size(92, 29);
             this.lblPosx.TabIndex = 0;
-            this.lblPosx.Text = "label1";
-            this.lblPosx.Click += new System.EventHandler(this.lblPosx_Click);
+            this.lblPosx.Text = "lblPosy";
             // 
             // groupBoxTileInfo
             // 

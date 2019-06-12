@@ -11,6 +11,7 @@ namespace Catan
         public Item Item { get; private set; }
         public Resource Resource { get; private set; }
         public int resourceAmount { get; private set; }
+        public bool isLooted { get; private set; }
 
         public ExploreTile(int posx, int posy, Item item, Resource resource, int amount) : base( posx, posy)
         {
@@ -24,11 +25,9 @@ namespace Catan
             resourceAmount = amount;
         }
 
-        public void LootResources()
+        public override void LootResources()
         {
-            Item = null;
-            Resource = null;
-            resourceAmount = 0;
+            isLooted = true;
         }
     }
 }

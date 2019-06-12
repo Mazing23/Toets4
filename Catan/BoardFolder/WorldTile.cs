@@ -19,6 +19,6 @@ namespace Catan
             posX = posx;
             posY = posy;
         }
-       // public abstract void LootResources();
+       public abstract void LootResources();
     }
 }

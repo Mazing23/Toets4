@@ -12,5 +12,9 @@ namespace Catan
         {
 
         }
+        public override void LootResources()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
