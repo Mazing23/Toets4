@@ -29,6 +29,7 @@ namespace Catan
         public override string ToString()
         {
             return base.ToString() + " , Damage: " + Damage;
+            //return null;
         }
    
 

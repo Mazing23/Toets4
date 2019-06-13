@@ -11,34 +11,13 @@ namespace CatanTesting
     [TestClass]
     public class Items_Test
     {
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentNullException))]
-        //public void Item_Fail_with_nullValues()
-        //{
-        //    //Item g = new Weapon();
-        //}
 
         [TestMethod]
         public void Setup_Will_Add_Item()
         {
             Game g = new Game(new Player("Harry"), 10);
-
-            //Item i = ItemFactory.Create("Glock");
-
-            //Assert.AreEqual(null, i);
-            //Assert.AreEqual("Glock", i.Name);
-            //Assert.AreEqual(typeof(Gun), i.GetType());
-        }
-
-        [TestMethod]
-        public void Setup_Makes_new_Item()
-        {
-            //Game g = new Game(new Player("Harry"), 10);
-
-            //Item i = ItemFactory.Create("AllNieuw");
-
-            //Assert.AreEqual("AllNieuw", i.Name);
-            //Assert.AreEqual(typeof(Gun), i.GetType());
+           
+            CollectionAssert.Contains(g.allItems.Keys, "Glock");
         }
 
         [TestMethod]
@@ -54,30 +33,21 @@ namespace CatanTesting
 
             CollectionAssert.AllItemsAreInstancesOfType(g.AllItems, typeof(Gun));
             Assert.AreEqual("gun", name);
-
-            //g.allItems.Add(name, gun.Damage);
-
-            //CollectionAssert.Contains(g.allItems, "gun");
         }
 
         [TestMethod]
         public void another_one()
         {
-            Game g = new Game(new Player("Harry"), 10);
-
             ItemFactory fact = new ItemFactory();
-
-            string[] weaponnames = new string[7] { "Excalibur", "Glock", "Assualt Rifle"
+            var sword = fact.CreateItem<Sword>();
+            string[] gunnames = new string[] { "Excalibur", "Glock", "Assualt Rifle"
             , "Red John", "Heaven Bringer", "Glory", "Lucy"};
 
-            for (int i = 0; i < weaponnames.Length; i++)
-            {
-                //var gun = fact.CreateItem<Gun>();
-                g.allItems.Add(weaponnames[i],10);
-            }
+            var test = new Dictionary<string, int>();
 
-            CollectionAssert.DoesNotContain(g.allItems, weaponnames[4]);
-            //Assert.AreEqual(20, g.allItems["Heaven Bringer"]);
+            test.Add(gunnames[0], sword.Damage);
+
+            CollectionAssert.Contains(test.Keys, "Excalibur");
         }
     }
 }

@@ -28,9 +28,9 @@ namespace Catan
 
         }
 
-        public void AddDefense(int defense)
+        public void AddDefense(int defence)
         {
-            Defence = defense;
+            Defence = defence;
         }
 
         public void AddCitizens()

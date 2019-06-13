@@ -68,7 +68,6 @@
   <ItemGroup>
     <Compile Include="BoardFolder\HomeTile.cs" />
     <Compile Include="BoardFolder\ExploreTile.cs" />
-    <Compile Include="Factory\IClone.cs" />
     <Compile Include="Factory\ItemFactory.cs" />
     <Compile Include="Factory\ItemType.cs" />
     <Compile Include="ItemsFolder\Axe.cs" />
