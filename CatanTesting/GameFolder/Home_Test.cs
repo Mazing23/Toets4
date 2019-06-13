@@ -12,15 +12,13 @@ namespace CatanTesting
     public class Home_Test
     {
         Player p;
-        List<Enemy> enemies;
-        List<Resource> resources;
+        Home h;
 
         [TestInitialize]
         public void SetUp()
         {
             p = new Player("Harry");
-            enemies = new List<Enemy>();
-            resources = new List<Resource>();
+            h = new Home("Home", p);
         }
 
         [TestMethod]
@@ -34,8 +32,6 @@ namespace CatanTesting
         [TestMethod]
         public void Home_created_new_home_test_player()
         {
-            Home h = new Home("Home", p);
-
             Assert.AreEqual(p, h.Player);
         }
 
@@ -44,8 +40,6 @@ namespace CatanTesting
         {
             int new_defence = 5;
             int expected_defence = 5;
-
-            Home h = new Home("Home", p);
 
             h.AddDefense(new_defence);
 
@@ -64,6 +58,23 @@ namespace CatanTesting
 
             Assert.AreEqual(expected_level, h.CheckDefenceLevel());
         }
+
+        [TestMethod]
+
+        public void AddCitizens_to_home_from_Game()
+        {
+            Player p = new Player("h");
+            Game g = new Game(p, 35);
+            Resource r = g.AllResources.Find(x => x.Name.Contains("Grain"));
+
+            p.AddResources(r, 23);
+
+            g.AddCitizenToHome();
+
+            Assert.AreEqual(5, h.Citizens);
+            Assert.AreEqual(p.Resources[r], 3);
+        }
+
 
         
     }

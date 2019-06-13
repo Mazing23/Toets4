@@ -102,8 +102,8 @@ namespace CatanTesting
         [TestMethod]
         public void AddCitizens_toHome_and_LoseResources()
         {
-            int added_amount_ofResources = 10;
-            int new_amount_ofResources = 5;
+            int added_amount_ofResources = 12;
+            int new_amount_ofResources = 2;
 
             Resource r = g.AllResources.Find(x => x.Name.Contains("Grain"));
 

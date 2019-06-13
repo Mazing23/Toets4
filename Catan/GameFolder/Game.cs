@@ -24,7 +24,6 @@ namespace Catan
 
         Random rand = new Random();
 
-
         public Game(Player player, int turns)
         {
             ImplementLists();
@@ -137,11 +136,16 @@ namespace Catan
         {
             foreach (Resource r in AllResources)
             {
-                if (Player.Resources.ContainsKey(r))
+                if(r == AllResources.Find(x => x.Name.Contains("Grain")))
                 {
-                    if (Player.Resources[r] >= 5)
+                    if (Player.Resources.ContainsKey(r))
                     {
-                        Player.Resources[r] = Player.Resources[r] - 5;
+                        if (Player.Resources[r] - 5 >= 0)
+                        {
+                            int i = Player.Resources[r] / 5;
+                            Player.Resources[r] = Player.Resources[r] - (5 * i);
+                            Home.AddCitizens(i);
+                        }
                     }
                 }
             }
