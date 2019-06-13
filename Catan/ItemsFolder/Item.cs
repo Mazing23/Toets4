@@ -8,7 +8,7 @@ namespace Catan
 {
     public abstract class Item : IDamage
     {
-        public abstract string Name { get; }
+        public abstract string Name { get; set; }
         public int Amount { get; set; }
         public abstract int Damage { get; }
 

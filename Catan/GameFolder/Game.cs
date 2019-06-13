@@ -91,18 +91,24 @@ namespace Catan
             {
                 var gun = fact.CreateItem<Gun>();
                 allItems.Add(gunnames[i], gun);
+                allItems[gunnames[i]].Name = gunnames[i];
                 //AllItems.Add(gun);
                 var sword = fact.CreateItem<Sword>();
                 allItems.Add(swordnames[i], sword);
+                allItems[swordnames[i]].Name = swordnames[i];
                 //AllItems.Add(sword);
                 var armour = fact.CreateItem<Clothing>();
                 allItems.Add(armournames[i], armour);
+                allItems[armournames[i]].Name = armournames[i];
                 //AllItems.Add(armour);
                 
             }
 
-            var fist = fact.CreateItem<Clothing>();
+            var fist = fact.CreateItem<Sword>();
             allItems.Add("Fist", fist);
+
+            Player.MakeItem(allItems["Fist"]);
+            Player.EquipItem(allItems["Fist"]);
 
             AllResources.Add(new Resource("Wood")); // for home / defence
             AllResources.Add(new Resource("Iron")); // make weapons / clothes

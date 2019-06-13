@@ -77,6 +77,7 @@ namespace Catan
 
         private void RefreshLabels()
         {
+            Dictionary<string, Item> playerInventory = currentGame.Player.Items
             if (currentGame.MovesLeft == 0)
             {
                 lblMovesLeft.Text = "No moves left.";
@@ -440,6 +441,10 @@ namespace Catan
                     Player newPlayer = new Player(newName);
                     Game newGame = new Game(newPlayer, 30);
                     currentGame = newGame;
+                    foreach(CheckBox c in checkBoxes)
+                    {
+                        c.Dispose();
+                    }
                     RefreshLabels();
                     RefreshListbox();
                     updateMap();
