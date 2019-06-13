@@ -77,7 +77,6 @@ namespace Catan
 
         private void RefreshLabels()
         {
-           // Dictionary<string, Item> playerInventory = currentGame.Player.Items;
             if (currentGame.MovesLeft == 0)
             {
                 lblMovesLeft.Text = "No moves left.";
@@ -96,8 +95,8 @@ namespace Catan
                 
                 if (tileToExplore.isLooted)
                 {
-                    lblItemOnThisLand.Text = "You have already looted these items";
-                    lblResourcesOnThisTile.Text = "You have already looted these items";
+                    lblItemOnThisLand.Text = "You have looted these items";
+                    lblResourcesOnThisTile.Text = "You have looted these items";
                 }
                 else
                 {
@@ -129,28 +128,9 @@ namespace Catan
 
 
 
-            if (currentGame.Player.EquipedItem != null)
-            {
-                lblEquippedWeapon.Text = currentGame.Player.EquipedItem.ToString() + " equipped.";
-            }
-            else
-            {
-                lblEquippedWeapon.Text = "No weapon equipped.";
-            }
-
-            if (currentGame.Player.EquipedClothes != null)
-            {
-                lblClothesEquipped.Text = currentGame.Player.EquipedClothes.ToString() + " equipped.";
-            }
-            else
-            {
-                lblClothesEquipped.Text = "No clothing equipped.";
-            }
-
-            lblHealthPoints.Text = currentGame.Player.Health.ToString() + " health points left.";
+            progressBarHealth.Value = currentGame.Player.Health;
             lblNumberOfCitizens.Text = currentGame.Home.Citizens.ToString() + " citizens in your hometown.";
             lblHomeHealth.Text = currentGame.Home.Health.ToString() + " healthpoints";
-            lblPlayerName.Text = currentGame.Player.Name.ToString() + " :";
 
 
             //label voor debuggen
@@ -175,11 +155,25 @@ namespace Catan
             {
                 if (i is Weapon)
                 {
-                    listBoxWeapons.Items.Add(i);
+                    if (i == currentGame.Player.EquipedWeapon)
+                    {
+                        listBoxWeapons.Items.Add(i + " Equiped");
+                    }
+                    else
+                    {
+                        listBoxWeapons.Items.Add(i);
+                    }
                 }
                 if (i is Clothing)
                 {
-                    listBoxClothes.Items.Add(i);
+                    if (i == currentGame.Player.EquipedClothes)
+                    {
+                        listBoxClothes.Items.Add(i + " Equiped");
+                    }
+                    else
+                    {
+                        listBoxClothes.Items.Add(i);
+                    }
                 }
             }
 
@@ -266,11 +260,14 @@ namespace Catan
                     MessageBox.Show("No items to loot at home!");
                     break;
                 case 2:
+                    MessageBox.Show("You have allready looted this place!");
+                    break;
+                case 3:
                     checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
                     RefreshLabels();
                     RefreshListbox();
                     break;
-                case 3:
+                case 4:
                     checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
                     RefreshLabels();
                     RefreshListbox();
@@ -329,21 +326,41 @@ namespace Catan
 
         private void butEquipWeapons_Click(object sender, EventArgs e)
         {
-            //currentGame.Player.EquipItem(listBoxWeapons.SelectedItem as Item);
-            Item itemToEquip = listBoxWeapons.SelectedItem as Item;
-            if (currentGame.Player.EquipItem(itemToEquip))
+            try
             {
-                MessageBox.Show("Equipped!");
-                RefreshLabels();
+                Item itemToEquip = listBoxWeapons.SelectedItem as Item;
+                if (currentGame.Player.EquipItem(itemToEquip))
+                {
+                    MessageBox.Show("Equipped!");
+                    RefreshLabels();
+                    RefreshListbox();
+                }
+                Console.WriteLine("Item equip buttin item = " + itemToEquip.ToString());
             }
-            Console.WriteLine("Item equip buttin item = " + itemToEquip.ToString());
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show("Select an item first");
+            }
 
         }
 
         private void butEquipClothes_Click(object sender, EventArgs e)
         {
-            currentGame.Player.EquipItem(listBoxClothes.SelectedItem as Item);
-            RefreshLabels();
+            try
+            {
+                Item itemToEquip = listBoxClothes.SelectedItem as Item;
+                if (currentGame.Player.EquipItem(itemToEquip))
+                {
+                    MessageBox.Show("Equipped!");
+                    RefreshLabels();
+                    RefreshListbox();
+                }
+                Console.WriteLine("Item equip buttin item = " + itemToEquip.ToString());
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Select an item first");
+            }
 
         }
 

@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.lblEquippedClothing = new System.Windows.Forms.GroupBox();
-            this.butEquipClothes = new System.Windows.Forms.Button();
             this.butEquipWeapons = new System.Windows.Forms.Button();
-            this.lblClothesEquipped = new System.Windows.Forms.Label();
-            this.lblEquippedWeapon = new System.Windows.Forms.Label();
-            this.lblHealthPoints = new System.Windows.Forms.Label();
-            this.lblPlayerName = new System.Windows.Forms.Label();
             this.lblResources = new System.Windows.Forms.Label();
             this.lblClothes = new System.Windows.Forms.Label();
             this.lblWeapons = new System.Windows.Forms.Label();
@@ -63,6 +58,8 @@
             this.lblItemOnThisLand = new System.Windows.Forms.Label();
             this.lblResourcesHome = new System.Windows.Forms.Label();
             this.lblResourcesOnThisLand = new System.Windows.Forms.Label();
+            this.butEquipClothes = new System.Windows.Forms.Button();
+            this.progressBarHealth = new System.Windows.Forms.ProgressBar();
             this.lblEquippedClothing.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxMap.SuspendLayout();
@@ -73,10 +70,6 @@
             // 
             this.lblEquippedClothing.Controls.Add(this.butEquipClothes);
             this.lblEquippedClothing.Controls.Add(this.butEquipWeapons);
-            this.lblEquippedClothing.Controls.Add(this.lblClothesEquipped);
-            this.lblEquippedClothing.Controls.Add(this.lblEquippedWeapon);
-            this.lblEquippedClothing.Controls.Add(this.lblHealthPoints);
-            this.lblEquippedClothing.Controls.Add(this.lblPlayerName);
             this.lblEquippedClothing.Controls.Add(this.lblResources);
             this.lblEquippedClothing.Controls.Add(this.lblClothes);
             this.lblEquippedClothing.Controls.Add(this.lblWeapons);
@@ -90,16 +83,6 @@
             this.lblEquippedClothing.TabStop = false;
             this.lblEquippedClothing.Text = "Inventory";
             // 
-            // butEquipClothes
-            // 
-            this.butEquipClothes.Location = new System.Drawing.Point(579, 248);
-            this.butEquipClothes.Name = "butEquipClothes";
-            this.butEquipClothes.Size = new System.Drawing.Size(117, 54);
-            this.butEquipClothes.TabIndex = 11;
-            this.butEquipClothes.Text = "Equip";
-            this.butEquipClothes.UseVisualStyleBackColor = true;
-            this.butEquipClothes.Click += new System.EventHandler(this.butEquipClothes_Click);
-            // 
             // butEquipWeapons
             // 
             this.butEquipWeapons.Location = new System.Drawing.Point(579, 62);
@@ -109,43 +92,6 @@
             this.butEquipWeapons.Text = "Equip";
             this.butEquipWeapons.UseVisualStyleBackColor = true;
             this.butEquipWeapons.Click += new System.EventHandler(this.butEquipWeapons_Click);
-            // 
-            // lblClothesEquipped
-            // 
-            this.lblClothesEquipped.AutoSize = true;
-            this.lblClothesEquipped.Location = new System.Drawing.Point(574, 555);
-            this.lblClothesEquipped.Name = "lblClothesEquipped";
-            this.lblClothesEquipped.Size = new System.Drawing.Size(79, 29);
-            this.lblClothesEquipped.TabIndex = 9;
-            this.lblClothesEquipped.Text = "label4";
-            // 
-            // lblEquippedWeapon
-            // 
-            this.lblEquippedWeapon.AutoSize = true;
-            this.lblEquippedWeapon.Location = new System.Drawing.Point(574, 508);
-            this.lblEquippedWeapon.Name = "lblEquippedWeapon";
-            this.lblEquippedWeapon.Size = new System.Drawing.Size(79, 29);
-            this.lblEquippedWeapon.TabIndex = 8;
-            this.lblEquippedWeapon.Text = "label3";
-            // 
-            // lblHealthPoints
-            // 
-            this.lblHealthPoints.AutoSize = true;
-            this.lblHealthPoints.Location = new System.Drawing.Point(574, 453);
-            this.lblHealthPoints.Name = "lblHealthPoints";
-            this.lblHealthPoints.Size = new System.Drawing.Size(79, 29);
-            this.lblHealthPoints.TabIndex = 7;
-            this.lblHealthPoints.Text = "label2";
-            // 
-            // lblPlayerName
-            // 
-            this.lblPlayerName.AutoSize = true;
-            this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblPlayerName.Location = new System.Drawing.Point(563, 384);
-            this.lblPlayerName.Name = "lblPlayerName";
-            this.lblPlayerName.Size = new System.Drawing.Size(129, 40);
-            this.lblPlayerName.TabIndex = 6;
-            this.lblPlayerName.Text = "Player:";
             // 
             // lblResources
             // 
@@ -180,7 +126,7 @@
             this.listBoxResources.ItemHeight = 29;
             this.listBoxResources.Location = new System.Drawing.Point(6, 435);
             this.listBoxResources.Name = "listBoxResources";
-            this.listBoxResources.Size = new System.Drawing.Size(313, 149);
+            this.listBoxResources.Size = new System.Drawing.Size(551, 149);
             this.listBoxResources.TabIndex = 2;
             // 
             // listBoxClothes
@@ -203,6 +149,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.progressBarHealth);
             this.groupBox2.Controls.Add(this.lblTurnsLeft);
             this.groupBox2.Controls.Add(this.lblMovesLeft);
             this.groupBox2.Controls.Add(this.butNextTurn);
@@ -429,6 +376,23 @@
             this.lblResourcesOnThisLand.TabIndex = 10;
             this.lblResourcesOnThisLand.Text = "Resources on this land:";
             // 
+            // butEquipClothes
+            // 
+            this.butEquipClothes.Location = new System.Drawing.Point(579, 248);
+            this.butEquipClothes.Name = "butEquipClothes";
+            this.butEquipClothes.Size = new System.Drawing.Size(117, 54);
+            this.butEquipClothes.TabIndex = 11;
+            this.butEquipClothes.Text = "Equip";
+            this.butEquipClothes.UseVisualStyleBackColor = true;
+            this.butEquipClothes.Click += new System.EventHandler(this.butEquipClothes_Click);
+            // 
+            // progressBarHealth
+            // 
+            this.progressBarHealth.Location = new System.Drawing.Point(37, 537);
+            this.progressBarHealth.Name = "progressBarHealth";
+            this.progressBarHealth.Size = new System.Drawing.Size(412, 46);
+            this.progressBarHealth.TabIndex = 11;
+            // 
             // BordGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
@@ -479,10 +443,6 @@
         private System.Windows.Forms.Button butNextTurn;
         private System.Windows.Forms.Label lblResources;
         private System.Windows.Forms.Label lblClothes;
-        private System.Windows.Forms.Label lblClothesEquipped;
-        private System.Windows.Forms.Label lblEquippedWeapon;
-        private System.Windows.Forms.Label lblHealthPoints;
-        private System.Windows.Forms.Label lblPlayerName;
         private System.Windows.Forms.GroupBox groupBoxMap;
         private System.Windows.Forms.GroupBox groupBoxTileInfo;
         private System.Windows.Forms.Label lblNumberOfCitizens;
@@ -491,10 +451,11 @@
         private System.Windows.Forms.Label lblItemOnThisLand;
         private System.Windows.Forms.Label lblResourcesHome;
         private System.Windows.Forms.Label lblResourcesOnThisLand;
-        private System.Windows.Forms.Button butEquipClothes;
         private System.Windows.Forms.Button butEquipWeapons;
         private System.Windows.Forms.Label lblPosy;
         private System.Windows.Forms.Label lblPosx;
+        private System.Windows.Forms.Button butEquipClothes;
+        private System.Windows.Forms.ProgressBar progressBarHealth;
     }
 }
 
