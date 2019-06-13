@@ -79,10 +79,12 @@ namespace Catan
             AllResources.Add(new Resource("Wool")); // for clothes
             AllResources.Add(new Resource("Stone")); // for home / defence
 
-            for (int i = 1; i <= 50; i++)
+            string[] enemyList = { "Rebelious Farmer","Giant Wolf","Lost Knight","Sneaky Ninja","Slow Oger","Swift Reeves","Mad Scientist"};
+
+            for (int i = 0; i < enemyList.Length; i++)
             {
                 int damageRandom = rand.Next(1, 51);
-                Enemys.Add(new Enemy(i.ToString(), damageRandom));
+                Enemys.Add(new Enemy(enemyList[i], damageRandom));
             }
 
             AllItems.Add(new Sword("Wooden Sword"));
@@ -248,14 +250,20 @@ namespace Catan
                     if (ex.Resource != null || ex.resourceAmount != 0)
                     {
                         Player.AddResources(ex.Resource, ex.resourceAmount);
+                        returnValue = 2;
                     }
                     if (ex.Item != null)
                     {
                         Player.MakeItem(ex.Item);
+                        returnValue = 2;
                     }
                     Map[Player.posX, Player.posY].LootResources();
                     MovesLeft -= 1;
-                    return returnValue = 2;
+                    if (rand.Next(0,5) > 2)
+                    {
+                        returnValue = 3;
+                    }
+                    
                 }
             }
             return returnValue;

@@ -45,6 +45,7 @@ namespace Catan
             updateMap();
             RefreshLabels();
             RefreshListbox();
+            currentGame.Home.AddDefense(30);
         }
 
         private void SaveGame(Game game)
@@ -96,7 +97,6 @@ namespace Catan
                 {
                     lblItemOnThisLand.Text = "You have already looted these items";
                     lblResourcesOnThisTile.Text = "You have already looted these items";
-                    checkBoxes[tileToExplore.posX, tileToExplore.posY].BackColor = Color.Purple;
                 }
                 else
                 {
@@ -265,8 +265,15 @@ namespace Catan
                     MessageBox.Show("No items to loot at home!");
                     break;
                 case 2:
+                    checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
                     RefreshLabels();
                     RefreshListbox();
+                    break;
+                case 3:
+                    checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
+                    RefreshLabels();
+                    RefreshListbox();
+                    encounterEnemy();
                     break;
             }
             updateMap();
@@ -389,6 +396,32 @@ namespace Catan
 
                  
                 }
+            }
+        }
+        
+        private void encounterEnemy()
+        {
+            Random rand = new Random();
+            Enemy enemyToFight = currentGame.GiveNewEnemy();
+            if (enemyToFight == null)
+            {
+                switch (rand.Next(0,2))
+                {
+                    case 0:
+                        MessageBox.Show("You stepped on a mouse... Poor thing.");
+                        break;
+                    case 1:
+                        MessageBox.Show("You got spooked by a mouse, you sissy");
+                        break;
+                    case 2:
+                        MessageBox.Show("You tripped over a tree branch. Lift your feet up!");
+                        break;
+                }
+            }
+            else
+            {
+                SimpleFightForm fightForm = new SimpleFightForm(currentGame.Player, enemyToFight);
+                fightForm.Show();
             }
         }
     }

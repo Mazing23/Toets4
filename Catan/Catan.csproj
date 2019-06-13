@@ -92,6 +92,12 @@
     <Compile Include="ItemsFolder\Sword.cs" />
     <Compile Include="BoardFolder\WorldTile.cs" />
     <Compile Include="ItemsFolder\Weapon.cs" />
+    <Compile Include="BoardFolder\SimpleFightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoardFolder\SimpleFightForm.Designer.cs">
+      <DependentUpon>SimpleFightForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BoardFolder\BordGame.resx">
       <DependentUpon>BordGame.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +110,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BoardFolder\SimpleFightForm.resx">
+      <DependentUpon>SimpleFightForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="CatanDiagram.cd" />
     <None Include="BoardFolder\GameDiagram.cd" />
     <None Include="Properties\Settings.settings">
