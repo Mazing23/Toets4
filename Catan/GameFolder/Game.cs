@@ -91,18 +91,17 @@ namespace Catan
             {
                 var gun = fact.CreateItem<Gun>();
                 allItems.Add(gunnames[i], gun);
-                //AllItems.Add(gun);
                 var sword = fact.CreateItem<Sword>();
                 allItems.Add(swordnames[i], sword);
-                //AllItems.Add(sword);
                 var armour = fact.CreateItem<Clothing>();
                 allItems.Add(armournames[i], armour);
-                //AllItems.Add(armour);
                 
             }
 
             var fist = fact.CreateItem<Clothing>();
             allItems.Add("Fist", fist);
+            var axe = fact.CreateItem<Axe>();
+            allItems.Add("Axe", axe);
 
             AllResources.Add(new Resource("Wood")); // for home / defence
             AllResources.Add(new Resource("Iron")); // make weapons / clothes
@@ -266,8 +265,8 @@ namespace Catan
 
         public int TakeResources()
         {
-          int returnValue = 0;
-          if(MovesLeft > 0)
+            int returnValue = 0;
+            if (MovesLeft > 0)
             {
                 WorldTile currentTile = Map[Player.posX, Player.posY];
                 if (currentTile is HomeTile)
@@ -289,11 +288,11 @@ namespace Catan
                     }
                     Map[Player.posX, Player.posY].LootResources();
                     MovesLeft -= 1;
-                    if (rand.Next(0,5) > 2)
+                    if (rand.Next(0, 5) > 2)
                     {
                         returnValue = 3;
                     }
-                    
+
                 }
             }
             return returnValue;

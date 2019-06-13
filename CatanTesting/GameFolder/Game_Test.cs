@@ -10,7 +10,6 @@ namespace CatanTesting
     {
         Player player_Game;
         Home home_Base;
-        List<Resource> resources_List;
         Game g;
 
         private int given_Turns = 30;
@@ -20,10 +19,13 @@ namespace CatanTesting
         {
             player_Game = new Player("Harry");
             home_Base = new Home("Home", player_Game);
-            resources_List = new List<Resource>();
             g = new Game(player_Game, given_Turns);
         }
 
+
+        ////////////////////////////////////////////////////////////////
+        ///                          Game Setup                      ///
+        ////////////////////////////////////////////////////////////////
 
         /// <summary>
         /// Game will add the given player
@@ -43,7 +45,18 @@ namespace CatanTesting
         public void Game_with_all_enemies_Added()
         {
             CollectionAssert.AllItemsAreInstancesOfType(g.Enemys, typeof(Enemy));
-        }       
+        }
+
+        /// <summary>
+        /// Game will check if enemies list is made
+        /// and will check if the list contains enemies
+        /// </summary>
+        [TestMethod]
+        public void Game_with_MapList_filled()
+        {
+            CollectionAssert.AllItemsAreNotNull(g.Map);
+        }
+
 
         /// <summary>
         /// give new enemy will return null
