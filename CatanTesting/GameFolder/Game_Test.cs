@@ -131,18 +131,18 @@ namespace CatanTesting
         /// Turns will give random value
         /// between one and six
         /// </summary>
-        //[TestMethod]
-        //public void NextTurn_Turns_random_value_betweenOneAndSix()
-        //{
-        //    bool turns_are_withinRange = false;
-            
-        //    g.NextTurn();
+        [TestMethod]
+        public void NextTurn_Turns_random_value_betweenOneAndSix()
+        {
+            bool turns_are_withinRange = false;
 
-        //    if (g.MovesLeft >= 1 && g.MovesLeft <= 6)
-        //        turns_are_withinRange = true;
+            g.NextTurn();
 
-        //    Assert.IsTrue(turns_are_withinRange);
-        //}
+            if (g.MovesLeft >= 1 && g.MovesLeft <= 6)
+                turns_are_withinRange = true;
+
+            Assert.IsTrue(turns_are_withinRange);
+        }
 
         /// <summary>
         /// change position of player, add one (y)

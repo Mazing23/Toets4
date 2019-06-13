@@ -17,13 +17,13 @@ namespace Catan
         public int TurnsLeft { get; private set; }
 
 
-        public List<Item> AllItems { get; private set; }
         public List<Resource> AllResources { get; private set; }
         public List<Enemy> Enemys { get; private set; }
-
         public Dictionary<string, Item> allItems { get; private set; }
 
+
         Random rand = new Random();
+
 
         public Game(Player player, int turns)
         {
@@ -41,10 +41,9 @@ namespace Catan
 
         private void ImplementLists()
         {
-            AllItems = new List<Item>();
             AllResources = new List<Resource>();
             Enemys = new List<Enemy>();
-            allItems = new Dictionary<string, int>();
+            allItems = new Dictionary<string, Item>();
         }
         private void GenerateMap()
         {
@@ -60,7 +59,7 @@ namespace Catan
                     {
                         if (rand.Next(1, 5) >= 3)
                         {
-                            Map[i, j] = new ExploreTile(i, j, AllItems[rand.Next(0, 20)], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
+                            //Map[i, j] = new ExploreTile(i, j, AllItems[rand.Next(0, 20)], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
                         }
                         else
                         {
@@ -93,11 +92,11 @@ namespace Catan
                 allItems.Add(gunnames[i], gun);
                 //AllItems.Add(gun);
                 var sword = fact.CreateItem<Sword>();
-                //allItems.Add(swordnames[i], sword.Damage);
-                AllItems.Add(sword);
+                allItems.Add(swordnames[i], sword);
+                //AllItems.Add(sword);
                 var armour = fact.CreateItem<Clothing>();
-                //allItems.Add(armournames[i], armour.Damage);
-                AllItems.Add(armour);
+                allItems.Add(armournames[i], armour);
+                //AllItems.Add(armour);
             }
 
             AllResources.Add(new Resource("Wood")); // for home / defence
