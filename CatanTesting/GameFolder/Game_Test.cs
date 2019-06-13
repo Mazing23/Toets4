@@ -9,9 +9,9 @@ namespace CatanTesting
     public class Game_Test
     {
         Player player_Game;
-        List<Enemy> enemies_List;
         Home home_Base;
         List<Resource> resources_List;
+        Game g;
 
         private int given_Turns = 30;
 
@@ -19,9 +19,9 @@ namespace CatanTesting
         public void SetUp()
         {
             player_Game = new Player("Harry");
-            enemies_List = new List<Enemy>();
             home_Base = new Home("Home", player_Game);
             resources_List = new List<Resource>();
+            g = new Game(player_Game, given_Turns);
         }
 
         /// <summary>
@@ -50,7 +50,6 @@ namespace CatanTesting
         [TestMethod]
         public void Game_with_correct_PlayerAdded()
         {
-            Game g = new Game(player_Game, given_Turns);
 
             Assert.AreEqual(player_Game, g.Player);
         }
@@ -62,9 +61,7 @@ namespace CatanTesting
         [TestMethod]
         public void Game_with_all_enemies_Added()
         {
-            Game g = new Game(player_Game, given_Turns);
-
-            CollectionAssert.AllItemsAreInstancesOfType(enemies_List, typeof(Enemy));
+            CollectionAssert.AllItemsAreInstancesOfType(g.Enemys, typeof(Enemy));
         }       
 
         /// <summary>
@@ -75,7 +72,6 @@ namespace CatanTesting
         [TestMethod]
         public void GiveNewEnemy_noDefence_returnNull()
         {
-            Game g = new Game(player_Game, given_Turns);
             Enemy e = g.GiveNewEnemy();
 
             Assert.AreEqual(null, e);
@@ -90,7 +86,6 @@ namespace CatanTesting
         {
             int level_ofDefence = 10;
 
-            Game g = new Game(player_Game, given_Turns);
             g.Home.AddDefense(level_ofDefence);
             Enemy e = g.GiveNewEnemy();
 
@@ -104,7 +99,6 @@ namespace CatanTesting
         [TestMethod]
         public void Check_allResources_List_for_Grain()
         {
-            Game g = new Game(player_Game, given_Turns);
             Resource r = g.AllResources.Find(x => x.Name.Contains("Grain"));
             CollectionAssert.Contains(g.AllResources, r);
         }
@@ -116,7 +110,6 @@ namespace CatanTesting
         [TestMethod]
         public void Check_allResources_List_for_Iron()
         {
-            Game g = new Game(player_Game, given_Turns);
             Resource r = g.AllResources.Find(x => x.Name.Contains("Iron"));
             CollectionAssert.Contains(g.AllResources, r);
         }
@@ -131,7 +124,6 @@ namespace CatanTesting
             int added_amount_ofResources = 10;
             int new_amount_ofResources = 5;
 
-            Game g = new Game(player_Game, given_Turns);
             Resource r = g.AllResources.Find(x => x.Name.Contains("Grain"));
 
             player_Game.AddResources(r, added_amount_ofResources);
@@ -149,7 +141,6 @@ namespace CatanTesting
         {
             int expected_amount_ofTurnsLeft = 29;
 
-            Game g = new Game(player_Game, given_Turns);
             g.NextTurn();
 
             Assert.AreEqual(expected_amount_ofTurnsLeft, g.TurnsLeft);
@@ -164,7 +155,6 @@ namespace CatanTesting
         {
             bool turns_are_withinRange = false;
             
-            Game g = new Game(player_Game, given_Turns);
             g.NextTurn();
 
             if (g.MovesLeft >= 1 && g.MovesLeft <= 6)
@@ -182,7 +172,6 @@ namespace CatanTesting
             int given_switch_number = 0;
             int expected_new_position = 6;
 
-            Game g = new Game(player_Game, given_Turns);
             g.MovePlayer(given_switch_number);
 
             Assert.AreEqual(expected_new_position, player_Game.posY);
@@ -197,7 +186,6 @@ namespace CatanTesting
             int given_switch_number = 3;
             int expected_new_position = 4;
 
-            Game g = new Game(player_Game, given_Turns);
             g.MovePlayer(given_switch_number);
 
             Assert.AreEqual(expected_new_position, player_Game.posX);
@@ -213,7 +201,6 @@ namespace CatanTesting
             int given_switch_number = 4;
             int expected_unchanged_position = 5;
 
-            Game g = new Game(player_Game, given_Turns);
             g.MovePlayer(given_switch_number);
 
             Assert.AreEqual(expected_unchanged_position, player_Game.posX);
@@ -225,7 +212,6 @@ namespace CatanTesting
             int expected_x_position = 5;
             int expected_y_position = 5;
 
-            Game g = new Game(player_Game, given_Turns);
             WorldTile w = g.CurrentTile();
 
             Assert.AreEqual(g.Map[expected_x_position, 
