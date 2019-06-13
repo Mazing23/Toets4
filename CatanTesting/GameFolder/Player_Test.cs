@@ -20,7 +20,7 @@ namespace CatanTesting
         public void MakeWeapon_and_returnTrue()
         {
             Player player = new Player("Harry");
-            Item a = new Axe("Axe");
+            Item a = new Axe();
 
             player.MakeItem(a);
 
@@ -40,7 +40,7 @@ namespace CatanTesting
         public void EquipWeapon_and_returnTrue()
         {
             Player player = new Player("Harry");
-            Item w = new Axe("Axe");
+            Item w = new Axe();
 
             player.MakeItem(w);
 
@@ -55,7 +55,7 @@ namespace CatanTesting
         public void EquipClothing_and_returnTrue()
         {
             Player player = new Player("Harry");
-            Item c = new Clothing("Armour");
+            Item c = new Clothing();
 
             player.MakeItem(c);
 

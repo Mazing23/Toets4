@@ -11,11 +11,17 @@ namespace CatanTesting
     [TestClass]
     public class Enemy_Test
     {
+        Enemy enemy;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            enemy = new Enemy("Harry", 35);
+        }
+
         [TestMethod]
         public void AddEnemy_and_CheckType()
         {
-            Enemy enemy = new Enemy("Harry", 35);
-
             Assert.AreEqual(EnemyType.Hard, enemy.EnemyType);
         }
 
@@ -23,19 +29,27 @@ namespace CatanTesting
         [TestMethod]
         public void ReturnDamageOfEnemy()
         {
-            Enemy enemy = new Enemy("Harry", 35);
-
             Assert.AreEqual(35, enemy.Damage);
         }
 
         [TestMethod]
         public void CheckIfHealth_Matches()
         {
-            Enemy enemy = new Enemy("Harry", 35);
-
             Assert.AreEqual(100, enemy.Health);
         }
 
+
+        [TestMethod]
+        public void TakeDamage_ReduceHealth_with_nullWeapon()
+        {
+            Player p = new Player("Hennie");
+
+            p.EquipItem(new Axe());
+            p.AttackEnemy(enemy);           
+
+            //Assert.AreEqual(25, enemy.Damage);
+
+        }
         
     }
 }

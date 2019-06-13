@@ -64,7 +64,7 @@ namespace CatanTesting
         {
             Game g = new Game(player_Game, given_Turns);
 
-            CollectionAssert.AllItemsAreInstancesOfType(enemies_List, typeof(Enemy));
+            CollectionAssert.AllItemsAreInstancesOfType(g.Enemys, typeof(Enemy));
         }       
 
         /// <summary>

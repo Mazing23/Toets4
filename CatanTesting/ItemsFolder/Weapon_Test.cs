@@ -11,18 +11,11 @@ namespace CatanTesting
     [TestClass]
     public class Weapon_Test
     {
-        [TestMethod]
-        public void Sword_getDamage_fromLength_and_return50()
-        {
-            Item w = new Sword("ThisIsover50CharactersLongandthusweget50backAsIsDecreed");
-
-            Assert.AreEqual(50, w.Damage);
-        }
 
         [TestMethod]
         public void Sword_getDamage_fromLength_and_return_RandomValue()
         {
-            Item w = new Sword("Harry");
+            Item w = new Sword();
 
             bool b = false;
             if (w.Damage >= 1 || w.Damage <= 5) b = true;
@@ -31,17 +24,9 @@ namespace CatanTesting
         }
 
         [TestMethod]
-        public void Gun_getDamage_fromLength_and_return20()
-        {
-            Item w = new Gun("ThisIsover50CharactersLongandthusweget50backAsIsDecreed");
-
-            Assert.AreEqual(20, w.Damage);
-        }
-
-        [TestMethod]
         public void Gun_getDamage_fromLength_and_return_RandomValue()
         {
-            Item w = new Gun("HarryAndNogIets");
+            Item w = new Gun();
 
             bool b = false;
             if (w.Damage >= 5 || w.Damage <= 15) b = true;
@@ -52,7 +37,7 @@ namespace CatanTesting
         [TestMethod]
         public void Axe_getDamage()
         {
-            Item w = new Axe("Harry");
+            Item w = new Axe();
 
             Assert.AreEqual(10, w.Damage);
         }
