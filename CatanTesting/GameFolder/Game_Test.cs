@@ -179,16 +179,15 @@ namespace CatanTesting
         [TestMethod]
         public void MovePlayer_positionY_change_up()
         {
-            int given_switch_number = 0;
-            int expected_new_position = 4;
-
-            
+            int given_switch_number = 1;
+            int expected_new_position = 6;
 
             Game g = new Game(player_Game, given_Turns);
             g.NextTurn();
-            g.MovePlayer(given_switch_number);
+            int return_value = g.MovePlayer(given_switch_number);
 
             Assert.AreEqual(expected_new_position, player_Game.posY);
+            Assert.AreEqual(1, return_value);
         }
 
         /// <summary>
@@ -197,14 +196,15 @@ namespace CatanTesting
         [TestMethod]
         public void MovePlayer_positionX_change_down()
         {
-            int given_switch_number = 3;
+            int given_switch_number = 2;
             int expected_new_position = 4;
 
             Game g = new Game(player_Game, given_Turns);
             g.NextTurn();
-            g.MovePlayer(given_switch_number);
+            int return_value = g.MovePlayer(given_switch_number);
 
             Assert.AreEqual(expected_new_position, player_Game.posX);
+            Assert.AreEqual(1, return_value);
         }
 
         /// <summary>
