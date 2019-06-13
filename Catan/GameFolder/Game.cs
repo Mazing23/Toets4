@@ -103,13 +103,16 @@ namespace Catan
             AllResources.Add(new Resource("Wool")); // for clothes
             AllResources.Add(new Resource("Stone")); // for home / defence
 
-            for (int i = 1; i <= 50; i++)
-            {
-                int damageRandom = rand.Next(1, 51);
-                Enemys.Add(new Enemy(i.ToString(), damageRandom));
-            }
+            string[] enemyList = { "Rebelious Farmer", "Giant Wolf", "Lost Knight", "Sneaky Ninja", "Slow Oger", "Swift Reeves", "Mad Scientist" };
 
-            GenerateMap();
+            for (int i = 0; i < enemyList.Length; i++)
+                {
+                    int damageRandom = rand.Next(1, 51);
+                    Enemys.Add(new Enemy(enemyList[i], damageRandom));
+                }
+
+
+                    GenerateMap();
         }
 
         /// <summary>
