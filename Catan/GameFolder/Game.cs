@@ -101,7 +101,13 @@ namespace Catan
                 allItems.Add(armournames[i], armour);
                 allItems[armournames[i]].Name = armournames[i];
                 //AllItems.Add(armour);
-                
+
+                //Item gun = new Gun(gunnames[i]);
+                //allItems.Add(gun.Name, gun);
+                //Item sword = new Sword(swordnames[i]);
+                //allItems.Add(sword.Name, sword);
+                //Item armour = new Clothing(armournames[i]);
+                //allItems.Add(armour.Name, armour);
             }
 
             var fist = fact.CreateItem<Sword>();
