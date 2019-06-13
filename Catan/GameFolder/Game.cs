@@ -48,6 +48,7 @@ namespace Catan
         }
         private void GenerateMap()
         {
+           
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
@@ -60,7 +61,7 @@ namespace Catan
                     {
                         if (rand.Next(1, 5) >= 3)
                         {
-                            Map[i, j] = new ExploreTile(i, j, AllItems[rand.Next(1, 5)], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
+                            Map[i, j] = new ExploreTile(i, j, allItems.ElementAt(rand.Next(0,20), AllResources[rand.Next(1, 5)], rand.Next(1, 5));
                         }
                         else
                         {
