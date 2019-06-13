@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameFolder\Enemy_Test.cs" />
+    <Compile Include="GameFolder\Exception_testing.cs" />
     <Compile Include="GameFolder\GameSave_Test.cs" />
     <Compile Include="GameFolder\Game_Test.cs" />
     <Compile Include="GameFolder\Home_Test.cs" />

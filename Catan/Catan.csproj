@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="BoardFolder\HomeTile.cs" />
     <Compile Include="BoardFolder\ExploreTile.cs" />
+    <Compile Include="Factory\ItemFactory.cs" />
     <Compile Include="ItemsFolder\Axe.cs" />
     <Compile Include="BoardFolder\BordGame.cs">
       <SubType>Form</SubType>
@@ -83,6 +84,7 @@
     <Compile Include="GameFolder\Game.cs" />
     <Compile Include="ItemsFolder\Gun.cs" />
     <Compile Include="ItemsFolder\IDamage.cs" />
+    <Compile Include="ItemsFolder\IName.cs" />
     <Compile Include="ItemsFolder\Item.cs" />
     <Compile Include="BoardFolder\MovementDirection.cs" />
     <Compile Include="GameFolder\Player.cs" />

@@ -16,10 +16,12 @@ namespace Catan
         public int MovesLeft { get; private set; }
         public int TurnsLeft { get; private set; }
 
-        
+
         public List<Item> AllItems { get; private set; }
         public List<Resource> AllResources { get; private set; }
         public List<Enemy> Enemys { get; private set; }
+
+        public Dictionary<string, int> allItems { get; private set; }
 
         Random rand = new Random();
 
@@ -34,7 +36,7 @@ namespace Catan
             Home = new Home("Home", player);
             Map = new WorldTile[10, 10];
 
-            SetUpGame();
+            Setup();
         }
 
         private void ImplementLists()
@@ -42,6 +44,7 @@ namespace Catan
             AllItems = new List<Item>();
             AllResources = new List<Resource>();
             Enemys = new List<Enemy>();
+            allItems = new Dictionary<string, int>();
         }
         private void GenerateMap()
         {
@@ -71,27 +74,40 @@ namespace Catan
         }
 
 
-        private  void SetUpGame()
+        public void Setup()
         {
+            string[] gunnames = new string[] { "Excalibur", "Glock", "Assualt Rifle"
+            , "Red John", "Heaven Bringer", "Glory", "Lucy"};
+            string[] swordnames = new string[] { "Champion", "Wooden sword", "Stormbringer"
+            , "Mournblade", "Sword of Dawn", "RavenBrand", "Harry"};
+            string[] armournames = new string[] { "Hide Armour", "Iron Armour", "Elestial Armour"
+            , "Windbreaker", "A Sheet", "A leaf", "Diamond Glades"};
+
+            if (gunnames.Length - swordnames.Length != 0) throw new ArgumentOutOfRangeException();
+            if (gunnames.Length - armournames.Length != 0) throw new ArgumentOutOfRangeException();
+
+            ItemFactory fact = new ItemFactory();
+            for (int i = 0; i < gunnames.Length; i++)
+            {
+                var gun = fact.CreateItem<Gun>();
+                allItems.Add(gunnames[i], gun.Damage);
+                var sword = fact.CreateItem<Sword>();
+                allItems.Add(swordnames[i], sword.Damage);
+                var armour = fact.CreateItem<Clothing>();
+                allItems.Add(armournames[i], armour.Damage);
+            }
+
             AllResources.Add(new Resource("Wood")); // for home / defence
             AllResources.Add(new Resource("Iron")); // make weapons / clothes
             AllResources.Add(new Resource("Grain")); // for the citizens
             AllResources.Add(new Resource("Wool")); // for clothes
             AllResources.Add(new Resource("Stone")); // for home / defence
 
-            string[] enemyList = { "Rebelious Farmer","Giant Wolf","Lost Knight","Sneaky Ninja","Slow Oger","Swift Reeves","Mad Scientist"};
-
-            for (int i = 0; i < enemyList.Length; i++)
+            for (int i = 1; i <= 50; i++)
             {
                 int damageRandom = rand.Next(1, 51);
-                Enemys.Add(new Enemy(enemyList[i], damageRandom));
+                Enemys.Add(new Enemy(i.ToString(), damageRandom));
             }
-
-            AllItems.Add(new Sword("Wooden Sword"));
-            AllItems.Add(new Sword("Stone Sword"));
-            AllItems.Add(new Sword("Iron Sword"));
-            AllItems.Add(new Gun("Pistol"));
-            AllItems.Add(new Gun("Assault Rifle"));
 
             GenerateMap();
         }
