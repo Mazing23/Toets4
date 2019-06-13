@@ -91,7 +91,7 @@ namespace Catan
             {
                 var gun = fact.CreateItem<Gun>();
                 allItems.Add(gunnames[i], gun);
-                AllItems.Add(gun);
+                //AllItems.Add(gun);
                 var sword = fact.CreateItem<Sword>();
                 //allItems.Add(swordnames[i], sword.Damage);
                 AllItems.Add(sword);
