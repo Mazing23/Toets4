@@ -17,37 +17,48 @@ namespace Catan
         Random rand;
         public SimpleFightForm( Player player, Enemy enemy)
         {
-            InitializeComponent();
-            Player = player;
-            Enemy = enemy;
-            updateText();
-            rand = new Random();
+            try
+            {
+                InitializeComponent();
+                Player = player;
+                Enemy = enemy;
+                updateText();
+                rand = new Random();
+            }
+            catch(ArgumentNullException e)
+            {
+                MessageBox.Show("The enemy fled from you!");
+                Console.WriteLine(e.StackTrace + e.Message);
+                this.Close();
+            }
         }
 
         private void updateText()
         {
-            if(Player.EquipedClothes == null)
+            try
             {
-                lblEquipedClothing.Text = "You are naked!";
-            }
-            else
-            {
-                lblEquipedClothing.Text = Player.EquipedClothes.Name;
-            }
+                if (Player.EquipedClothes == null)
+                { 
+                    lblEquipedClothing.Text = "You are naked!";
+                }
+                else
+                {
+                    lblEquipedClothing.Text = Player.EquipedClothes.Name;
+                }
 
-            if(Player.EquipedWeapon == null)
-            {
-                lblEquipedWeapon.Text = "You are fighting bare handed!";
-            }
-            else
-            {
                 lblEquipedWeapon.Text = Player.EquipedWeapon.Name;
+                progressBarHealthYou.Value = Player.Health;
+                progressBarHealthEnemy.Value = Enemy.Health;
+                lblEnemyDamage.Text = "Enemy deals " + Enemy.Damage.ToString() + "Damage";
+                lblEnemyName.Text = Enemy.Name;
+                lblYouName.Text = Player.Name;
             }
-            progressBarHealthYou.Value = Player.Health;
-            progressBarHealthEnemy.Value = Enemy.Health;
-            lblEnemyDamage.Text = "Enemy deals "+ Enemy.Damage.ToString() + "Damage";
-            lblEnemyName.Text = Enemy.Name;
-            lblYouName.Text = Player.Name;
+            catch(ArgumentNullException e)
+            {
+                MessageBox.Show("You lost something! Quickly look for it!");
+                Console.WriteLine(e.StackTrace + e.Message);
+                this.Close();
+            }
         }
 
         private void buttonFight_Click(object sender, EventArgs e)
@@ -94,7 +105,14 @@ namespace Catan
                 MessageBox.Show("The enemy blocked your way and hits you");
                 Player.TakeDamage(Enemy.Damage);
             }
-            updateText();
+            if (Player.Health <= 0)
+            {
+                this.Close();
+            }
+            else
+            {
+                updateText();
+            }
         }
     }
 }

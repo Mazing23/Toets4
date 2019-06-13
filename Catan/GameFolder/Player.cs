@@ -39,29 +39,28 @@ namespace Catan
         /// <returns></bool>
         public void MakeItem(Item item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
             // take away from resources;
-            Items.Add(item);
+            if (!Items.Contains(item))
+            {
+                Items.Add(item);
+            } 
         }
 
         public bool EquipItem(Item item)
         {
             if (item == null) return false;
-            foreach (Item i in Items)
-            {
-                if (i == item)
+            if(Items.Contains(item))
                 {
-                    if (i is Clothing)
+                    if (item is Clothing)
                     {
-                        EquipedClothes = i as Clothing;
+                        EquipedClothes = item as Clothing;
                     }
-                    else if (i is Weapon)
+                    else if (item is Weapon)
                     {
-                        EquipedWeapon = i as Weapon;
+                        EquipedWeapon = item as Weapon;
                         Console.WriteLine("Player equipped" + EquipedWeapon.ToString());
                     }
                     return true;
-                }
             }
             return false;
         }

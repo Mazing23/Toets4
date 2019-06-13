@@ -18,11 +18,13 @@ namespace Catan
             Item = item ?? throw new ArgumentNullException(nameof(item));
             Resource = resource ?? throw new ArgumentNullException(nameof(resource));
             resourceAmount = amount;
+            isLooted = false;
         }
         public ExploreTile(int posx, int posy, Resource resource, int amount) : base (posx, posy)
         {
             Resource = resource ?? throw new ArgumentNullException(nameof(resource));
             resourceAmount = amount;
+            isLooted = false;
         }
 
         public override void LootResources()

@@ -112,9 +112,14 @@ namespace Catan
 
             var fist = fact.CreateItem<Sword>();
             allItems.Add("Fist", fist);
+            allItems["Fist"].Name = "Fist";
 
             Player.MakeItem(allItems["Fist"]);
             Player.EquipItem(allItems["Fist"]);
+
+            Player.EquipItem(allItems["Hide Armour"]);
+
+            Console.WriteLine(Player.EquipedWeapon.ToString());
 
             AllResources.Add(new Resource("Wood")); // for home / defence
             AllResources.Add(new Resource("Iron")); // make weapons / clothes
@@ -279,16 +284,17 @@ namespace Catan
         public int TakeResources()
         {
           int returnValue = 0;
-          if(MovesLeft > 0)
-            {
-                WorldTile currentTile = Map[Player.posX, Player.posY];
-                if (currentTile is HomeTile)
+          if (MovesLeft <= 0) return 0;
+
+          WorldTile currentTile = Map[Player.posX, Player.posY];
+          if (currentTile is HomeTile) return 1;
+          else if (currentTile is ExploreTile)
+          {
+           ExploreTile ex = currentTile as ExploreTile;
+                if (ex.isLooted) return 3;
+
+                else
                 {
-                    returnValue = 1;
-                }
-                else if (currentTile is ExploreTile)
-                {
-                    ExploreTile ex = currentTile as ExploreTile;
                     if (ex.Resource != null || ex.resourceAmount != 0)
                     {
                         Player.AddResources(ex.Resource, ex.resourceAmount);
@@ -301,12 +307,15 @@ namespace Catan
                     }
                     Map[Player.posX, Player.posY].LootResources();
                     MovesLeft -= 1;
-                    if (rand.Next(0,5) > 2)
+                    if (rand.Next(0, 5) > 2)
                     {
-                        returnValue = 3;
+                        returnValue = 4;
                     }
-                    
+
+
                 }
+
+
             }
             return returnValue;
         }
