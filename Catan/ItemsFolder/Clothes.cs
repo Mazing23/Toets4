@@ -24,7 +24,10 @@ namespace Catan
 
         public Clothing() : base()
         {
-
+            string outputname = Name;
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            for (int i = 0; i < rand.Next(1, 40); i++) { outputname += chars[rand.Next(52)]; }
+            Name = outputname;
         }
 
 
