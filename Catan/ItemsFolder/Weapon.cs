@@ -21,6 +21,7 @@ namespace Catan
                 for (int i = 0; i < rand.Next(1, 20); i++) { outputname += chars[rand.Next(52)]; }
                 return outputname;
             }
+            set { Name = value; }
         }
 
         public Weapon() : base()

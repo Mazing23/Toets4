@@ -21,7 +21,7 @@ namespace Catan
             }
         }
 
-        public override string Name { get; }
+        public override string Name { get; set; }
 
         public Sword() : base()
         {

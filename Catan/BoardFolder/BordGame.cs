@@ -77,7 +77,7 @@ namespace Catan
 
         private void RefreshLabels()
         {
-            Dictionary<string, Item> playerInventory = currentGame.Player.Items
+           // Dictionary<string, Item> playerInventory = currentGame.Player.Items;
             if (currentGame.MovesLeft == 0)
             {
                 lblMovesLeft.Text = "No moves left.";
