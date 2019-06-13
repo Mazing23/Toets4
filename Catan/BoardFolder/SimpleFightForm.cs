@@ -63,12 +63,17 @@ namespace Catan
                     MessageBox.Show("You hit the enemy with your" + Player.EquipedWeapon.Name);
                 }
                 Enemy.TakeDamage(Player.EquipedWeapon);
+                Player.TakeDamage(Enemy.Damage);
                 if(Enemy.Health <= 0)
                 {
                     MessageBox.Show("You defeated the enemy!");
                     this.Close();
-                    this.Dispose();
                 }
+                if(Player.Health <= 0)
+                {
+                    this.Close();
+                }
+
             }
             updateText();
         }
