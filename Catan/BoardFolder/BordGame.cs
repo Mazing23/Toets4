@@ -424,33 +424,33 @@ namespace Catan
                 
                 if (fightForm.ShowDialog() == DialogResult.OK)
                 {
-                    if (fightForm.Player.Health > 0)
-                    {
-                        currentGame.Player.setHealth(fightForm.Player.Health);
-                    }
-                    else
-                    {
-                        if (MessageBox.Show("You died! Do you want to start a new gae? Yes or no", "WARNING!",
-                             MessageBoxButtons.YesNo, MessageBoxIcon.Question,
-                              MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                        {
-                            string newName = Interaction.InputBox("Enter new name for game:", "New Game", "No Name", -1, -1);
-                            Player newPlayer = new Player(newName);
-                            Game newGame = new Game(newPlayer, 30);
-                            currentGame = newGame;
-                            RefreshLabels();
-                            RefreshListbox();
-                            updateMap();
-                        }
-                        else
-                        {
-                            this.Close();
-                            this.Dispose();
-                        }
-                    }
+                    currentGame.Player.setHealth(fightForm.Player.Health);                  
                 }
                 fightForm.Dispose();
+
             }
+
+            if (currentGame.Player.Health <= 0)
+            {
+                if (MessageBox.Show("You died! Do you want to start a new game? Yes or no", "WARNING!",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    string newName = Interaction.InputBox("Enter new name for game:", "New Game", "No Name", -1, -1);
+                    Player newPlayer = new Player(newName);
+                    Game newGame = new Game(newPlayer, 30);
+                    currentGame = newGame;
+                    RefreshLabels();
+                    RefreshListbox();
+                    updateMap();
+                }
+                else
+                {
+                    this.Close();
+                    this.Dispose();
+                }
+            }
+
             RefreshLabels();
         }
     }
