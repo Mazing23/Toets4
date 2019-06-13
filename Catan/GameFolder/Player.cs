@@ -84,5 +84,9 @@ namespace Catan
                 Resources.Add(resource, amount);
             }
         }
+        public void TakeDamage(int damageEnemy)
+        {
+            Health -= damageEnemy;
+        }
     }
 }

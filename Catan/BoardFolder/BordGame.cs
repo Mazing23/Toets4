@@ -422,6 +422,7 @@ namespace Catan
             {
                 SimpleFightForm fightForm = new SimpleFightForm(currentGame.Player, enemyToFight);
                 fightForm.Show();
+                //if(fightForm.)
             }
         }
     }

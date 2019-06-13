@@ -36,7 +36,15 @@ namespace Catan
 
         public void TakeDamage(Weapon w)
         {
-            Health =- w.Damage;
+            if(w == null)
+            {
+                Health -= 5;
+            }
+            else
+            {
+                Health -= w.Damage;
+            }
+            
         }
     }
 }
