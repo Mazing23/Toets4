@@ -131,18 +131,18 @@ namespace CatanTesting
         /// Turns will give random value
         /// between one and six
         /// </summary>
-        //[TestMethod]
-        //public void NextTurn_Turns_random_value_betweenOneAndSix()
-        //{
-        //    bool turns_are_withinRange = false;
-            
-        //    g.NextTurn();
+        [TestMethod]
+        public void NextTurn_Turns_random_value_betweenOneAndSix()
+        {
+            bool turns_are_withinRange = false;
 
-        //    if (g.MovesLeft >= 1 && g.MovesLeft <= 6)
-        //        turns_are_withinRange = true;
+            g.NextTurn();
 
-        //    Assert.IsTrue(turns_are_withinRange);
-        //}
+            if (g.MovesLeft >= 1 && g.MovesLeft <= 6)
+                turns_are_withinRange = true;
+
+            Assert.IsTrue(turns_are_withinRange);
+        }
 
         /// <summary>
         /// change position of player, add one (y)
@@ -180,16 +180,16 @@ namespace CatanTesting
         /// move player gets value outside of scope and 
         /// does not move player.
         /// </summary>
-        //[TestMethod]
-        //public void MovePlayer_default_break()
-        //{
-        //    int given_switch_number = 4;
-        //    int expected_unchanged_position = 5;
+        [TestMethod]
+        public void MovePlayer_default_break()
+        {
+            int given_switch_number = 4;
+            int expected_unchanged_position = 5;
 
-        //    g.MovePlayer(given_switch_number);
+            g.MovePlayer(given_switch_number);
 
-        //    Assert.AreEqual(expected_unchanged_position, player_Game.posX);
-        //}
+            Assert.AreEqual(expected_unchanged_position, player_Game.posX);
+        }
 
         [TestMethod]
         public void CurrentTile_returns_correctMap()
@@ -204,6 +204,7 @@ namespace CatanTesting
                 w);
         }
 
+      
 
     }
 }
