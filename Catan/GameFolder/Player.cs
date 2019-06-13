@@ -28,7 +28,6 @@ namespace Catan
             Resources = new Dictionary<Resource, int>();
             posX = 5;
             posY = 5;
-            Weapon fist = new Weapon("Fist", 30)
         }
 
 

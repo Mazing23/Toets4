@@ -47,6 +47,8 @@ namespace Catan
         }
         private void GenerateMap()
         {
+            List<string> itemsInMap = new List<string>(allItems.Keys);
+
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
@@ -59,7 +61,7 @@ namespace Catan
                     {
                         if (rand.Next(1, 5) >= 3)
                         {
-                            //Map[i, j] = new ExploreTile(i, j, AllItems[rand.Next(0, 20)], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
+                            Map[i, j] = new ExploreTile(i, j, allItems[itemsInMap[rand.Next(0, itemsInMap.Count -1)]], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
                         }
                         else
                         {
@@ -97,7 +99,11 @@ namespace Catan
                 var armour = fact.CreateItem<Clothing>();
                 allItems.Add(armournames[i], armour);
                 //AllItems.Add(armour);
+                
             }
+
+            var fist = fact.CreateItem<Clothing>();
+            allItems.Add("Fist", fist);
 
             AllResources.Add(new Resource("Wood")); // for home / defence
             AllResources.Add(new Resource("Iron")); // make weapons / clothes
@@ -113,7 +119,7 @@ namespace Catan
                     Enemys.Add(new Enemy(enemyList[i], damageRandom));
             }
 
-            //GenerateMap();
+            GenerateMap();
         }
 
         /// <summary>
