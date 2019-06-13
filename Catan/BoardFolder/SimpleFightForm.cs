@@ -69,13 +69,16 @@ namespace Catan
                     MessageBox.Show("You defeated the enemy!");
                     this.Close();
                 }
-                if(Player.Health <= 0)
+                else if(Player.Health <= 0)
                 {
                     this.Close();
                 }
+                else
+                {
+                    updateText();
+                }
 
             }
-            updateText();
         }
 
         private void buttonRun_Click(object sender, EventArgs e)
