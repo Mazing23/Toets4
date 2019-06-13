@@ -30,14 +30,14 @@ namespace Catan
 
         }
 
-        public void AddDefense(int defense)
+        public void AddDefense(int defence)
         {
-            Defence = defense;
+            Defence = defence;
         }
 
-        public void AddCitizens()
+        public void AddCitizens(int amountofcitizens)
         {
-            
+            Citizens += amountofcitizens;
         }
 
         public int CheckDefenceLevel()

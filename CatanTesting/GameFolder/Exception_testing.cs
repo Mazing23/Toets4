@@ -29,5 +29,14 @@ namespace CatanTesting
         {
             Game h = new Game(new Player("Harry"), 0);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Home_throws_exeption_null_values()
+        {
+            Home h = new Home(null, new Player("H"));
+            Home y = new Home("Home", null);
+        }
+
     }
 }
