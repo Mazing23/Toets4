@@ -56,5 +56,9 @@ namespace Catan
             }
             return 0;
         }
+        public void takeDamage(int damage)
+        {
+
+        }
     }
 }

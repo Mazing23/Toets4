@@ -39,9 +39,11 @@ namespace Catan
         /// <returns></bool>
         public void MakeItem(Item item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
             // take away from resources;
-            Items.Add(item);
+            if (!Items.Contains(item))
+            {
+                Items.Add(item);
+            } 
         }
 
         public bool EquipItem(Item item)
@@ -61,16 +63,6 @@ namespace Catan
                     return true;
             }
             return false;
-        }
-
-        public int EquipWeapon()
-        {
-            return 0;
-        }
-
-        public int EquipClothing()
-        {
-            return 0;
         }
 
         public void AttackEnemy(Enemy enemy)

@@ -171,7 +171,7 @@
             // lblTurnsLeft
             // 
             this.lblTurnsLeft.AutoSize = true;
-            this.lblTurnsLeft.Location = new System.Drawing.Point(26, 453);
+            this.lblTurnsLeft.Location = new System.Drawing.Point(26, 494);
             this.lblTurnsLeft.Name = "lblTurnsLeft";
             this.lblTurnsLeft.Size = new System.Drawing.Size(79, 29);
             this.lblTurnsLeft.TabIndex = 10;
@@ -180,7 +180,7 @@
             // lblMovesLeft
             // 
             this.lblMovesLeft.AutoSize = true;
-            this.lblMovesLeft.Location = new System.Drawing.Point(26, 414);
+            this.lblMovesLeft.Location = new System.Drawing.Point(26, 455);
             this.lblMovesLeft.Name = "lblMovesLeft";
             this.lblMovesLeft.Size = new System.Drawing.Size(79, 29);
             this.lblMovesLeft.TabIndex = 9;

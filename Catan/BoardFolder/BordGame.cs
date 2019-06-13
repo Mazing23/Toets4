@@ -337,10 +337,11 @@ namespace Catan
                 }
                 Console.WriteLine("Item equip buttin item = " + itemToEquip.ToString());
             }
-            catch (ArgumentNullException)
+            catch (NullReferenceException)
             {
-                MessageBox.Show("Select an item first");
+                MessageBox.Show("Select an item first!");
             }
+
 
         }
 
@@ -442,7 +443,8 @@ namespace Catan
                 
                 if (fightForm.ShowDialog() == DialogResult.OK)
                 {
-                    currentGame.Player.setHealth(fightForm.Player.Health);                  
+                    currentGame.Player.setHealth(fightForm.Player.Health);
+                    enemyToFight = fightForm.Enemy;
                 }
                 fightForm.Dispose();
 
@@ -470,6 +472,16 @@ namespace Catan
                 {
                     this.Close();
                     this.Dispose();
+                }
+                if(enemyToFight.Health > 0)
+                {
+                    int damage = rand.Next(0, 30);
+                    MessageBox.Show("The monster has found your home and did " + damage.ToString() + " damage!");
+                    currentGame.Home.takeDamage(damage);
+                }
+                else
+                {
+                    
                 }
             }
 
