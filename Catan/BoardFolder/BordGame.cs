@@ -405,7 +405,7 @@ namespace Catan
             Enemy enemyToFight = currentGame.GiveNewEnemy();
             if (enemyToFight == null)
             {
-                switch (rand.Next(0,2))
+                switch (rand.Next(0, 2))
                 {
                     case 0:
                         MessageBox.Show("You stepped on a mouse... Poor thing.");
@@ -421,9 +421,37 @@ namespace Catan
             else
             {
                 SimpleFightForm fightForm = new SimpleFightForm(currentGame.Player, enemyToFight);
-                fightForm.Show();
-                //if(fightForm.)
+                
+                if (fightForm.ShowDialog() == DialogResult.OK)
+                {
+                    if (fightForm.Player.Health > 0)
+                    {
+                        currentGame.Player.setHealth(fightForm.Player.Health);
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("You died! Do you want to start a new gae? Yes or no", "WARNING!",
+                             MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                              MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                        {
+                            string newName = Interaction.InputBox("Enter new name for game:", "New Game", "No Name", -1, -1);
+                            Player newPlayer = new Player(newName);
+                            Game newGame = new Game(newPlayer, 30);
+                            currentGame = newGame;
+                            RefreshLabels();
+                            RefreshListbox();
+                            updateMap();
+                        }
+                        else
+                        {
+                            this.Close();
+                            this.Dispose();
+                        }
+                    }
+                }
+                fightForm.Dispose();
             }
+            RefreshLabels();
         }
     }
 }

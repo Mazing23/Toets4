@@ -88,5 +88,16 @@ namespace Catan
         {
             Health -= damageEnemy;
         }
+
+        public int setHealth(int health)
+        {
+            int returnValue = 0;
+            Health = health;
+            if (Health > 0)
+            {
+                returnValue = 1; 
+            }
+            return returnValue;
+        }
     }
 }
