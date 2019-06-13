@@ -12,7 +12,6 @@ namespace Catan
         public int Amount { get; set; }
         public abstract int Damage { get; }
 
-
         public Item()
         {
         }
