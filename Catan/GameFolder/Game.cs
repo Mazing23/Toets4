@@ -106,6 +106,7 @@ namespace Catan
 
             var fist = fact.CreateItem<Sword>();
             allItems.Add("Fist", fist);
+            allItems["Fist"].Name = "Fist";
 
             Player.MakeItem(allItems["Fist"]);
             Player.EquipItem(allItems["Fist"]);
