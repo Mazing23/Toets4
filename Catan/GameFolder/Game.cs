@@ -21,7 +21,7 @@ namespace Catan
         public List<Resource> AllResources { get; private set; }
         public List<Enemy> Enemys { get; private set; }
 
-        public Dictionary<string, int> allItems { get; private set; }
+        public Dictionary<string, Item> allItems { get; private set; }
 
         Random rand = new Random();
 
@@ -60,7 +60,7 @@ namespace Catan
                     {
                         if (rand.Next(1, 5) >= 3)
                         {
-                            Map[i, j] = new ExploreTile(i, j, AllItems[rand.Next(1, 5)], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
+                            Map[i, j] = new ExploreTile(i, j, AllItems[rand.Next(0, 20)], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
                         }
                         else
                         {
@@ -90,11 +90,14 @@ namespace Catan
             for (int i = 0; i < gunnames.Length; i++)
             {
                 var gun = fact.CreateItem<Gun>();
-                allItems.Add(gunnames[i], gun.Damage);
+                allItems.Add(gunnames[i], gun);
+                AllItems.Add(gun);
                 var sword = fact.CreateItem<Sword>();
-                allItems.Add(swordnames[i], sword.Damage);
+                //allItems.Add(swordnames[i], sword.Damage);
+                AllItems.Add(sword);
                 var armour = fact.CreateItem<Clothing>();
-                allItems.Add(armournames[i], armour.Damage);
+                //allItems.Add(armournames[i], armour.Damage);
+                AllItems.Add(armour);
             }
 
             AllResources.Add(new Resource("Wood")); // for home / defence
@@ -103,13 +106,15 @@ namespace Catan
             AllResources.Add(new Resource("Wool")); // for clothes
             AllResources.Add(new Resource("Stone")); // for home / defence
 
-            for (int i = 1; i <= 50; i++)
+            string[] enemyList = { "Rebelious Farmer", "Giant Wolf", "Lost Knight", "Sneaky Ninja", "Slow Oger", "Swift Reeves", "Mad Scientist" };
+
+            for (int i = 0; i < enemyList.Length; i++)
             {
-                int damageRandom = rand.Next(1, 51);
-                Enemys.Add(new Enemy(i.ToString(), damageRandom));
+                    int damageRandom = rand.Next(1, 51);
+                    Enemys.Add(new Enemy(enemyList[i], damageRandom));
             }
 
-            GenerateMap();
+            //GenerateMap();
         }
 
         /// <summary>

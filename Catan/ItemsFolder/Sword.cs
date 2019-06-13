@@ -14,9 +14,10 @@ namespace Catan
         {
             get
             {
-                if (Name.Length > 50) return 50;
-                if (Name.Length - 5 <= 0) return rand.Next(1, Name.Length);
-                return rand.Next((Name.Length - 5), Name.Length);
+                //if (Name.Length > 50) return 50;
+                //if (Name.Length - 5 <= 0) return rand.Next(1, Name.Length);
+                //return rand.Next((Name.Length - 5), Name.Length);
+                return Name.Length;
             }
         }
 

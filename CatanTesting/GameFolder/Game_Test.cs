@@ -180,16 +180,16 @@ namespace CatanTesting
         /// move player gets value outside of scope and 
         /// does not move player.
         /// </summary>
-        //[TestMethod]
-        //public void MovePlayer_default_break()
-        //{
-        //    int given_switch_number = 4;
-        //    int expected_unchanged_position = 5;
+        [TestMethod]
+        public void MovePlayer_default_break()
+        {
+            int given_switch_number = 4;
+            int expected_unchanged_position = 5;
 
-        //    g.MovePlayer(given_switch_number);
+            g.MovePlayer(given_switch_number);
 
-        //    Assert.AreEqual(expected_unchanged_position, player_Game.posX);
-        //}
+            Assert.AreEqual(expected_unchanged_position, player_Game.posX);
+        }
 
         [TestMethod]
         public void CurrentTile_returns_correctMap()
@@ -204,6 +204,7 @@ namespace CatanTesting
                 w);
         }
 
+      
 
     }
 }
