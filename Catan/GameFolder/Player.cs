@@ -17,8 +17,6 @@ namespace Catan
         public int Health { get; private set; }
         public int posX { get; set; }
         public int posY { get; set; }
-        public Home Home { get; private set; }
-
 
         public Player(string name)
         {

@@ -7,12 +7,10 @@
         <Point X="21" Y="5.274" />
         <Point X="21.375" Y="5.274" />
         <Point X="21.375" Y="8.055" />
-        <Point X="20.708" Y="8.055" Type="JumpStart" />
-        <Point X="20.542" Y="8.055" Type="JumpEnd" />
-        <Point X="20.271" Y="8.055" Type="JumpStart" />
-        <Point X="20.104" Y="8.055" Type="JumpEnd" />
-        <Point X="19.802" Y="8.055" Type="JumpStart" />
-        <Point X="19.635" Y="8.055" Type="JumpEnd" />
+        <Point X="20.521" Y="8.055" Type="JumpStart" />
+        <Point X="20.355" Y="8.055" Type="JumpEnd" />
+        <Point X="19.897" Y="8.055" Type="JumpStart" />
+        <Point X="19.73" Y="8.055" Type="JumpEnd" />
         <Point X="16.5" Y="8.055" />
       </Path>
     </AssociationLine>
@@ -22,14 +20,12 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>BAEACAAAIAAAiAAAAAAAAAQAAAUAAAAAQAAAwAQAAAI=</HashCode>
+      <HashCode>BAEACAAAIAAAiAAAAAAAAAQAAAAAAAACAAAAwAQAAAI=</HashCode>
       <FileName>GameFolder\Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="EquipedClothes" />
-      <Property Name="EquipedItem" />
       <Property Name="EquipedWeapon" />
-      <Property Name="Home" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Items" />
@@ -64,7 +60,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAICAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemsFolder\Weapon.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -77,7 +73,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAICAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemsFolder\Gun.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -96,12 +92,9 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAACAAAIAAAAAQAgAAAAAQAAAAAAAAAQABAAyAAAAA=</HashCode>
+      <HashCode>AAAACAAAIAAAAAQAgAAAAAQAAAAAAACAQAAAAiAAAAA=</HashCode>
       <FileName>GameFolder\Home.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Player" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Resources" />
     </ShowAsCollectionAssociation>
@@ -109,14 +102,14 @@
   <Class Name="Catan.Resource">
     <Position X="6.75" Y="9.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameFolder\Resource.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catan.BordGame" Collapsed="true">
     <Position X="7" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>EBAWAgEKAGCUoMOBUASACcGHAAAACigSECQQAIEICAE=</HashCode>
+      <HashCode>EQAWAgECAGiEoMOBUACACYGHAAAACioyEGQQAAEICgE=</HashCode>
       <FileName>BoardFolder\BordGame.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -146,7 +139,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAICAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemsFolder\Sword.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -155,34 +148,10 @@
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
-    <AssociationLine Name="FileSave" Type="Catan.GameSave" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="9.5" Y="2.062" />
-        <Point X="8.729" Y="2.062" />
-        <Point X="8.729" Y="3.738" />
-        <Point X="8.208" Y="3.738" Type="JumpStart" />
-        <Point X="8.042" Y="3.738" Type="JumpEnd" />
-        <Point X="6.188" Y="3.738" />
-        <Point X="6.188" Y="3.488" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="FileLoad" Type="Catan.GameSave" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="9.5" Y="3.078" />
-        <Point X="8.812" Y="3.078" Type="JumpStart" />
-        <Point X="8.646" Y="3.078" Type="JumpEnd" />
-        <Point X="8" Y="3.078" />
-        <Point X="8" Y="1.75" />
-        <Point X="6.375" Y="1.75" />
-        <Point X="6.375" Y="2" />
-      </Path>
-    </AssociationLine>
     <AssociationLine Name="Home" Type="Catan.Home" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="9.5" Y="3.509" />
-        <Point X="8.812" Y="3.509" Type="JumpStart" />
-        <Point X="8.646" Y="3.509" Type="JumpEnd" />
-        <Point X="8.125" Y="3.509" />
+        <Point X="9.5" Y="3.369" />
+        <Point X="8.125" Y="3.369" />
         <Point X="8.125" Y="5.75" />
       </Path>
     </AssociationLine>
@@ -192,20 +161,26 @@
         <Point X="14" Y="0.84" />
       </Path>
     </AssociationLine>
+    <AssociationLine Name="Map" Type="Catan.WorldTile" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="1.826" />
+        <Point X="13.438" Y="1.826" />
+        <Point X="13.438" Y="2.75" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>IAAIAoQAABBQIAQCQAAAAACAIAQAIAAAQAAAAQkAAAE=</HashCode>
+      <HashCode>AAAIAoQACBBAIAACQAAAAACAIAQAAAAAQAAAAQkAAAA=</HashCode>
       <FileName>GameFolder\Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Player" />
-      <Property Name="FileSave" />
-      <Property Name="FileLoad" />
       <Property Name="Home" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
-      <Property Name="AllItems" />
       <Property Name="AllResources" />
       <Property Name="Enemys" />
+      <Property Name="AllItems" />
+      <Property Name="Map" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Catan.GameSave">
@@ -218,15 +193,22 @@
   <Class Name="Catan.WorldTile">
     <Position X="12.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
       <FileName>BoardFolder\WorldTile.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Catan.GameWindow" Collapsed="true">
-    <Position X="16.75" Y="3.25" Width="1.5" />
+  <Class Name="Catan.ExploreTile" Collapsed="true">
+    <Position X="12" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAUAAAAAAAAkggEAIAAEAEAQAAAAAgACgAAAAAE=</HashCode>
-      <FileName>BoardFolder\GameWindow.xaml.cs</FileName>
+      <HashCode>AAACAAAAoAAAAAAAAAAIAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardFolder\ExploreTile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Catan.HomeTile" Collapsed="true">
+    <Position X="13.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardFolder\HomeTile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Catan.IDamage">

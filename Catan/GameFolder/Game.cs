@@ -12,8 +12,6 @@ namespace Catan
     public class Game
     {
         public Player Player { get; private set; }
-        public GameSave FileSave { get; private set; }
-        public GameSave FileLoad { get; private set; }
         public Home Home { get; private set; }
         public WorldTile[,] Map { get; private set; }
         public int MovesLeft { get; private set; }

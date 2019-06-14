@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Catan.BordGame" Collapsed="true">
+    <Position X="1.25" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EQAWAgECAGiEoMOBUACACYGHAAAACioyEGQQAAEICgE=</HashCode>
+      <FileName>BoardFolder\BordGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Catan.ExploreTile" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAoAAAAAAAAAAIAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardFolder\ExploreTile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Catan.HomeTile" Collapsed="true">
+    <Position X="3.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardFolder\HomeTile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Catan.WorldTile">
+    <Position X="4.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <FileName>BoardFolder\WorldTile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Catan.Game">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAIAoQACBBAIAACQAAAAACAIAQAAAAAQAAAAQkAAAA=</HashCode>
+      <FileName>GameFolder\Game.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Map" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Catan.GameSave">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>GameFolder\GameSave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

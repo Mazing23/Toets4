@@ -116,8 +116,11 @@
     <EmbeddedResource Include="BoardFolder\SimpleFightForm.resx">
       <DependentUpon>SimpleFightForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BoardGameDiagram.cd" />
     <None Include="CatanDiagram.cd" />
     <None Include="BoardFolder\GameDiagram.cd" />
+    <None Include="GameDiagram.cd" />
+    <None Include="PlayerDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
