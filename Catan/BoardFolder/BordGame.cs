@@ -252,9 +252,7 @@ namespace Catan
         private void butLoadGame_Click(object sender, EventArgs e)
         {
 
-            string gameDirectory = "";
-            currentGame = currentGame.LoadGame(gameDirectory);
-            //Nog implementeren
+            currentGame = save.LoadGame();
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {

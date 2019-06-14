@@ -216,13 +216,6 @@ namespace Catan
         }
 
 
-        public Game LoadGame(string gameDirectory)
-        {
-            Game loadGame = null;
-            return loadGame;
-            //Add deserialization
-        }
-
         public int NextTurn()
         {
             int returnValue = 0;
