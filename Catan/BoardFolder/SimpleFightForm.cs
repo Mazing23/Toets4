@@ -49,7 +49,7 @@ namespace Catan
                 lblEquipedWeapon.Text = Player.EquipedWeapon.Name;
                 progressBarHealthYou.Value = Player.Health;
                 progressBarHealthEnemy.Value = Enemy.Health;
-                lblEnemyDamage.Text = "Enemy deals " + Enemy.Damage.ToString() + "Damage";
+                lblEnemyDamage.Text = "Enemy deals " + Enemy.Damage.ToString() + " damage";
                 lblEnemyName.Text = Enemy.Name;
                 lblYouName.Text = Player.Name;
             }

@@ -286,24 +286,25 @@ namespace Catan
           int returnValue = 0;
           if (MovesLeft <= 0) return 0;
 
-          WorldTile currentTile = Map[Player.posX, Player.posY];
+          WorldTile currentTile = CurrentTile();
           if (currentTile is HomeTile) return 1;
+
           else if (currentTile is ExploreTile)
           {
            ExploreTile ex = currentTile as ExploreTile;
-                if (ex.isLooted) return 3;
+                if (ex.isLooted) return 2;
 
                 else
                 {
                     if (ex.Resource != null || ex.resourceAmount != 0)
                     {
                         Player.AddResources(ex.Resource, ex.resourceAmount);
-                        returnValue = 2;
+                        returnValue = 3;
                     }
                     if (ex.Item != null)
                     {
                         Player.MakeItem(ex.Item);
-                        returnValue = 2;
+                        returnValue = 3;
                     }
                     Map[Player.posX, Player.posY].LootResources();
                     MovesLeft -= 1;

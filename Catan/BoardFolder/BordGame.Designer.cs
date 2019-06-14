@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.lblEquippedClothing = new System.Windows.Forms.GroupBox();
+            this.butEquipClothes = new System.Windows.Forms.Button();
             this.butEquipWeapons = new System.Windows.Forms.Button();
             this.lblResources = new System.Windows.Forms.Label();
             this.lblClothes = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.listBoxClothes = new System.Windows.Forms.ListBox();
             this.listBoxWeapons = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.progressBarHealth = new System.Windows.Forms.ProgressBar();
             this.lblTurnsLeft = new System.Windows.Forms.Label();
             this.lblMovesLeft = new System.Windows.Forms.Label();
             this.butNextTurn = new System.Windows.Forms.Button();
@@ -58,8 +60,7 @@
             this.lblItemOnThisLand = new System.Windows.Forms.Label();
             this.lblResourcesHome = new System.Windows.Forms.Label();
             this.lblResourcesOnThisLand = new System.Windows.Forms.Label();
-            this.butEquipClothes = new System.Windows.Forms.Button();
-            this.progressBarHealth = new System.Windows.Forms.ProgressBar();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblEquippedClothing.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxMap.SuspendLayout();
@@ -82,6 +83,16 @@
             this.lblEquippedClothing.TabIndex = 0;
             this.lblEquippedClothing.TabStop = false;
             this.lblEquippedClothing.Text = "Inventory";
+            // 
+            // butEquipClothes
+            // 
+            this.butEquipClothes.Location = new System.Drawing.Point(579, 248);
+            this.butEquipClothes.Name = "butEquipClothes";
+            this.butEquipClothes.Size = new System.Drawing.Size(117, 54);
+            this.butEquipClothes.TabIndex = 11;
+            this.butEquipClothes.Text = "Equip";
+            this.butEquipClothes.UseVisualStyleBackColor = true;
+            this.butEquipClothes.Click += new System.EventHandler(this.butEquipClothes_Click);
             // 
             // butEquipWeapons
             // 
@@ -149,6 +160,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblName);
             this.groupBox2.Controls.Add(this.progressBarHealth);
             this.groupBox2.Controls.Add(this.lblTurnsLeft);
             this.groupBox2.Controls.Add(this.lblMovesLeft);
@@ -167,6 +179,13 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Moves";
+            // 
+            // progressBarHealth
+            // 
+            this.progressBarHealth.Location = new System.Drawing.Point(37, 537);
+            this.progressBarHealth.Name = "progressBarHealth";
+            this.progressBarHealth.Size = new System.Drawing.Size(412, 46);
+            this.progressBarHealth.TabIndex = 11;
             // 
             // lblTurnsLeft
             // 
@@ -376,22 +395,14 @@
             this.lblResourcesOnThisLand.TabIndex = 10;
             this.lblResourcesOnThisLand.Text = "Resources on this land:";
             // 
-            // butEquipClothes
+            // lblName
             // 
-            this.butEquipClothes.Location = new System.Drawing.Point(579, 248);
-            this.butEquipClothes.Name = "butEquipClothes";
-            this.butEquipClothes.Size = new System.Drawing.Size(117, 54);
-            this.butEquipClothes.TabIndex = 11;
-            this.butEquipClothes.Text = "Equip";
-            this.butEquipClothes.UseVisualStyleBackColor = true;
-            this.butEquipClothes.Click += new System.EventHandler(this.butEquipClothes_Click);
-            // 
-            // progressBarHealth
-            // 
-            this.progressBarHealth.Location = new System.Drawing.Point(37, 537);
-            this.progressBarHealth.Name = "progressBarHealth";
-            this.progressBarHealth.Size = new System.Drawing.Size(412, 46);
-            this.progressBarHealth.TabIndex = 11;
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(294, 84);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(79, 29);
+            this.lblName.TabIndex = 12;
+            this.lblName.Text = "label1";
             // 
             // BordGame
             // 
@@ -456,6 +467,7 @@
         private System.Windows.Forms.Label lblPosx;
         private System.Windows.Forms.Button butEquipClothes;
         private System.Windows.Forms.ProgressBar progressBarHealth;
+        private System.Windows.Forms.Label lblName;
     }
 }
 
