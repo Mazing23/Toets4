@@ -12,7 +12,7 @@ namespace Catan
         public string Name { get; private set; }
         public List<Item> Items { get; set; }
         public Clothing EquipedClothes { get; private set; }
-        public Weapon EquipedWeapon { get; set; }
+        public Weapon EquipedWeapon { get; private set; }
         public Dictionary<Resource, int> Resources { get; set; }
         public int Health { get; private set; }
         public int posX { get; set; }
