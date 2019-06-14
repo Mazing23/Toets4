@@ -73,7 +73,13 @@ namespace Catan
                 {
                     MessageBox.Show("You hit the enemy with your" + Player.EquipedWeapon.Name);
                 }
-                Enemy.TakeDamage(Player.EquipedWeapon);
+                int attackDamage = Player.EquipedWeapon.Damage;
+                if(Player.EquipedClothes != null)
+                {
+                    attackDamage += Player.EquipedClothes.Damage;
+                }
+
+                Enemy.TakeDamage(attackDamage);
                 Player.TakeDamage(Enemy.Damage);
                 if(Enemy.Health <= 0)
                 {

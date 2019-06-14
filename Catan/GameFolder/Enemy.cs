@@ -34,17 +34,9 @@ namespace Catan
             }
         }
 
-        public void TakeDamage(Weapon w)
+        public void TakeDamage(int damage)
         {
-            if(w == null)
-            {
-                Health -= 5;
-            }
-            else
-            {
-                Health -= w.Damage;
-            }
-            
+                Health -= damage;
         }
     }
 }

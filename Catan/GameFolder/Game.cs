@@ -153,7 +153,7 @@ namespace Catan
         {
             foreach (Resource r in AllResources)
             {
-                if(r == AllResources.Find(x => x.Name.Contains("Grain")))
+                if (r == AllResources.Find(x => x.Name.Contains("Grain")))
                 {
                     if (Player.Resources.ContainsKey(r))
                     {
@@ -161,11 +161,12 @@ namespace Catan
                         {
                             int i = Player.Resources[r] / 5;
                             Player.Resources[r] = Player.Resources[r] - (5 * i);
-                            Home.AddCitizens(i);
+                            Home.AddCitizens(Convert.ToInt16(i));
                         }
                     }
                 }
             }
+
         }
 
         public Enemy GiveNewEnemy()
@@ -315,8 +316,6 @@ namespace Catan
 
 
                 }
-
-
             }
             return returnValue;
         }

@@ -42,7 +42,7 @@ namespace Catan
             }
 
             checkBoxes = new CheckBox[10, 10];
-            updateMap();
+            generateMap();
             RefreshLabels();
             RefreshListbox();
             currentGame.Home.AddDefense(30);
@@ -271,12 +271,12 @@ namespace Catan
                     MessageBox.Show("You have allready looted this place!");
                     break;
                 case 3:
-                    checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
+                    //checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
                     RefreshLabels();
                     RefreshListbox();
                     break;
                 case 4:
-                    checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
+                    //checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
                     RefreshLabels();
                     RefreshListbox();
                     encounterEnemy();
@@ -367,7 +367,7 @@ namespace Catan
 
         }
 
-        private void updateMap()
+        private void generateMap()
         {
             int startingX = 25;
             int startingY = 25;
@@ -381,6 +381,7 @@ namespace Catan
                 checkBoxes[t.posX, t.posY].Anchor = (AnchorStyles.Left | AnchorStyles.Top);
                 checkBoxes[t.posX, t.posY].Location = new Point((t.posX * 20) + startingX, (t.posY * 20) + startingY);
                 checkBoxes[t.posX, t.posY].Visible = true;
+                checkBoxes[t.posX, t.posY].Enabled = false;
                 checkBoxes[t.posX, t.posY].Show();
                 if (t is HomeTile)
                 {
@@ -419,28 +420,66 @@ namespace Catan
                 }
             }
         }
+
+        private void updateMap()
+        {
+            foreach(WorldTile t in currentGame.Map)
+            {
+                if (t is ExploreTile)
+                {
+                    ExploreTile f = t as ExploreTile;
+                    if (f.isLooted)
+                    {
+                        checkBoxes[f.posX, f.posY].BackColor = Color.Purple;
+                    }
+
+                    switch (f.Resource.Name)
+                    {
+                        case "Wood":
+                            checkBoxes[t.posX, t.posY].BackColor = Color.SaddleBrown;
+                            break;
+
+                        case "Iron":
+                            checkBoxes[t.posX, t.posY].BackColor = Color.Silver;
+                            break;
+
+                        case "Grain":
+                            checkBoxes[t.posX, t.posY].BackColor = Color.Yellow;
+                            break;
+
+                        case "Wool":
+                            checkBoxes[t.posX, t.posY].BackColor = Color.White;
+                            break;
+
+                        case "Stone":
+                            checkBoxes[t.posX, t.posY].BackColor = Color.DarkGray;
+                            break;
+                    }
+                }
+            }
+        }
         
         private void encounterEnemy()
         {
             Random rand = new Random();
             Enemy enemyToFight = currentGame.GiveNewEnemy();
-            if (enemyToFight == null)
-            {
-                switch (rand.Next(0, 2))
-                {
-                    case 0:
-                        MessageBox.Show("You stepped on a mouse... Poor thing.");
-                        break;
-                    case 1:
-                        MessageBox.Show("You got spooked by a mouse, you sissy");
-                        break;
-                    case 2:
-                        MessageBox.Show("You tripped over a tree branch. Lift your feet up!");
-                        break;
-                }
-            }
-            else
-            {
+            //if (enemyToFight == null)
+            //{
+            //    switch (rand.Next(0, 2))
+            //    {
+            //        case 0:
+            //            MessageBox.Show("You stepped on a mouse... Poor thing.");
+            //            break;
+            //        case 1:
+            //            MessageBox.Show("You got spooked by a mouse, you sissy");
+            //            break;
+            //        case 2:
+            //            MessageBox.Show("You tripped over a tree branch. Lift your feet up!");
+            //            break;
+            //    }
+            //}
+            //else
+            //{
                 SimpleFightForm fightForm = new SimpleFightForm(currentGame.Player, enemyToFight);
                 
                 if (fightForm.ShowDialog() == DialogResult.OK)
@@ -450,7 +489,7 @@ namespace Catan
                 }
                 fightForm.Dispose();
 
-            }
+            //}
 
             if (currentGame.Player.Health <= 0)
             {
@@ -459,14 +498,16 @@ namespace Catan
                     MessageBoxDefaultButton.Button1);
                 if (result == DialogResult.Yes)
                 {
-                    PromptNewGame();
+                   
                     foreach(CheckBox c in checkBoxes)
                     {
                         c.Dispose();
                     }
+
+                    PromptNewGame();
                     RefreshLabels();
                     RefreshListbox();
-                    updateMap();
+                    generateMap();
                 }
                 else if(result == DialogResult.No)
                 {
@@ -476,7 +517,7 @@ namespace Catan
                 }
               
             }
-            else if (enemyToFight.Health > 0)
+            else if (enemyToFight.Health > 0 || currentGame.Player.Health > 0)
             {
                 int damage = rand.Next(0, 30);
                 MessageBox.Show("The monster has found your home and did " + damage.ToString() + " damage!");
