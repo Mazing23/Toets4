@@ -170,32 +170,38 @@ namespace Catan
 
         public Enemy GiveNewEnemy()
         {
+            Enemy enemyToReturn = null;
             foreach (Enemy e in Enemys)
             {
                 if (Home.CheckDefenceLevel() == 1)
                 {
                     if (e.EnemyType == EnemyType.Easy)
                     {
-                        return e;
+                        enemyToReturn = e;
                     }
                 }
                 if (Home.CheckDefenceLevel() == 2)
                 {
                     if (e.EnemyType == EnemyType.Hard)
                     {
-                        return e;
+                        enemyToReturn = e; ;
                     }
                 }
                 if (Home.CheckDefenceLevel() == 3)
                 {
                     if (e.EnemyType == EnemyType.Extreme)
                     {
-                        return e;
+                        enemyToReturn = e;
                     }
                 }
                 if (Home.CheckDefenceLevel() == 0) throw new ArgumentOutOfRangeException();
             }
-            return null;
+
+            if(enemyToReturn == null)
+            {
+                enemyToReturn = Enemys[rand.Next(0, 3)];
+            }
+            return enemyToReturn;
         }
 
         public void SaveGame(Game gameToSave)
