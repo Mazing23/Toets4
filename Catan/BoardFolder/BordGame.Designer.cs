@@ -38,6 +38,7 @@
             this.listBoxClothes = new System.Windows.Forms.ListBox();
             this.listBoxWeapons = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblName = new System.Windows.Forms.Label();
             this.progressBarHealth = new System.Windows.Forms.ProgressBar();
             this.lblTurnsLeft = new System.Windows.Forms.Label();
             this.lblMovesLeft = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.lblItemOnThisLand = new System.Windows.Forms.Label();
             this.lblResourcesHome = new System.Windows.Forms.Label();
             this.lblResourcesOnThisLand = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.lblEquippedClothing.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxMap.SuspendLayout();
@@ -179,6 +179,15 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Moves";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(294, 84);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(79, 29);
+            this.lblName.TabIndex = 12;
+            this.lblName.Text = "label1";
             // 
             // progressBarHealth
             // 
@@ -394,15 +403,6 @@
             this.lblResourcesOnThisLand.Size = new System.Drawing.Size(328, 36);
             this.lblResourcesOnThisLand.TabIndex = 10;
             this.lblResourcesOnThisLand.Text = "Resources on this land:";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(294, 84);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(79, 29);
-            this.lblName.TabIndex = 12;
-            this.lblName.Text = "label1";
             // 
             // BordGame
             // 

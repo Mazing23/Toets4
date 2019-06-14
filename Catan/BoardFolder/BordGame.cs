@@ -101,7 +101,7 @@ namespace Catan
             if (currentGame.CurrentTile() is ExploreTile)
             {
                 var tileToExplore = currentGame.CurrentTile() as ExploreTile;
-                checkBoxes[tileToExplore.posX, tileToExplore.posY].CheckState = CheckState.Indeterminate;
+                checkBoxes[tileToExplore.posX, tileToExplore.posY].CheckState = CheckState.Checked;
                 
                 if (tileToExplore.isLooted)
                 {
@@ -191,8 +191,6 @@ namespace Catan
 
         private void butUp_Click(object sender, EventArgs e)
         {
-
-
             switch (currentGame.MovePlayer(0))
             {
                 case -1:
@@ -209,7 +207,6 @@ namespace Catan
 
         private void butRight_Click(object sender, EventArgs e)
         {
-
             switch (currentGame.MovePlayer(3))
             {
                 case -1:
@@ -226,7 +223,6 @@ namespace Catan
 
         private void butDown_Click(object sender, EventArgs e)
         {
-
             switch (currentGame.MovePlayer(1))
             {
                 case -1:
@@ -243,7 +239,6 @@ namespace Catan
 
         private void butLeft_Click(object sender, EventArgs e)
         {
-
             switch (currentGame.MovePlayer(2))
             {
                 case -1:
@@ -256,7 +251,6 @@ namespace Catan
                     RefreshLabels();
                     break;
             }
-
         }
 
         private void butHarvest_Click(object sender, EventArgs e)
@@ -273,18 +267,17 @@ namespace Catan
                     MessageBox.Show("You have allready looted this place!");
                     break;
                 case 3:
-                    //checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
                     RefreshLabels();
                     RefreshListbox();
+                    checkBoxes[currentGame.Player.posX, currentGame.Player.posY].CheckState = CheckState.Indeterminate;
                     break;
                 case 4:
-                    //checkBoxes[currentGame.Player.posX, currentGame.Player.posY].BackColor = Color.Purple;
                     RefreshLabels();
                     RefreshListbox();
                     encounterEnemy();
+                    checkBoxes[currentGame.Player.posX, currentGame.Player.posY].CheckState = CheckState.Indeterminate;
                     break;
             }
-            updateMap();
         }
 
         private void butLoadGame_Click(object sender, EventArgs e)
@@ -365,6 +358,10 @@ namespace Catan
             {
                 MessageBox.Show("Select an item first");
             }
+            catch (ArgumentNullException)
+            {
+
+            }
 
         }
 
@@ -422,75 +419,22 @@ namespace Catan
             }
         }
 
-        private void updateMap()
-        {
-            foreach(WorldTile t in currentGame.Map)
-            {
-                if (t is ExploreTile)
-                {
-                    ExploreTile f = t as ExploreTile;
-                    if (f.isLooted)
-                    {
-                        checkBoxes[f.posX, f.posY].BackColor = Color.Purple;
-                    }
-
-                    switch (f.Resource.Name)
-                    {
-                        case "Wood":
-                            checkBoxes[t.posX, t.posY].BackColor = Color.SaddleBrown;
-                            break;
-
-                        case "Iron":
-                            checkBoxes[t.posX, t.posY].BackColor = Color.Silver;
-                            break;
-
-                        case "Grain":
-                            checkBoxes[t.posX, t.posY].BackColor = Color.Yellow;
-                            break;
-
-                        case "Wool":
-                            checkBoxes[t.posX, t.posY].BackColor = Color.White;
-                            break;
-
-                        case "Stone":
-                            checkBoxes[t.posX, t.posY].BackColor = Color.DarkGray;
-                            break;
-                    }
-                }
-            }
-        }
+       
         
         private void encounterEnemy()
         {
             Random rand = new Random();
             Enemy enemyToFight = currentGame.GiveNewEnemy();
-            //if (enemyToFight == null)
-            //{
-            //    switch (rand.Next(0, 2))
-            //    {
-            //        case 0:
-            //            MessageBox.Show("You stepped on a mouse... Poor thing.");
-            //            break;
-            //        case 1:
-            //            MessageBox.Show("You got spooked by a mouse, you sissy");
-            //            break;
-            //        case 2:
-            //            MessageBox.Show("You tripped over a tree branch. Lift your feet up!");
-            //            break;
-            //    }
-            //}
-            //else
-            //{
-                SimpleFightForm fightForm = new SimpleFightForm(currentGame.Player, enemyToFight);
+         
+            SimpleFightForm fightForm = new SimpleFightForm(currentGame.Player, enemyToFight);
                 
-                if (fightForm.ShowDialog() == DialogResult.OK)
-                {
-                    currentGame.Player.setHealth(fightForm.Player.Health);
-                    enemyToFight = fightForm.Enemy;
-                }
-                fightForm.Dispose();
-
-            //}
+            if (fightForm.ShowDialog() == DialogResult.OK)
+            {
+             currentGame.Player.setHealth(fightForm.Player.Health);
+             enemyToFight = fightForm.Enemy;
+            }
+            fightForm.Dispose();
+            
 
             if (currentGame.Player.Health <= 0)
             {

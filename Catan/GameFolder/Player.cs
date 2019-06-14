@@ -69,7 +69,6 @@ namespace Catan
 
         public void AddResources(Resource resource, int amount)
         {
-            if (resource == null) throw new ArgumentNullException(nameof(resource));
             if (Resources.ContainsKey(resource))
             {
                 Resources[resource] = amount;
