@@ -25,7 +25,7 @@ namespace Catan
                 updateText();
                 rand = new Random();
             }
-            catch(ArgumentNullException e)
+            catch(NullReferenceException e)
             {
                 MessageBox.Show("The enemy fled from you!");
                 Console.WriteLine(e.StackTrace + e.Message);

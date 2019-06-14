@@ -74,7 +74,10 @@ namespace Catan
             if (currentGame.CurrentTile() is ExploreTile)
             {
                 var tileToExplore = currentGame.CurrentTile() as ExploreTile;
-                checkBoxes[tileToExplore.posX, tileToExplore.posY].CheckState = CheckState.Checked;
+                if (!tileToExplore.isLooted)
+                {
+                    checkBoxes[tileToExplore.posX, tileToExplore.posY].CheckState = CheckState.Checked;
+                }
                 
                 if (tileToExplore.isLooted)
                 {
@@ -109,17 +112,10 @@ namespace Catan
                 lblItemOnThisLand.Text = "This is your home, no items to loot here.";
             }
 
-
-
             progressBarHealth.Value = currentGame.Player.Health;
             lblNumberOfCitizens.Text = currentGame.Home.Citizens.ToString() + " citizens in your hometown.";
             lblHomeHealth.Text = currentGame.Home.Health.ToString() + " healthpoints";
-
-
-            //label voor debuggen
-            lblPosy.Text = "Pos y = " + currentGame.Player.posY.ToString();
-            lblPosx.Text = "Pos x = " + currentGame.Player.posX.ToString();
-
+            
         }
 
         private void RefreshListbox()
@@ -128,13 +124,13 @@ namespace Catan
             listBoxWeapons.Items.Clear();
             listBoxResources.Items.Clear();
             Dictionary<Resource, int> Resources = currentGame.Player.Resources;
-            foreach (KeyValuePair<Resource, int> r in Resources)
+            foreach (KeyValuePair<Resource, int> r in currentGame.Player.Resources)
             {
                 listBoxResources.Items.Add(r.ToString());
             }
 
             List<Item> items = currentGame.Player.Items;
-            foreach (Item i in items)
+            foreach (Item i in currentGame.Player.Items)
             {
                 if (i is Weapon)
                 {
