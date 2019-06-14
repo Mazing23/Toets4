@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,7 +33,18 @@ namespace Catan
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     string fileDirectory = ofd.FileName;
-                    currentGame = save.LoadGame(/*fileDirectory*/);
+                    try
+                    {
+                        currentGame = save.LoadGame(fileDirectory);
+                    }
+                    catch (SerializationException ex)
+                    {
+                        MessageBox.Show("Something went wrong with loading the file: " + ex.Message);
+                    }
+                    catch(IOException ex)
+                    {
+                        MessageBox.Show("Couldn't read: " + ex.Message);
+                    }
                 }
                 else
                 {
@@ -251,18 +264,44 @@ namespace Catan
 
         private void butLoadGame_Click(object sender, EventArgs e)
         {
-
-            currentGame = save.LoadGame();
-
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string sourceFile = ofd.FileName;
+                try
+                {
+                    currentGame = save.LoadGame(sourceFile);
+                }
+                catch (SerializationException ex)
+                {
+                    MessageBox.Show("Something went wrong with loading the file: " + ex.Message);
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("Couldn't read: " + ex.Message);
+                }
             }
         }
 
+
         private void butSaveGame_Click(object sender, EventArgs e)
         {
-            save.SaveGame(currentGame);
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string sourceFile = ofd.FileName;
+                try
+                {
+                    save.SaveGame(currentGame, sourceFile);
+                }
+                catch (SerializationException ex)
+                {
+                    MessageBox.Show("Something went wrong with saving the file: " + ex.Message);
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("Couldn't write: " + ex.Message);
+                }
+            }
+
         }
 
         private void butNewGame_Click(object sender, EventArgs e)

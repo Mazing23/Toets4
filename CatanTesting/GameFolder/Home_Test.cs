@@ -18,65 +18,90 @@ namespace CatanTesting
         public void SetUp()
         {
             p = new Player("Harry");
-            h = new Home("Home", p);
+            h = new Home("Home");
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Home_throws_exeption_null_values()
+        public void Health_will_be_full()
         {
-            Home h = new Home(null, p);
-            Home y = new Home("Home", null);
+            int expected_health = 100;
+
+            Assert.AreEqual(expected_health, h.Health);
         }
 
         [TestMethod]
-        public void Home_created_new_home_test_player()
+        public void Defence_will_be_one()
         {
-            Assert.AreEqual(p, h.Player);
-        }
-
-        [TestMethod]
-        public void AddDefence_defence_will_change()
-        {
-            int new_defence = 5;
-            int expected_defence = 5;
-
-            h.AddDefense(new_defence);
+            int expected_defence = 1;
 
             Assert.AreEqual(expected_defence, h.Defence);
         }
 
         [TestMethod]
-        public void CheckDefenceLevel_level_willbe_one()
+        public void Citizens_will_be_one()
         {
-            int new_defence = 5;
-            int expected_level = 1;
+            int expected_citizens = 1;
 
-            Home h = new Home("Home", p);
-
-            h.AddDefense(new_defence);
-
-            Assert.AreEqual(expected_level, h.CheckDefenceLevel());
+            Assert.AreEqual(expected_citizens, h.Citizens);
         }
 
         [TestMethod]
-
-        public void AddCitizens_to_home_from_Game()
+        public void Citizens_will_be_updated()
         {
-            Player p = new Player("h");
-            Game g = new Game(p, 35);
-            Resource r = g.AllResources.Find(x => x.Name.Contains("Grain"));
+            int expected_citizens = 4;
 
-            p.AddResources(r, 23);
+            h.AddCitizens(4);
 
-            g.AddCitizenToHome();
-            //h.AddCitizens(5);
+            Assert.AreEqual(expected_citizens, h.Citizens);
+        }
 
-            Assert.AreEqual(5, h.Citizens);
-            Assert.AreEqual(p.Resources[r], 3);
+        [TestMethod]
+        public void Defence_will_be_updated()
+        {
+            int expected_defence = 4;
+
+            h.AddDefense(4);
+
+            Assert.AreEqual(expected_defence, h.Defence);
+        }
+
+        [TestMethod]
+        public void TakeDamage_will_decrease_health()
+        {
+            int expected_health = 90;
+            int given_damage = 10;
+
+            h.takeDamage(given_damage);
+
+            Assert.AreEqual(expected_health, h.Health);
+        }
+
+        [TestMethod]
+        public void AddDefence_will_update_Defence()
+        {
+            int current_defence = h.Defence;
+
+            h.AddDefense(2);
+
+            int new_defence = h.Defence;
+
+            Assert.AreNotEqual(new_defence, current_defence);
+        }
+
+        [TestMethod]
+        public void CheckDefenceLevel_return1_ifLevelIs1()
+        {
+            // this test can kill me and i will have been slayed by a great beast.
+            Home home = new Home("Home");
+            int defence_level = 0;
+
+            if (home.Defence == 1)
+                defence_level = home.CheckDefenceLevel();
+
+            Assert.AreEqual(1, defence_level);
         }
 
 
-        
+
     }
 }

@@ -22,7 +22,7 @@ namespace Catan
 
         public List<Resource> AllResources { get; private set; }
         public List<Enemy> Enemys { get; private set; }
-        public Dictionary<string, Item> allItems { get; private set; }
+        public Dictionary<string, Item> AllItems { get; private set; }
 
 
         Random rand = new Random();
@@ -35,7 +35,7 @@ namespace Catan
             if (turns == 0) TurnsLeft = 1;
             TurnsLeft = turns;
 
-            Home = new Home("Home", player);
+            Home = new Home("Home");
             Map = new WorldTile[10, 10];
 
             Setup();
@@ -45,11 +45,11 @@ namespace Catan
         {
             AllResources = new List<Resource>();
             Enemys = new List<Enemy>();
-            allItems = new Dictionary<string, Item>();
+            AllItems = new Dictionary<string, Item>();
         }
         private void GenerateMap()
         {
-            List<string> itemsInMap = new List<string>(allItems.Keys);
+            List<string> itemsInMap = new List<string>(AllItems.Keys);
 
             for (int i = 0; i < 10; i++)
             {
@@ -63,7 +63,7 @@ namespace Catan
                     {
                         if (rand.Next(1, 5) >= 3)
                         {
-                            Map[i, j] = new ExploreTile(i, j, allItems[itemsInMap[rand.Next(0, itemsInMap.Count -1)]], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
+                            Map[i, j] = new ExploreTile(i, j, AllItems[itemsInMap[rand.Next(0, itemsInMap.Count -1)]], AllResources[rand.Next(1, 5)], rand.Next(1, 5));
                         }
                         else
                         {
@@ -86,6 +86,7 @@ namespace Catan
             string[] armournames = new string[] { "Hide Armour", "Iron Armour", "Elestial Armour"
             , "Windbreaker", "A Sheet", "A leaf", "Diamond Glades"};
 
+            // be mindfull of the size of the arrays, as they need to be equal length
             if (gunnames.Length - swordnames.Length != 0) throw new ArgumentOutOfRangeException();
             if (gunnames.Length - armournames.Length != 0) throw new ArgumentOutOfRangeException();
 
@@ -106,21 +107,21 @@ namespace Catan
                 ////AllItems.Add(armour);
 
                 Item gun = new Gun(gunnames[i]);
-                allItems.Add(gun.Name, gun);
+                AllItems.Add(gun.Name, gun);
                 Item sword = new Sword(swordnames[i]);
-                allItems.Add(sword.Name, sword);
+                AllItems.Add(sword.Name, sword);
                 Item armour = new Clothing(armournames[i]);
-                allItems.Add(armour.Name, armour);
+                AllItems.Add(armour.Name, armour);
             }
 
             //var fist = fact.CreateItem<Sword>();
             Item fist = new Weapon("Fist");
-            allItems.Add("Fist", fist);
+            AllItems.Add("Fist", fist);
 
-            Player.MakeItem(allItems["Fist"]);
-            Player.EquipItem(allItems["Fist"]);
+            Player.MakeItem(AllItems["Fist"]);
+            Player.EquipItem(AllItems["Fist"]);
 
-            Player.EquipItem(allItems["Hide Armour"]);
+            Player.EquipItem(AllItems["Hide Armour"]);
 
             Console.WriteLine(Player.EquipedWeapon.ToString());
 
@@ -205,7 +206,6 @@ namespace Catan
                         enemyToReturn = e;
                     }
                 }
-                if (Home.CheckDefenceLevel() == 0) throw new ArgumentOutOfRangeException();
             }
 
             if(enemyToReturn == null)
@@ -289,15 +289,15 @@ namespace Catan
 
         public int TakeResources()
         {
-          int returnValue = 0;
-          if (MovesLeft <= 0) return 0;
+            int returnValue = 0;
+            if (MovesLeft <= 0) return 0;
 
-          WorldTile currentTile = CurrentTile();
-          if (currentTile is HomeTile) return 1;
+            WorldTile currentTile = CurrentTile();
+            if (currentTile is HomeTile) return 1;
 
-          else if (currentTile is ExploreTile)
-          {
-           ExploreTile ex = currentTile as ExploreTile;
+            else if (currentTile is ExploreTile)
+            {
+                ExploreTile ex = currentTile as ExploreTile;
                 if (ex.isLooted) return 2;
 
                 else
@@ -324,6 +324,7 @@ namespace Catan
 
 
             }
+
             return returnValue;
         }
     }

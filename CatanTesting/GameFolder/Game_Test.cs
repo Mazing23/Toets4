@@ -9,7 +9,6 @@ namespace CatanTesting
     public class Game_Test
     {
         Player player_Game;
-        Home home_Base;
         Game g;
 
         private int given_Turns = 30;
@@ -18,7 +17,6 @@ namespace CatanTesting
         public void SetUp()
         {
             player_Game = new Player("Harry");
-            home_Base = new Home("Home", player_Game);
             g = new Game(player_Game, given_Turns);
         }
 
@@ -48,42 +46,12 @@ namespace CatanTesting
         }
 
         /// <summary>
-        /// Game will check if enemies list is made
-        /// and will check if the list contains enemies
+        /// Game will check if maplist is filled
         /// </summary>
         [TestMethod]
         public void Game_with_MapList_filled()
         {
             CollectionAssert.AllItemsAreNotNull(g.Map);
-        }
-
-
-        ///// <summary>
-        ///// give new enemy will return null
-        ///// because home has no defence
-        ///// Defence must always start from one!
-        ///// </summary>
-        //[TestMethod]
-        //public void GiveNewEnemy_noDefence_returnNull()
-        //{
-        //    Enemy e = g.GiveNewEnemy();
-
-        //    Assert.AreEqual(1, e.Damage);
-        //}
-
-        /// <summary>
-        /// give new enemy will return matching enemy
-        /// according to Home defence
-        /// </summary>
-        [TestMethod]
-        public void GiveNewEnemy_return_matchingEnemy()
-        {
-            int level_ofDefence = 10;
-
-            g.Home.AddDefense(level_ofDefence);
-            Enemy e = g.GiveNewEnemy();
-
-            Assert.AreEqual(EnemyType.Hard, e.EnemyType);
         }
 
         /// <summary>
@@ -107,6 +75,27 @@ namespace CatanTesting
             Resource r = g.AllResources.Find(x => x.Name.Contains("Iron"));
             CollectionAssert.Contains(g.AllResources, r);
         }
+
+        ////////////////////////////////////////////////////////////////
+        ///                          Game                            ///
+        ////////////////////////////////////////////////////////////////
+
+
+        /// <summary>
+        /// give new enemy will return matching enemy
+        /// according to Home defence
+        /// </summary>
+        [TestMethod]
+        public void GiveNewEnemy_return_matchingEnemy()
+        {
+            int level_ofDefense = 10;
+
+            g.Home.AddDefense(level_ofDefense);
+            Enemy e = g.GiveNewEnemy();
+
+            Assert.AreEqual(EnemyType.Hard, e.EnemyType);
+        }
+      
 
         /// <summary>
         /// Add citizens to home and take 5 grains
@@ -161,32 +150,34 @@ namespace CatanTesting
         /// change position of player, add one (y)
         /// </summary>
         [TestMethod]
-        public void MovePlayer_positionY_change_up()
+        public void MovePlayer_positionY_change_up_returnValue_isCorrect()
         {
             int given_switch_number = 1;
             int expected_new_position = 6;
+            int expected_return_value = 1;
 
             g.NextTurn();
             int return_value = g.MovePlayer(given_switch_number);
 
             Assert.AreEqual(expected_new_position, player_Game.posY);
-            Assert.AreEqual(1, return_value);
+            Assert.AreEqual(expected_return_value, return_value);
         }
 
         /// <summary>
         /// change position of player, take one (x)
         /// </summary>
         [TestMethod]
-        public void MovePlayer_positionX_change_down()
+        public void MovePlayer_positionX_change_down_returnValue_isCorrect()
         {
             int given_switch_number = 2;
             int expected_new_position = 4;
+            int expected_return_value = 1;
 
             g.NextTurn();
             int return_value = g.MovePlayer(given_switch_number);
 
             Assert.AreEqual(expected_new_position, player_Game.posX);
-            Assert.AreEqual(1, return_value);
+            Assert.AreEqual(expected_return_value, return_value);
         }
 
         /// <summary>
@@ -217,7 +208,76 @@ namespace CatanTesting
                 w);
         }
 
-      
+        [TestMethod]
+        public void AddDefenseToHome_Defense_will_upByTwo()
+        {
+            Resource wood = g.AllResources.Find(x => x.Name.Contains("Wood"));
+            Resource iron = g.AllResources.Find(x => x.Name.Contains("Iron"));
+            Resource stone = g.AllResources.Find(x => x.Name.Contains("Stone"));
 
+            player_Game.AddResources(wood, 3);
+            player_Game.AddResources(iron, 5);
+            player_Game.AddResources(stone, 2);
+
+            int previous_defense = g.Home.Defence;
+
+            g.AddDefenseToHome();
+
+            int current_defense = g.Home.Defence;
+
+            Assert.AreNotEqual(previous_defense, current_defense);
+        }
+
+        [TestMethod]
+        public void AddCitizens_to_home_from_Game_and_decrease_Resources()
+        {
+            Resource r = g.AllResources.Find(x => x.Name.Contains("Grain"));
+            player_Game.AddResources(r, 23);
+
+            g.AddCitizenToHome();
+
+            Assert.AreEqual(5, g.Home.Citizens);
+            Assert.AreEqual(player_Game.Resources[r], 3);
+        }
+
+        [TestMethod]
+        public void TakeResources_will_return1_withHomeTile()
+        {
+            int expected_value = 1;
+            g.NextTurn();
+
+            Assert.AreEqual(expected_value, g.TakeResources());
+        }
+
+        [TestMethod]
+        public void TakeResources_will_return0_withNoMoves()
+        {
+            int expected_value = 0;
+
+            Assert.AreEqual(expected_value, g.TakeResources());
+        }
+
+        [TestMethod]
+        public void TakeResources_will_give_2_to_4_with_ExploreTile()
+        {
+            bool will_return_true_if_explore = false;
+            bool will_return_true_if_within_range = false;
+            WorldTile tile = null;
+            if (g.CurrentTile() == tile as ExploreTile)
+                will_return_true_if_explore = true;
+
+            if (will_return_true_if_explore)
+            {
+                g.NextTurn();
+                if (g.TakeResources() >= 2 || g.TakeResources() <= 4)
+                    will_return_true_if_within_range = true;
+                Assert.IsTrue(will_return_true_if_within_range);
+            }
+            else
+            {
+                Assert.IsFalse(will_return_true_if_explore);
+            }
+
+        }
     }
 }

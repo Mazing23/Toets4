@@ -13,20 +13,17 @@ namespace Catan
         public string Name { get; private set; }
         public int Defence { get; private set; }
         public int Citizens { get; private set; }
-        public Player Player { get; private set; }
 
         public List<Resource> Resources { get; set; }
 
 
-        public Home(string name, Player player)
+        public Home(string name)
         {
-            Player = player ?? throw new ArgumentNullException(nameof(player));
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Defence = 1;
             Health = 100;
             Citizens = 1;
         }
-
 
         public void AddDefense(int defence)
         {
@@ -42,6 +39,10 @@ namespace Catan
         {
             int returnvalue = 1;
 
+            if (Defence <= 5)
+            {
+                returnvalue = 1;
+            }
             if (Defence > 5 || Defence <= 10)
             {
                 returnvalue = 2;
@@ -52,6 +53,7 @@ namespace Catan
             }
             return returnvalue;
         }
+
         public void takeDamage(int damage)
         {
             Health -= damage;

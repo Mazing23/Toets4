@@ -15,20 +15,18 @@ namespace Catan
             
         }
 
-        public void SaveGame(Game game)
+        public void SaveGame(Game game, string fileName)
         {
-            string fileName = @"C:\Users\Gebruiker\Desktop\gamesave.txt";
             using (Stream stream = File.Open(fileName, FileMode.Create))
             {
                 BinaryFormatter bin = new BinaryFormatter();
-                bin.Serialize(stream, this);
+                bin.Serialize(stream, game);
             }
         }
 
-        public Game LoadGame()
+        public Game LoadGame(string fileName)
         {
             Game g = null;
-            string fileName = @"C:\Users\Gebruiker\Desktop\gamesave.txt";
             using (FileStream stream = new FileStream(fileName, FileMode.Open))
             {
                 BinaryFormatter bin = new BinaryFormatter();

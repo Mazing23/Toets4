@@ -27,8 +27,7 @@ namespace CatanTesting
         [ExpectedException(typeof(ArgumentNullException))]
         public void Home_throws_exeption_null_values()
         {
-            Home h = new Home(null, new Player("H"));
-            Home y = new Home("Home", null);
+            Home h = new Home(null);
         }
 
     }
