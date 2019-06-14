@@ -161,7 +161,7 @@ namespace Catan
                         {
                             int i = Player.Resources[r] / 5;
                             Player.Resources[r] = Player.Resources[r] - (5 * i);
-                            Home.AddCitizens(i);
+                            Home.AddCitizens(Convert.ToInt32(i));
                         }
                     }
                 }
@@ -193,7 +193,7 @@ namespace Catan
                         return e;
                     }
                 }
-                if (Home.CheckDefenceLevel() == 0) return null;
+                if (Home.CheckDefenceLevel() == 0) throw new ArgumentOutOfRangeException();
             }
             return null;
         }
