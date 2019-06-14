@@ -18,6 +18,7 @@ namespace Catan
     {
         Game currentGame;
         OpenFileDialog ofd;
+        SaveFileDialog sfd;
         CheckBox[,] checkBoxes;
         GameSave save;
 
@@ -25,6 +26,7 @@ namespace Catan
         {
             InitializeComponent();
             ofd = new OpenFileDialog();
+            sfd = new SaveFileDialog();
             save = new GameSave();
             if (MessageBox.Show("Do you want to resume a previous game?", "WARNING!",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question,
@@ -285,9 +287,9 @@ namespace Catan
 
         private void butSaveGame_Click(object sender, EventArgs e)
         {
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
-                string sourceFile = ofd.FileName;
+                string sourceFile = sfd.FileName;
                 try
                 {
                     save.SaveGame(currentGame, sourceFile);
