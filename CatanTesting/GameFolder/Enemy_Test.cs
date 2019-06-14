@@ -44,7 +44,7 @@ namespace CatanTesting
         {
             Player p = new Player("Hennie");
 
-            p.EquipItem(new Axe());
+            p.EquipItem(new Axe("Axe"));
             p.AttackEnemy(enemy);           
 
             //Assert.AreEqual(25, enemy.Damage);

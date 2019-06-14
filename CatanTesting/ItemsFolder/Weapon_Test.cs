@@ -13,31 +13,26 @@ namespace CatanTesting
     {
 
         [TestMethod]
-        public void Sword_getDamage_fromLength_and_return_RandomValue()
+        public void Sword_getDamage_fromLength()
         {
-            Item w = new Sword();
+            Item w = new Sword("Harry");
 
-            bool b = false;
-            if (w.Damage >= 1 || w.Damage <= 5) b = true;
-
-            Assert.IsTrue(b);
+           
+            Assert.AreEqual(5, w.Damage);
         }
 
         [TestMethod]
-        public void Gun_getDamage_fromLength_and_return_RandomValue()
+        public void Gun_getDamage_fromLength()
         {
-            Item w = new Gun();
+            Item w = new Gun("Hennie");
 
-            bool b = false;
-            if (w.Damage >= 5 || w.Damage <= 15) b = true;
-
-            Assert.IsTrue(b);
+            Assert.AreEqual(6, w.Damage);
         }
 
         [TestMethod]
         public void Axe_getDamage()
         {
-            Item w = new Axe();
+            Item w = new Axe("Axe");
 
             Assert.AreEqual(10, w.Damage);
         }

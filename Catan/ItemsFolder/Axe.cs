@@ -18,16 +18,11 @@ namespace Catan
             }
         }
 
-        public override string Name
-        {
-            get
-            {
-                return "Axe";
-            }
-        }
+        
 
-        public Axe() : base()
+        public Axe(string name) : base(name)
         {
+            
         }
 
 

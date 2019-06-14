@@ -8,6 +8,6 @@ namespace Catan
 {
     interface IName
     {
-        string Name { get; }
+        //string Name { get; private set; }
     }
 }
