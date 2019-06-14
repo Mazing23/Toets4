@@ -21,7 +21,7 @@ namespace Catan
         {
             Player = player ?? throw new ArgumentNullException(nameof(player));
             Name = name ?? throw new ArgumentNullException(nameof(name));
-            Defence = 10;
+            Defence = 1;
             Health = 100;
             Citizens = 1;
         }
