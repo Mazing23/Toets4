@@ -31,14 +31,14 @@ namespace Catan
                     string fileDirectory = ofd.FileName;
                     currentGame.LoadGame(fileDirectory);
                 }
+                else
+                {
+                    PromptNewGame();
+                }
             }
             else
             {
-                string newName = Interaction.InputBox("Enter new name for game:", "New Game", "No Name", -1, -1);
-                Player newPlayer = new Player(newName);
-                Game newGame = new Game(newPlayer, 30);
-                currentGame = newGame;
-
+                PromptNewGame();
             }
 
             checkBoxes = new CheckBox[10, 10];
@@ -46,6 +46,13 @@ namespace Catan
             RefreshLabels();
             RefreshListbox();
             currentGame.Home.AddDefense(30);
+        }
+        private void PromptNewGame()
+        {
+            string newName = Interaction.InputBox("Enter new name for game:", "New Game", "No Name");
+            Player newPlayer = new Player(newName);
+            Game newGame = new Game(newPlayer, 30);
+            currentGame = newGame;
         }
 
         private void SaveGame(Game game)
@@ -87,6 +94,7 @@ namespace Catan
             }
 
             lblTurnsLeft.Text = currentGame.TurnsLeft.ToString() + " turns left.";
+            lblName.Text = currentGame.Player.Name;
 
             if (currentGame.CurrentTile() is ExploreTile)
             {
@@ -302,13 +310,7 @@ namespace Catan
                  MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                  MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
-                string newName = Interaction.InputBox("Enter new name for game:", "New Game", "No Name", -1, -1);
-                Player newPlayer = new Player(newName);
-                Game newGame = new Game(newPlayer, 30);
-                currentGame = newGame;
-                RefreshLabels();
-                RefreshListbox();
-                updateMap();
+                PromptNewGame();
             }
         }
 
@@ -452,14 +454,12 @@ namespace Catan
 
             if (currentGame.Player.Health <= 0)
             {
-                if (MessageBox.Show("You died! Do you want to start a new game? Yes or no", "WARNING!",
+                var result = MessageBox.Show("You died! Do you want to start a new game? Yes or no", "WARNING!",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    MessageBoxDefaultButton.Button1);
+                if (result == DialogResult.Yes)
                 {
-                    string newName = Interaction.InputBox("Enter new name for game:", "New Game", "No Name", -1, -1);
-                    Player newPlayer = new Player(newName);
-                    Game newGame = new Game(newPlayer, 30);
-                    currentGame = newGame;
+                    PromptNewGame();
                     foreach(CheckBox c in checkBoxes)
                     {
                         c.Dispose();
@@ -468,23 +468,20 @@ namespace Catan
                     RefreshListbox();
                     updateMap();
                 }
-                else
+                else if(result == DialogResult.No)
                 {
                     this.Close();
                     this.Dispose();
+                    System.Environment.Exit(1);
                 }
-                if(enemyToFight.Health > 0)
-                {
-                    int damage = rand.Next(0, 30);
-                    MessageBox.Show("The monster has found your home and did " + damage.ToString() + " damage!");
-                    currentGame.Home.takeDamage(damage);
-                }
-                else
-                {
-                    
-                }
+              
             }
-
+            else if (enemyToFight.Health > 0)
+            {
+                int damage = rand.Next(0, 30);
+                MessageBox.Show("The monster has found your home and did " + damage.ToString() + " damage!");
+                currentGame.Home.takeDamage(damage);
+            }
             RefreshLabels();
         }
     }
