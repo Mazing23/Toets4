@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
+    [Serializable]
     public class Gun : Weapon
     {
         Random rand = new Random();

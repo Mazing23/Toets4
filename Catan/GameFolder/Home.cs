@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
+    [Serializable]
     public class Home 
     {
         public int Health { get; private set; }
@@ -25,10 +26,7 @@ namespace Catan
             Health = 100;
             Citizens = 1;
         }
-        public void AddHouse()
-        {
 
-        }
 
         public void AddDefense(int defence)
         {
@@ -37,7 +35,7 @@ namespace Catan
 
         public void AddCitizens(int amountofcitizens)
         {
-            Citizens += amountofcitizens;
+            Citizens = amountofcitizens;
         }
 
         public int CheckDefenceLevel()

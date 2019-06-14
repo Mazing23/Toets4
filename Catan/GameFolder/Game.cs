@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Catan
 {
+    [Serializable]
     public class Game
     {
         public Player Player { get; private set; }
@@ -29,7 +32,7 @@ namespace Catan
             ImplementLists();
 
             Player = player ?? throw new ArgumentNullException(nameof(player));
-            if (turns == 0) throw new ArgumentOutOfRangeException(nameof(turns));
+            if (turns == 0) TurnsLeft = 1;
             TurnsLeft = turns;
 
             Home = new Home("Home", player);
@@ -143,7 +146,15 @@ namespace Catan
         /// </summary>
         public void AddDefenseToHome()
         {
-            //Home.AddDefense(); // do something else here
+            Resource wood = AllResources.Find(x => x.Name.Contains("Wood"));
+            Resource iron = AllResources.Find(x => x.Name.Contains("Iron"));
+            Resource stone = AllResources.Find(x => x.Name.Contains("Stone"));
+            if(Player.Resources[wood] >= 3
+                && Player.Resources[iron] >= 5
+                && Player.Resources[stone] >= 2)
+            {
+                Home.AddDefense((Home.Defence + 2));
+            }
         }
 
         /// <summary>
@@ -161,7 +172,7 @@ namespace Catan
                         {
                             int i = Player.Resources[r] / 5;
                             Player.Resources[r] = Player.Resources[r] - (5 * i);
-                            Home.AddCitizens(Convert.ToInt32(i));
+                            Home.AddCitizens(Home.Citizens + i);
                         }
                     }
                 }
@@ -200,7 +211,12 @@ namespace Catan
 
         public void SaveGame(Game gameToSave)
         {
-            //Add serialization
+            string fileName = @"C:\Users\Gebruiker\Desktop\gamesave.txt";
+            using (Stream stream = File.Open(fileName, FileMode.Create))
+            {
+                BinaryFormatter bin = new BinaryFormatter();
+                bin.Serialize(stream, this);
+            }
         }
 
         public Game LoadGame(string gameDirectory)

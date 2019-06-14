@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
+    [Serializable]
     public abstract class Item : IDamage
     {
         public string Name { get; private set; }
@@ -14,7 +15,7 @@ namespace Catan
 
         public Item(string name)
         {
-            Name = name;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
         }
 
         public override string ToString()

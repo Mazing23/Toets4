@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Catan
 {
+    [Serializable]
     public enum EnemyType
     {
         Easy,

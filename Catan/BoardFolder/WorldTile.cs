@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
-   
+    [Serializable]
     public abstract class WorldTile
     {
         public int posX { get; }

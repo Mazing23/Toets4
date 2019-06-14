@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
+    [Serializable]
     public class Enemy
     {
         public string Name { get; private set; }
@@ -17,7 +18,7 @@ namespace Catan
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Health = 100;
-            if (damage == 0) throw new ArgumentOutOfRangeException(nameof(damage));
+            if (damage == 0) Damage = 1;
             Damage = damage;
 
             if(damage <= 25)
