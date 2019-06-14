@@ -9,13 +9,12 @@ namespace Catan
     [Serializable]
     public class Clothing : Item
     {
-        Random rand = new Random();
-
         public override int Damage
         {
             get
             {
-                return Name.Length;
+                if (Name.Length - 5 <= 0) return Name.Length;
+                return Name.Length - 5;
             }
         }
 

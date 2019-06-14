@@ -25,7 +25,6 @@ namespace CatanTesting
             Assert.AreEqual(EnemyType.Hard, enemy.EnemyType);
         }
 
-
         [TestMethod]
         public void ReturnDamageOfEnemy()
         {
@@ -40,14 +39,11 @@ namespace CatanTesting
 
 
         [TestMethod]
-        public void TakeDamage_ReduceHealth_with_nullWeapon()
+        public void TakeDamage_ReduceHealth_with_10Damage()
         {
-            Player p = new Player("Hennie");
+            enemy.TakeDamage(10);           
 
-            p.EquipItem(new Axe("Axe"));
-            //p.AttackEnemy(enemy);           
-
-            //Assert.AreEqual(25, enemy.Damage);
+            Assert.AreEqual(90, enemy.Health);
 
         }
         

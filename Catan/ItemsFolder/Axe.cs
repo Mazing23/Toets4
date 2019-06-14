@@ -9,8 +9,6 @@ namespace Catan
     [Serializable]
     public class Axe : Weapon
     {
-        Random rand = new Random();
-
         public override int Damage
         {
             get

@@ -17,6 +17,8 @@ namespace Catan
 
         public void SaveGame(Game game, string fileName)
         {
+            if (fileName == null) throw new ArgumentNullException(nameof(fileName));
+            if (game == null) throw new ArgumentNullException(nameof(game));
             using (Stream stream = File.Open(fileName, FileMode.Create))
             {
                 BinaryFormatter bin = new BinaryFormatter();
@@ -26,6 +28,7 @@ namespace Catan
 
         public Game LoadGame(string fileName)
         {
+            if (fileName == null) throw new ArgumentNullException(nameof(fileName));
             Game g = null;
             using (FileStream stream = new FileStream(fileName, FileMode.Open))
             {

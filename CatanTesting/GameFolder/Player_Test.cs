@@ -7,19 +7,27 @@ namespace CatanTesting
     [TestClass]
     public class Player_Test
     {
+        Player player;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            player = new Player("Harry");
+        }
+
         [TestMethod]
         public void MakeNewPlayer_and_CheckHealthIsFull()
         {
-            Player player = new Player("Harry");
+            int expected_health = 100;
+            string expected_name = "Harry";
 
-            Assert.AreEqual(100, player.Health);
-            Assert.AreEqual("Harry", player.Name);
+            Assert.AreEqual(expected_health, player.Health);
+            Assert.AreEqual(expected_name, player.Name);
         }
 
         [TestMethod]
         public void MakeWeapon_and_returnTrue()
         {
-            Player player = new Player("Harry");
             Item a = new Axe("Axe");
 
             player.MakeItem(a);
@@ -27,26 +35,17 @@ namespace CatanTesting
             CollectionAssert.Contains(player.Items, a);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void MakeItem_doNotAllow_nullValue_returnException()
-        {
-            Player player = new Player("Harry");
-
-            player.MakeItem(null);
-        }
 
         [TestMethod]
         public void EquipWeapon_and_returnTrue()
         {
-            Player player = new Player("Harry");
             Item w = new Axe("Axe");
 
             player.MakeItem(w);
 
-            bool b = player.EquipItem(w);
+            bool result_if_item_was_available = player.EquipItem(w);
 
-            Assert.IsTrue(b);
+            Assert.IsTrue(result_if_item_was_available);
             Assert.AreEqual(w, player.EquipedWeapon);
             Assert.IsNull(player.EquipedClothes);
         }
@@ -54,14 +53,13 @@ namespace CatanTesting
         [TestMethod]
         public void EquipClothing_and_returnTrue()
         {
-            Player player = new Player("Harry");
             Item c = new Clothing("Hennie");
 
             player.MakeItem(c);
 
-            bool b = player.EquipItem(c);
+            bool result_if_item_was_available = player.EquipItem(c);
 
-            Assert.IsTrue(b);
+            Assert.IsTrue(result_if_item_was_available);
             Assert.AreEqual(c, player.EquipedClothes);
             Assert.IsNull(player.EquipedWeapon);
         }
@@ -69,7 +67,6 @@ namespace CatanTesting
         [TestMethod]
         public void AddResources_to_ResourcesList()
         {
-            Player player = new Player("Harry");
             Resource g = new Resource("g");
             Resource h = new Resource("h");
 
@@ -82,7 +79,6 @@ namespace CatanTesting
         [TestMethod]
         public void AddExistingResource_amount_willChange()
         {
-            Player player = new Player("Harry");
             Resource g = new Resource("g");
 
             player.AddResources(g, 10);
@@ -92,12 +88,22 @@ namespace CatanTesting
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void AddResources_withNullValue_returnException()
+        public void TakeDamage_lose_health()
         {
-            Player player = new Player("Harry");
+            int player_health = 90;
 
-            player.AddResources(null, 10);
+            player.TakeDamage(10);
+
+            Assert.AreEqual(player_health, player.Health);
+        }
+        
+        [TestMethod]
+        public void SetHealth_returns1_if_health_is_not0()
+        {
+            int return_value = 1;
+            int new_health = 55;
+
+            Assert.AreEqual(return_value, player.setHealth(new_health));
         }
     }
 }

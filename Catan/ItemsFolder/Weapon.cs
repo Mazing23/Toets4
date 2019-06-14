@@ -11,7 +11,6 @@ namespace Catan
     {
         Random rand = new Random();
 
-        public int Range { get; set; }
         public override int Damage { get; }
         
 

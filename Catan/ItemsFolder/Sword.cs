@@ -9,13 +9,11 @@ namespace Catan
     [Serializable]
     public class Sword : Weapon
     {
-        Random rand = new Random();
-
         public override int Damage
         {
             get
             {
-                return Name.Length;
+                return Name.Length + 5;
             }
         }
 

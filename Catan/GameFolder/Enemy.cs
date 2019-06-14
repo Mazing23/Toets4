@@ -37,7 +37,7 @@ namespace Catan
 
         public void TakeDamage(int damage)
         {
-                Health -= damage;
+             Health -= damage;
         }
     }
 }
