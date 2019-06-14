@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
+    [Serializable]
     public class Resource
     {
         public string Name { get; private set; }

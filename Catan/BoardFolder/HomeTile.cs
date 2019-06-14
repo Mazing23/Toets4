@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
+    [Serializable]
     public class HomeTile : WorldTile
     {
         public HomeTile(int posx, int posy) :base (posx, posy)

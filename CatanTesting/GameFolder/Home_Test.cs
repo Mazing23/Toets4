@@ -70,6 +70,7 @@ namespace CatanTesting
             p.AddResources(r, 23);
 
             g.AddCitizenToHome();
+            //h.AddCitizens(5);
 
             Assert.AreEqual(5, h.Citizens);
             Assert.AreEqual(p.Resources[r], 3);

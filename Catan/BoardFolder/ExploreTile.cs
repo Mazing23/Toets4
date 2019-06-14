@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catan
 {
+    [Serializable]
     public class ExploreTile : WorldTile
     {
         public Item Item { get; private set; }

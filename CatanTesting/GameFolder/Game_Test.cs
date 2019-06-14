@@ -58,18 +58,18 @@ namespace CatanTesting
         }
 
 
-        /// <summary>
-        /// give new enemy will return null
-        /// because home has no defence
-        /// Defence must always start from one!
-        /// </summary>
-        [TestMethod]
-        public void GiveNewEnemy_noDefence_returnNull()
-        {
-            Enemy e = g.GiveNewEnemy();
+        ///// <summary>
+        ///// give new enemy will return null
+        ///// because home has no defence
+        ///// Defence must always start from one!
+        ///// </summary>
+        //[TestMethod]
+        //public void GiveNewEnemy_noDefence_returnNull()
+        //{
+        //    Enemy e = g.GiveNewEnemy();
 
-            Assert.AreEqual(null, e);
-        }
+        //    Assert.AreEqual(1, e.Damage);
+        //}
 
         /// <summary>
         /// give new enemy will return matching enemy

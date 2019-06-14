@@ -22,13 +22,6 @@ namespace CatanTesting
         {
             Game h = new Game(null, 35);
         }
-        /// 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Game_Fail_with_nullTurns()
-        {
-            Game h = new Game(new Player("Harry"), 0);
-        }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]

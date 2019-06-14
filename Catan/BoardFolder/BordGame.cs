@@ -17,11 +17,13 @@ namespace Catan
         Game currentGame;
         OpenFileDialog ofd;
         CheckBox[,] checkBoxes;
+        GameSave save;
 
         public BordGame()
         {
             InitializeComponent();
             ofd = new OpenFileDialog();
+            save = new GameSave();
             if (MessageBox.Show("Do you want to resume a previous game?", "WARNING!",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question,
             MessageBoxDefaultButton.Button1) == DialogResult.Yes)
@@ -29,7 +31,7 @@ namespace Catan
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     string fileDirectory = ofd.FileName;
-                    currentGame.LoadGame(fileDirectory);
+                    currentGame = save.LoadGame(/*fileDirectory*/);
                 }
                 else
                 {
@@ -317,7 +319,7 @@ namespace Catan
 
         private void butEquipWeapons_Click(object sender, EventArgs e)
         {
-            try
+            if (listBoxWeapons.SelectedIndex != -1)
             {
                 Item itemToEquip = listBoxWeapons.SelectedItem as Item;
                 if (currentGame.Player.EquipItem(itemToEquip))
@@ -328,17 +330,16 @@ namespace Catan
                 }
                 Console.WriteLine("Item equip buttin item = " + itemToEquip.ToString());
             }
-            catch (NullReferenceException)
+            else
             {
-                MessageBox.Show("Select an item first!");
+                MessageBox.Show("Select an item first");
             }
-
 
         }
 
         private void butEquipClothes_Click(object sender, EventArgs e)
         {
-            try
+            if (listBoxClothes.SelectedIndex != -1)
             {
                 Item itemToEquip = listBoxClothes.SelectedItem as Item;
                 if (currentGame.Player.EquipItem(itemToEquip))
@@ -349,7 +350,7 @@ namespace Catan
                 }
                 Console.WriteLine("Item equip buttin item = " + itemToEquip.ToString());
             }
-            catch (NullReferenceException)
+            else
             {
                 MessageBox.Show("Select an item first");
             }

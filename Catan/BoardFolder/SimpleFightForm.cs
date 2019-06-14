@@ -35,31 +35,22 @@ namespace Catan
 
         private void updateText()
         {
-            try
+            if (Player.EquipedClothes == null)
             {
-                if (Player.EquipedClothes == null)
-                { 
-                    lblEquipedClothing.Text = "You are naked!";
-                }
-                else
-                {
-                    lblEquipedClothing.Text = Player.EquipedClothes.Name;
-                }
+                lblEquipedClothing.Text = "You are naked!";
+            }
+            else
+            {
+                lblEquipedClothing.Text = Player.EquipedClothes.Name;
+            }
 
-                lblEquipedWeapon.Text = Player.EquipedWeapon.Name;
-                progressBarHealthYou.Value = Player.Health;
-                progressBarHealthEnemy.Value = Enemy.Health;
-                lblEnemyDamage.Text = "Enemy deals " + Enemy.Damage.ToString() + " damage";
-                lblEnemyName.Text = Enemy.Name;
-                lblYouName.Text = Player.Name;
-            }
-            catch(ArgumentNullException e)
-            {
-                MessageBox.Show("You lost something! Quickly look for it!");
-                Console.WriteLine(e.StackTrace + e.Message);
-                this.Close();
-            }
-        }
+            lblEquipedWeapon.Text = Player.EquipedWeapon.Name;
+            progressBarHealthYou.Value = Player.Health;
+            progressBarHealthEnemy.Value = Enemy.Health;
+            lblEnemyDamage.Text = "Enemy deals " + Enemy.Damage.ToString() + " damage";
+            lblEnemyName.Text = Enemy.Name;
+            lblYouName.Text = Player.Name;
+        } 
 
         private void buttonFight_Click(object sender, EventArgs e)
         {
