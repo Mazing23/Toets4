@@ -209,15 +209,6 @@ namespace Catan
             return null;
         }
 
-        public void SaveGame(Game gameToSave)
-        {
-            string fileName = @"C:\Users\Gebruiker\Desktop\gamesave.txt";
-            using (Stream stream = File.Open(fileName, FileMode.Create))
-            {
-                BinaryFormatter bin = new BinaryFormatter();
-                bin.Serialize(stream, this);
-            }
-        }
 
         public Game LoadGame(string gameDirectory)
         {

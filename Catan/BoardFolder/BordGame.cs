@@ -57,33 +57,6 @@ namespace Catan
             currentGame = newGame;
         }
 
-        private void SaveGame(Game game)
-        {
-            try
-            {
-                // serialize gamesave
-                // serialize game
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void LoadGame()
-        {
-            try
-            {
-                // deserialize gamesave
-                // deserialize game
-                // Game = game
-            }
-            catch
-            {
-
-            }
-        }
-
         private void RefreshLabels()
         {
             if (currentGame.MovesLeft == 0)
@@ -295,8 +268,7 @@ namespace Catan
 
         private void butSaveGame_Click(object sender, EventArgs e)
         {
-            currentGame.SaveGame(currentGame);
-            //Nog implementeren]
+            save.SaveGame(currentGame);
         }
 
         private void butNewGame_Click(object sender, EventArgs e)
@@ -357,10 +329,6 @@ namespace Catan
             else
             {
                 MessageBox.Show("Select an item first");
-            }
-            catch (ArgumentNullException)
-            {
-
             }
 
         }

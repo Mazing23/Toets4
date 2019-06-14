@@ -40,19 +40,17 @@ namespace Catan
 
         public int CheckDefenceLevel()
         {
-            if (Defence <= 5)
-            {
-                return 1;
-            }
+            int returnvalue = 1;
+
             if (Defence > 5 || Defence <= 10)
             {
-                return 2;
+                returnvalue = 2;
             }
             if (Defence > 10)
             {
-                return 3;
+                returnvalue =  3;
             }
-            return 0;
+            return returnvalue;
         }
         public void takeDamage(int damage)
         {

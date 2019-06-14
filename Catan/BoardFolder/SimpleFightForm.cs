@@ -62,7 +62,7 @@ namespace Catan
                 }
                 else
                 {
-                    MessageBox.Show("You hit the enemy with your" + Player.EquipedWeapon.Name);
+                    MessageBox.Show("You hit the enemy with your " + Player.EquipedWeapon.Name);
                 }
                 int attackDamage = Player.EquipedWeapon.Damage;
                 if(Player.EquipedClothes != null)
