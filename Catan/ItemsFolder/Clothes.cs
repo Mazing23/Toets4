@@ -18,14 +18,10 @@ namespace Catan
             }
         }
 
-        public override string Name { get; set; }
 
-        public Clothing() : base()
+        public Clothing(string name) : base(name)
         {
-            string outputname = Name;
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-            for (int i = 0; i < rand.Next(1, 40); i++) { outputname += chars[rand.Next(52)]; }
-            Name = outputname;
+           
         }
 
 

@@ -89,30 +89,30 @@ namespace Catan
             ItemFactory fact = new ItemFactory();
             for (int i = 0; i < gunnames.Length; i++)
             {
-                var gun = fact.CreateItem<Gun>();
-                allItems.Add(gunnames[i], gun);
-                allItems[gunnames[i]].Name = gunnames[i];
-                //AllItems.Add(gun);
-                var sword = fact.CreateItem<Sword>();
-                allItems.Add(swordnames[i], sword);
-                allItems[swordnames[i]].Name = swordnames[i];
-                //AllItems.Add(sword);
-                var armour = fact.CreateItem<Clothing>();
-                allItems.Add(armournames[i], armour);
-                allItems[armournames[i]].Name = armournames[i];
-                //AllItems.Add(armour);
+                //var gun = fact.CreateItem<Gun>();
+                //allItems.Add(gunnames[i], gun);
+                //allItems[gunnames[i]].Name = gunnames[i];
+                ////AllItems.Add(gun);
+                //var sword = fact.CreateItem<Sword>();
+                //allItems.Add(swordnames[i], sword);
+                //allItems[swordnames[i]].Name = swordnames[i];
+                ////AllItems.Add(sword);
+                //var armour = fact.CreateItem<Clothing>();
+                //allItems.Add(armournames[i], armour);
+                //allItems[armournames[i]].Name = armournames[i];
+                ////AllItems.Add(armour);
 
-                //Item gun = new Gun(gunnames[i]);
-                //allItems.Add(gun.Name, gun);
-                //Item sword = new Sword(swordnames[i]);
-                //allItems.Add(sword.Name, sword);
-                //Item armour = new Clothing(armournames[i]);
-                //allItems.Add(armour.Name, armour);
+                Item gun = new Gun(gunnames[i]);
+                allItems.Add(gun.Name, gun);
+                Item sword = new Sword(swordnames[i]);
+                allItems.Add(sword.Name, sword);
+                Item armour = new Clothing(armournames[i]);
+                allItems.Add(armour.Name, armour);
             }
 
-            var fist = fact.CreateItem<Sword>();
+            //var fist = fact.CreateItem<Sword>();
+            Item fist = new Weapon("Fist");
             allItems.Add("Fist", fist);
-            allItems["Fist"].Name = "Fist";
 
             Player.MakeItem(allItems["Fist"]);
             Player.EquipItem(allItems["Fist"]);

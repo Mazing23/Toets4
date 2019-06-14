@@ -12,30 +12,12 @@ namespace Catan
 
         public int Range { get; set; }
         public override int Damage { get; }
-        public override string Name
+        
+
+        public Weapon(string name) : base(name)
         {
-            get
-            {
-                string outputname = "";
-                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-                for (int i = 0; i < rand.Next(1, 20); i++) { outputname += chars[rand.Next(52)]; }
-                return outputname;
-            }
-            set { Name = value; }
         }
 
-        public Weapon() : base()
-        {
-
-        }
-
-        public string NameMaking()
-        {
-            string outputname = Name;
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-            for (int i = 0; i < rand.Next(1, 20); i++) { outputname += chars[rand.Next(52)]; }
-            return outputname;
-        }
 
         public override string ToString()
         {

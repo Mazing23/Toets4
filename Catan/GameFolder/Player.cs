@@ -40,6 +40,7 @@ namespace Catan
         public void MakeItem(Item item)
         {
             // take away from resources;
+            if (item == null) throw new ArgumentNullException(nameof(item));
             if (!Items.Contains(item))
             {
                 Items.Add(item);
@@ -48,19 +49,19 @@ namespace Catan
 
         public bool EquipItem(Item item)
         {
-            if (item == null) return false;
+            if (item == null) throw new ArgumentNullException(nameof(item));
             if(Items.Contains(item))
+            {
+                if (item is Clothing)
                 {
-                    if (item is Clothing)
-                    {
-                        EquipedClothes = item as Clothing;
-                    }
-                    else if (item is Weapon)
-                    {
-                        EquipedWeapon = item as Weapon;
-                        Console.WriteLine("Player equipped" + EquipedWeapon.ToString());
-                    }
-                    return true;
+                    EquipedClothes = item as Clothing;
+                }
+                else if (item is Weapon)
+                {
+                    EquipedWeapon = item as Weapon;
+                    Console.WriteLine("Player equipped" + EquipedWeapon.ToString());
+                }
+                return true;
             }
             return false;
         }

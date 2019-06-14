@@ -18,12 +18,10 @@ namespace Catan
             }
         }
 
-        public override string Name { get; set; }
 
 
-        public Gun() : base()
+        public Gun(string name) : base(name)
         {
-            Name = NameMaking();
         }
 
         public override string ToString()
