@@ -420,9 +420,7 @@ namespace Catan
                  
                 }
             }
-        }
-
-       
+        }   
         
         private void encounterEnemy()
         {
@@ -472,6 +470,42 @@ namespace Catan
                 currentGame.Home.takeDamage(damage);
             }
             RefreshLabels();
+        }
+
+        private void buCitizens_Click(object sender, EventArgs e)
+        {
+            Resource r = currentGame.AllResources.Find(x => x.Name.Contains("Grain"));
+            int currentgrain = currentGame.Player.Resources[r];
+            currentGame.AddCitizenToHome();
+            int nextcurrentgrain = currentGame.Player.Resources[r];
+            if(nextcurrentgrain == currentgrain)
+            {
+                MessageBox.Show("You did not have enough grain to feed your citizens");
+            }
+            else
+            {
+                MessageBox.Show(String.Format("You now have {0} citizens", currentGame.Home.Citizens));
+                RefreshLabels();
+                RefreshListbox();
+            }
+        }
+
+        private void butDefence_Click(object sender, EventArgs e)
+        {
+            Resource r = currentGame.AllResources.Find(x => x.Name.Contains("Iron"));
+            int currentiron = currentGame.Player.Resources[r];
+            currentGame.AddDefenseToHome();
+            int nextcurrentiron = currentGame.Player.Resources[r];
+            if (nextcurrentiron == currentiron)
+            {
+                MessageBox.Show("You did not have enough resources to add to your defence");
+            }
+            else
+            {
+                MessageBox.Show(String.Format("You now have {0} defencepoints", currentGame.Home.Defence));
+                RefreshLabels();
+                RefreshListbox();
+            }
         }
     }
 }

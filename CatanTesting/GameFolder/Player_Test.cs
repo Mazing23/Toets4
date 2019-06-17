@@ -82,7 +82,7 @@ namespace CatanTesting
             Resource g = new Resource("g");
 
             player.AddResources(g, 10);
-            player.AddResources(g, 35);
+            player.AddResources(g, 25);
 
             Assert.AreEqual(player.Resources[g], 35);
         }

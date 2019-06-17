@@ -141,18 +141,18 @@ namespace Catan
         }
 
         /// <summary>
-        /// It takes 3 WOOD, 5 IRON, 2 STONE to upgrade defense
+        /// It takes 5 IRON, 2 STONE to upgrade defense
         /// </summary>
         public void AddDefenseToHome()
         {
-            Resource wood = AllResources.Find(x => x.Name.Contains("Wood"));
             Resource iron = AllResources.Find(x => x.Name.Contains("Iron"));
             Resource stone = AllResources.Find(x => x.Name.Contains("Stone"));
-            if(Player.Resources[wood] >= 3
-                && Player.Resources[iron] >= 5
+            if(Player.Resources[iron] >= 5
                 && Player.Resources[stone] >= 2)
             {
                 Home.AddDefense((Home.Defence + 2));
+                Player.Resources[iron] = (Player.Resources[iron] - 5);
+                Player.Resources[stone] = (Player.Resources[stone] - 2);
             }
         }
 

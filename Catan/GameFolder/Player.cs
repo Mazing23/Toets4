@@ -68,7 +68,7 @@ namespace Catan
         {
             if (Resources.ContainsKey(resource))
             {
-                Resources[resource] = amount;
+                Resources[resource] += amount;
             }
             else
             {
